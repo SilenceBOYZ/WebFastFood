@@ -1,12 +1,13 @@
 .grid-container {
   display: grid;
-  width: 1800px;
+  width: 100%;
   height: 100vh;
-  grid-template-columns: [col-start] 1fr [col-end center-start] 3fr [center-end] 1fr;
+  grid-template-columns: [colLeft-start] 1fr [colLeft-end center-start] 3fr [center-end colRight-start] 1fr [colRight-end] ;
 }
 
 .main-content {
   height: 100vh;
-  width: 100px;
+  width: 100%;
   background-color: aquamarine;
+  grid-column: center-start / center-end;
 }
