@@ -1,0 +1,9 @@
+@keyframes flying {
+  0%, 100%{
+    transform: translateY(-2rem);
+  }
+
+  50%{
+    transform: translateY(-5rem);
+  }
+}

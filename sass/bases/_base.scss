@@ -5,10 +5,16 @@
 
 body {
   box-sizing: border-box;
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Coiny', cursive, sans-serif;
+  font-weight: 300;
 }
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+}
+
+.main {
+  width: 100%;
+  padding-top: 10rem;
 }

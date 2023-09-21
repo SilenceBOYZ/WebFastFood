@@ -1,9 +1,16 @@
 @import 'asbtracts/variables';
+@import 'asbtracts/mixins';
 
+
+@import 'bases/animation';
 @import 'bases/base.scss';
-// @import 'components/sc';
+
+@import 'components/navigation.scss';
+
 @import 'layout/grid';
 @import 'layout/header';
+
+@import 'pages/homepage';
 
 @import 'typographies/typographies';
 

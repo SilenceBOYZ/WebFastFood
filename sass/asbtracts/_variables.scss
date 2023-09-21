@@ -1,12 +1,24 @@
-$color-primary: #a7897b;
+@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
 
-$color-primary-dark-1: #a7897b61;
-$color-primary-dark-2: #5B514D;
+$color-primary: #EE2737;
+
+$color-secondary: #FFC222;
+
+
+$color-primary-dark-1: #FF0000;
+$color-primary-dark-2: #EE2737;
+
+$color-primary-light-1: #F33F4D;
+$color-primary-light-2: #fa4252;
 
 $color-text-light: #fff;
-$color-background: #000;
+$color-text-dark: #333;
+$color-text-dark-2: #b3b3b3;
+$color-background: #353535;
+
+$font-family: 'Coiny', cursive, sans-serif;
+$font-family-secondary: sans-serif;
 
 
 // Font Family
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
