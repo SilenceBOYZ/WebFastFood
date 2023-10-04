@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Coiny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coiny&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 $color-primary: #EE2737;
-
-$color-secondary: #FFC222;
-
+$color-secondary: #FFC222; 
 
 $color-primary-dark-1: #FF0000;
 $color-primary-dark-2: #EE2737;
@@ -12,12 +10,13 @@ $color-primary-light-1: #F33F4D;
 $color-primary-light-2: #fa4252;
 
 $color-text-light: #fff;
+$color-text-light-2: #f5f5f5;
+$color-text-light-3: #eeeeee;
 $color-text-dark: #333;
-$color-text-dark-2: #b3b3b3;
-$color-background: #353535;
+$color-text-dark-2: #474747;
 
 $font-family: 'Coiny', cursive, sans-serif;
-$font-family-secondary: sans-serif;
+$font-family-secondary: 'Roboto',sans-serif;
 
 
 // Font Family

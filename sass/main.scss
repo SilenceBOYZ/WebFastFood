@@ -3,16 +3,21 @@
 
 
 @import 'bases/animation';
-@import 'bases/base.scss';
+@import 'bases/base';
 
-@import 'components/navigation.scss';
+@import 'components/navigation';
+@import 'components/bannerFood';
+@import 'components/specialFood';
+@import 'components/cardOrder';
+@import 'components/menuSlide';
+
 
 @import 'layout/grid';
 @import 'layout/header';
 
 @import 'pages/homepage';
 
-@import 'typographies/typographies';
+@import 'typographies/typographies';  
 
 @import 'ultilities/ultiliy.scss';
 

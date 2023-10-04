@@ -18,3 +18,15 @@ html {
   width: 100%;
   padding-top: 10rem;
 }
+.btn-link {
+  &:link, &:visited {
+    display: inline-block;
+    color: $color-text-dark;
+    font-size: 1.6rem;
+    text-decoration: none;
+    padding: 0.6rem 2rem;
+    border-radius: 0.8rem;
+    background-color: $color-secondary;
+    transition: all .3s;
+  }
+}

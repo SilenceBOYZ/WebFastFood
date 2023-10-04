@@ -1,7 +1,6 @@
 .grid-container {
   display: grid !important;
   width: 100%;
-  height: 100vh;
   grid-template-columns: [colLeft-start] 1fr [colLeft-end center-start] 4fr [center-end colRight-start] 1fr [colRight-end] ;
 }
 

@@ -7,3 +7,22 @@
     transform: translateY(-5rem);
   }
 }
+
+@keyframes flyingDown {
+  0%, 100%{
+    transform: translateY(-2rem);
+  }
+
+  50%{
+    transform: translateY(4rem);
+  }
+}
+
+@keyframes cirlceWheel {
+  0%{
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

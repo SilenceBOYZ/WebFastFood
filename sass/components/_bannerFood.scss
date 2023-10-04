@@ -1,0 +1,112 @@
+.banner-food {
+  transform: translateY(-15rem);
+  &__wrapper {
+    height: 49rem;
+    display: grid;
+    grid-template-columns: max-content 1fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 2.5rem 2.5rem;
+    overflow: hidden;
+  }
+
+  &__box {
+    cursor: pointer;
+    overflow: hidden;
+
+    &--1 {
+      grid-row: 1 / -1;
+      border-radius: 1.5rem 0.5rem 0.5rem 1.5rem;
+      grid-column: 1 / 2;
+      width: 52rem;
+    }
+
+    &--2 {
+      border-radius: 1rem;
+      justify-self: stretch;
+      grid-column: 2 / 3;
+      width: 41.5rem;
+    }
+
+    &--3 {
+      border-radius: 1rem;
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    &--4 {
+      grid-row: 1 / -1;
+      grid-column: 3 / 4;
+      border-radius: 0.5rem 1.5rem 1.5rem 0.5rem;
+    }
+  }
+
+  &__figure {
+    position: relative;
+  }
+  &__images {
+    position: absolute;
+    z-index: -5;
+    display: block;
+    object-position: center;
+  }
+  &__content {
+    position: absolute;
+    left: 4rem;
+    top: 2rem;
+
+    &--2 {
+      left: 2rem;
+      top: 2rem;
+    }
+
+    &--3 {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 2rem;
+      text-align: center;
+    }
+  }
+  &__catergories {
+    color: $color-text-light;
+    font-size: 2.8rem;
+    &--1 {
+    }
+    &--2,
+    &--3 {
+      color: $color-secondary;
+    }
+  }
+  &__title {
+    color: $color-secondary;
+    font-size: 3.6rem;
+    font-weight: 300;
+    margin-top: -1rem;
+    &--2,
+    &--3 {
+      color: $color-text-light;
+      font-size: 2.8rem;
+    }
+  }
+  &__description {
+    font-size: 1.4rem;
+    color: $color-text-light;
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+  }
+
+  &__btn {
+    &:hover {
+      transform: translateY(-0.5rem);
+    }
+  
+    &:active {
+      transform: translateY(0.1rem);
+    }
+    &--4:link,
+    &--4:visited {
+      background-color: $color-text-light;
+    }
+
+  }
+}

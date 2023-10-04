@@ -1,0 +1,131 @@
+.card-orders {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card-order {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-text-light;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem 4rem 6rem 4rem;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border: 0.1rem solid $color-text-light-2;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: all 0.4s 0.2s;
+
+  &::after {
+    width: 35rem;
+    height: 35rem;
+    background-color: $color-primary-dark-1;
+    content: "";
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    top: -40rem;
+    z-index: 1;
+    border-radius: 50%;
+    transition: all 0.3s;
+  }
+
+  &::before {
+    width: 35rem;
+    height: 35rem;
+    background-color: $color-text-light-2;
+    content: "";
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    top: -22rem;
+    z-index: 1;
+    border-radius: 50%;
+    transition: all 0.5s;
+  }
+
+  &__image {
+    height: 12rem;
+    z-index: 10;
+    border-radius: 50%;
+    display: inline-block;
+    padding: 1rem;
+    background-color: $color-text-light;
+  }
+
+  &__title,
+  &__description,
+  &__price,
+  &__btn {
+    z-index: 5;
+  }
+
+  &__title {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 1.6rem;
+    font-family: $font-family-secondary;
+    color: $color-text-dark-2;
+    font-weight: 500;
+    margin-bottom: 1.6rem;
+  }
+
+  &__price {
+    color: $color-primary;
+    font-family: $font-family-secondary;
+    font-weight: 600;
+    font-size: 2.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  &__money-unit {
+    font-family: $font-family-secondary;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+
+  &__btn {
+    &:link,
+    &:visited {
+      padding: 1.2rem 2rem;
+      font-family: $font-family-secondary;
+      font-size: 1.6rem;
+      font-weight: 500;
+      border-radius: 3.5px;
+      transition: all .1s;
+      background-color: $color-primary-light-1;
+      // text-shadow: 0px 0px 0px #fff, 120px 0px 0px #fff;
+      color: $color-text-light;
+      overflow: hidden;
+    }
+    // &:hover{
+    //   text-shadow: -120px 0px 0px #fff, 0px 0px 0px #fff;
+    //   background-color: $color-primary-light-2;
+    // }
+  }
+}
+
+.active_card {
+  border: 1px solid $color-primary-dark-2;
+  &::before {
+    transform: scaleY(3);
+    border-radius: 0;
+  }
+  &::after {
+    top: -22rem;
+  }
+}
+
+.active_card .card-order__image {
+  display: inline-block;
+  animation-duration: 12s;
+  animation-name: cirlceWheel;
+  animation-iteration-count: infinite;
+}

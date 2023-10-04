@@ -1,0 +1,195 @@
+.daily-menu {
+  &__wrapper {
+    position: relative;
+  }
+  &__sildes {
+    max-width: calc(120rem - 12.5rem - 0.2rem) !important;
+    display: flex;
+    overflow: hidden;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    cursor: pointer;
+  }
+
+  // &__slides &__details {
+  //   pointer-events: none;
+  // }
+
+  &__title {
+    color: $color-text-light;
+  }
+  &__details {
+    position: relative;
+    width: 25rem;
+    height: 32.5rem;
+    overflow: hidden;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    flex-shrink: 0;
+    &:not(:first-child) {
+      margin-left: 2rem;
+    }
+    &::after {
+      content: "Top Seller";
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      background-color: $color-secondary;
+      color: #fff;
+      padding: 0.5rem 1rem 0.5rem 1rem;
+      font-family: $font-family-secondary;
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 1.2rem;
+      border-radius: 0px 0px 10px 0px;
+    }
+  }
+
+  &__media {
+    width: 25rem;
+    // background-color: aquamarine;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: 0;
+    // Dùng absolut để image làm background
+  }
+  &__images {
+    width: 100%;
+    vertical-align: middle;
+  }
+  &__descriptions {
+    position: absolute;
+    bottom: 0;
+    background-color: #fff;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem 1rem 2rem 1rem;
+    font-family: $font-family-secondary;
+    transition: all 0.8s;
+  }
+  &__small-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  &__describe {
+    line-height: 1.5;
+    font-size: 1.4rem;
+    width: 23rem;
+    height: 4.2rem;
+    overflow: hidden;
+    font-weight: 500;
+    color: $color-text-dark-2;
+  }
+  &__box-prices {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 2rem 2rem 2rem 2rem;
+    font-family: $font-family-secondary;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(35rem);
+    transition: all 0.8s;
+    &::after {
+      content: "";
+      width: 100%;
+      display: block;
+      position: absolute;
+      height: 350%;
+      left: 0;
+      top: -23rem;
+      z-index: 1;
+      background-image: linear-gradient(
+        0.39deg,
+        #222222 0.33%,
+        rgba(34, 34, 34, 0) 102%,
+        transparent 110%
+      );
+    }
+  }
+  &__prices {
+    position: relative;
+    z-index: 2;
+  }
+  &__food-name {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: $color-text-light;
+  }
+  &__price {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $color-secondary;
+    z-index: 2;
+  }
+  &__cart {
+    border-radius: 4px;
+    overflow: hidden;
+    box-sizing: border-box;
+    &--image {
+      display: flex;
+      width: 2.5rem;
+      height: 2.5rem;
+      align-items: center;
+      justify-content: center;
+      background-color: #fff;
+      padding: 0.8rem;
+    }
+    z-index: 2;
+  }
+  &__button {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 50%;
+    padding: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    & img {
+      width: 2rem;
+      border-radius: 50%;
+    }
+    &--left {
+      left: 0rem;
+    }
+    &--right {
+      right: 0rem;
+    }
+  }
+  &__dots {
+    position: relative;
+  }
+  &__cta {
+    position: relative;
+  }
+
+  // Hover cho card
+  // &__details:hover &__box-prices{
+  //   transform: translateY(0rem);
+  // }
+
+  // &__details:hover &__descriptions{
+  //   transform: translateY(30rem);
+  // }
+}
+
+.active_menuDetails .daily-menu__box-prices {
+  transform: translateY(0rem);
+}
+.active_menuDetails .daily-menu__descriptions {
+  transform: translateY(30rem);
+}
