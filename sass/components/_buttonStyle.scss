@@ -1,0 +1,30 @@
+.btn-flying {
+  &:link,
+  &:visited {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.8rem;
+    font-family: $font-family-secondary;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__icon {
+    margin-left: 1rem;
+    width: 2rem;
+    height: 2rem;
+  }
+  &__name {
+    display: inline-block;
+    padding: .5rem .5rem .5rem .5rem;
+    border-bottom: 2px solid $color-tertiary;
+    transition: all .3s;
+    &:hover {
+      background-color: $color-tertiary;
+      transform: translateY(-.5rem);
+      color: $color-text-dark-2;
+    }
+  }
+}

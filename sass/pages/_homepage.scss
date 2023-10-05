@@ -49,7 +49,7 @@
   &__btn {
     display: flex;
     flex-direction: column;
-    transition: all .3s;
+    transition: all 0.3s;
 
     &--cta1 {
       padding: 1.5rem 1.5rem;
@@ -71,7 +71,6 @@
       transform: translateY(-100%);
     }
   }
-
 
   &__phoneNumber {
     font-size: 2.8rem;
@@ -103,7 +102,9 @@
 // ------------------ SECTION BANNER ------------------//
 .daily-menu {
   width: 100%;
-  height: 60rem;
+  position: relative;
+  padding: 5rem 0;
+  // height: 60rem;
   background-color: $color-primary-light-2;
   &__wrapper {
     box-sizing: border-box;
@@ -111,4 +112,37 @@
     height: 100%;
     // background-color: antiquewhite;
   }
-} 
+  &__banner {
+    width: 20rem;
+    position: absolute;
+    & img {
+      width: 100%;
+    }
+    &--left {
+      &-topCorner {
+        left: 4rem;
+        top: 0;
+      }
+      &-bottomCorner {
+        bottom: -2rem;
+        transform: rotate(20deg);
+      }
+    }
+    &--right {
+      &-topCorner {
+        right: 0;
+        top: 0;
+        transform: translateY(-8rem) rotate(-20deg);
+      }
+      &-bottomCorner {
+        right: 2rem;
+        bottom: -2rem;
+        
+      }
+    }
+  }
+}
+.policies {
+  width: 100%;
+  height: 50rem;
+}

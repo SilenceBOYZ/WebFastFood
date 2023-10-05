@@ -1,0 +1,85 @@
+.customer-review {
+  width: 100%;
+  background-color: $color-primary-light-3;
+  height: 60vh;
+  color: $color-text-light;
+&__wrapper{
+}
+&__boxTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  margin-bottom: 3rem;
+}
+&__bannerImg{
+  width: 12rem;
+  &--left {
+    transform: rotate(-20deg);
+  }
+  &--right {
+    transform: rotate(20deg);
+  }
+}
+&__bnImage{
+  width: 100%;
+}
+&__title{
+  display: inline-block;
+  margin: 0 5rem;
+}
+&__container{
+  display: flex;
+  gap: 3.2rem;
+  justify-content: center;
+}
+&__description{
+  width: 28rem;
+  height: 28rem;
+  background-color: #fff;
+  border-radius: 1.8rem;
+  color: $color-primary-light-3;
+  padding-top: 2rem;
+  padding-left: 2.5rem;
+  box-sizing: border-box;
+  box-shadow: 1rem 1rem 0rem $shadow-boxReview;
+}
+&__iconBox {
+  display: flex;
+  margin-bottom: 0.8rem;
+}
+&__icon {
+  height: 3rem;
+  filter: invert(50%) sepia(21%) saturate(4541%) hue-rotate(321deg) brightness(103%) contrast(104%);
+}
+&__comment {
+  font-size: 1.8rem;
+  height: 15rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+&__customer{
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+&__image {
+  width: 4rem;
+  height: 4rem;
+  display: inline-block;
+  border-radius: 50%;
+  border: 2px solid $color-primary-light-3;
+  float: left;
+}
+&__name {
+  display: block;
+  box-sizing: content-box;
+  float: left;
+  padding: 1rem;
+  // margin-top: 0.8rem;
+  // margin-left: 1rem;
+  font-size: 1.6rem;
+}
+}

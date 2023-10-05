@@ -1,6 +1,9 @@
 @import 'asbtracts/variables';
 @import 'asbtracts/mixins';
 
+@import 'layout/grid';
+@import 'layout/header';
+@import 'pages/homepage';
 
 @import 'bases/animation';
 @import 'bases/base';
@@ -10,12 +13,10 @@
 @import 'components/specialFood';
 @import 'components/cardOrder';
 @import 'components/menuSlide';
+@import 'components/buttonStyle';
+@import 'components/policies';
+@import 'components/customerReview';
 
-
-@import 'layout/grid';
-@import 'layout/header';
-
-@import 'pages/homepage';
 
 @import 'typographies/typographies';  
 

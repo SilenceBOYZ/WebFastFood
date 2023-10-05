@@ -172,6 +172,24 @@
   }
   &__dots {
     position: relative;
+    margin: 2.8rem 0;
+    text-align: center;
+
+    &-icon {
+      display: inline-block;
+      padding: 0.8rem;
+      background-color: #fff;
+      border-radius: 50%;
+      cursor: pointer;
+
+      &:not(:first-child) {
+        margin-left: 0.4rem;
+      }
+
+      &.icon-active {
+        background-color: $color-tertiary;
+      }
+    }
   }
   &__cta {
     position: relative;
