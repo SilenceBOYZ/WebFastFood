@@ -1,0 +1,67 @@
+.footer {
+  box-sizing: border-box;
+  &__wrapper{
+    max-width: 120rem;
+    padding: 2rem 4rem 4rem 4rem;
+  }
+  &__box {
+    display: flex;
+    gap: 6rem;
+    margin-bottom: 5rem;
+  }
+  &__list {
+    list-style: none;
+    font-family: $font-family-secondary;
+  }
+  &__heading {
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 1.5rem;
+    }
+    white-space: nowrap;
+  }
+  &__link {
+    &:link, &:visited {
+      color: $color-text-dark-2;
+      text-decoration: none;
+      font-size: 1.8rem;
+      cursor: pointer;
+      font-weight: 1000;
+    }
+  }
+
+  &__banner {
+    flex: 0 1 49%;
+    height: 23.333rem;
+    margin-left: auto;
+    display: flex;
+    justify-content: end;
+    border-radius: 1.8rem;
+    box-shadow: 1.5rem 1.5rem 0rem rgba($color-tertiary, $alpha: 1);
+  }
+
+  &__imagebox {
+    width: 50rem;
+    overflow: hidden;
+  }
+  &__image {
+    width: 100%;
+    border-radius: 1.8rem;
+  }
+  &__socialBox {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__copyright {
+    font-size: 1.6rem;
+  }
+
+  &__social{
+    display: flex;
+  }
+}

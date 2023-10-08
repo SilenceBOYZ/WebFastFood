@@ -1,0 +1,91 @@
+.blog-food {
+  &__wrapper {
+    padding: 4rem;
+  }
+  &__title {
+    color: $color-primary-light-3;
+    margin-bottom: 2.8rem;
+  }
+  &__list {
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    padding-bottom: 4rem;
+    border-bottom: 4px solid $color-primary-dark-2;
+
+  }
+  &__box {
+    display: flex;
+    border-radius: 0.8rem;
+    overflow: hidden;
+    background-color: #fff;
+    border: 1px solid rgba(0,0,0, 0.08);
+    box-shadow: 0 2rem 3rem rgba(0,0,0, 0.02);
+  }
+  &__imagebox {
+    width: 24rem;
+    height: 24rem;
+    overflow: hidden;
+  }
+  &__image {
+    width: 100%;
+    vertical-align: middle;
+    transition: all 0.8s;
+    cursor: pointer;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+  &__content {
+    height: auto;
+    padding: 1.8rem 2rem 1.8rem 2rem;
+    font-family: $font-family-secondary;
+  }
+  &__publish {
+    font-weight: 800;
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    color: $color-text-dark-2;
+    margin-bottom: 1.4rem;
+  }
+  &__publishIcon {
+    width: 1.8rem;
+    height: 1.8rem;
+    &:not(:first-child) {
+      margin-left: 1.5rem;
+    }
+    filter: invert(61%) sepia(82%) saturate(275%) hue-rotate(42deg)
+      brightness(90%) contrast(84%);
+  }
+  &__publishDay {
+    margin-left: 0.5rem;
+  }
+  &__response {
+    margin-left: 0.5rem;
+  }
+  &__titleSmall {
+    color: $color-text-dark;
+    font-size: 1.8rem;
+    text-transform: capitalize;
+    margin-bottom: 0.8rem;
+  }
+  &__paragraph {
+    width: 22rem;
+    height: 10rem;
+    font-size: 1.6rem;
+    line-height: 1.4;
+    overflow-x: hidden;
+    margin-bottom: 0.5rem;
+  }
+  &__cta {
+    &:link,
+    &:visited {
+      padding: 1.2rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      color: #fff;
+      background-color: #88AE50;
+    }
+  }
+}

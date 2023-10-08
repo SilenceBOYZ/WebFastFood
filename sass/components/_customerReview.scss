@@ -1,7 +1,7 @@
 .customer-review {
   width: 100%;
   background-color: $color-primary-light-3;
-  height: 60vh;
+  height: 60rem;
   color: $color-text-light;
 &__wrapper{
 }
@@ -57,6 +57,7 @@
   height: 15rem;
   overflow: hidden;
   margin-bottom: 1rem;
+  color: $color-text-dark-2;
 }
 &__customer{
   &::after {
