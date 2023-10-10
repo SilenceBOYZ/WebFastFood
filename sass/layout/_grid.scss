@@ -1,7 +1,10 @@
 .grid-container {
   display: grid !important;
   width: 100%;
-  grid-template-columns: [colLeft-start] 1fr [colLeft-end center-start] 4fr [center-end colRight-start] 1fr [colRight-end] ;
+  grid-template-columns: [colLeft-start] 1fr [colLeft-end center-start] 4fr [center-end colRight-start] 1fr [colRight-end];
+  @include respond(tab-land) {
+    grid-template-columns: [colLeft-start] 5rem [colLeft-end center-start] 4fr [center-end colRight-start] 5rem [colRight-end];
+  }
 }
 
 .main-content {

@@ -1,0 +1,49 @@
+// Using media query
+/* 
+  $media query:
+  0-600: phone
+  600-900: tab-port
+  900-1200: tab-landscape
+  1200-1800: desktop
+  1800: bigger screen
+
+  Using @content, paramater in minxin, @if
+  Create media query manager
+*/
+
+@mixin respond ($media-query) {
+  @if $media-query == phone {
+    @media only screen and (max-width: 37.5em) {
+        @content
+    };
+  }
+
+  @if $media-query == tab-port {
+    @media only screen and (max-width: 56.25em) {
+        @content
+    };
+  }
+
+  @if $media-query == tab-land {
+    @media only screen and (max-width: 75em) {
+        @content
+    };
+  }
+
+  @if $media-query == medium-desktop {
+    @media only screen and (max-width: 87.5em) {
+        @content
+    };
+  }
+  @if $media-query == mac-book {
+    @media only screen and (max-width: 100em) {
+        @content
+    };
+  }
+
+  @if $media-query == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+        @content
+    };
+  }
+}

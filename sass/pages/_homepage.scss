@@ -3,6 +3,7 @@
   background-image: url("../img/bgheader.jpg");
   object-fit: cover;
   object-position: center;
+  background-size: 100%;
 }
 
 .banner-wrapper {
@@ -10,13 +11,23 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 15rem;
+  @include respond(mac-book) {
+    max-width: 110rem;
+  }
+  @include respond(medium-desktop) {
+    justify-content: center;
+  }
 }
+
 
 // ------------------ SECTION BANNER ------------------//
 .content-banner {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include respond(medium-desktop) {
+    padding-left: 10rem;
+  }
 
   &__title {
     font-size: 14rem;
@@ -94,8 +105,17 @@
   animation-iteration-count: infinite;
   cursor: pointer;
   user-select: none;
+  @include respond(medium-desktop) {
+    justify-content: center;
+  }
   &__sources {
     width: 100%;
+    @include respond(medium-desktop) {
+      width: 85%;
+    }
+    @include respond(tab-land) {
+      width: 100%;
+    }
   }
 }
 
@@ -137,7 +157,6 @@
       &-bottomCorner {
         right: 2rem;
         bottom: -2rem;
-        
       }
     }
   }

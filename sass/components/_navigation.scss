@@ -1,4 +1,7 @@
 .wrapping-header {
+  @include respond(mac-book) {
+    max-width: 110rem;
+  }
 }
 
 
@@ -214,6 +217,7 @@
     margin-left: 1rem;
   }
 
+  &__item--1 &__dropdown-menu-small,
   &__item--2 &__dropdown-menu-small,
   &__item--3 &__dropdown-menu-small,
   &__icons--accountBox &__dropdown-menu-small {
@@ -240,6 +244,7 @@
     transform: scaleY(1);
   }
 
+  &__item--1:hover &__dropdown-menu-small,
   &__item--2:hover &__dropdown-menu-small,
   &__item--3:hover &__dropdown-menu-small,
   &__icons--account:hover &__dropdown-menu-small {

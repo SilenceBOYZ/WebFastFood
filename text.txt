@@ -49,8 +49,112 @@ Log in
     Create Account
 
 
-
-
+// menu large
+<div class="navbar-top__dropdown-menu--large grid-container">
+                  <div class="main-content dropdown-menu">
+                    <div
+                      class="dropdown-menu__catergories dropdown-menu__catergories--1"
+                    >
+                      <h3
+                        class="heading--3 dropdown-menu__title u-margin-bottom-small"
+                      >
+                        Thực đơn
+                      </h3>
+                      <ul class="dropdown-menu__list">
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Adventure Reusable Vacuum Quencher Tumbler</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Classic French Press</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Coffee Mixer for Cappuccino</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Distributor</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Unibody Aluminum Tamper</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Quick Mill Stretta</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      class="dropdown-menu__catergories dropdown-menu__catergories--2"
+                    >
+                      <h3
+                        class="heading--3 dropdown-menu__title u-margin-bottom-small"
+                      >
+                        Cups & Mugs
+                      </h3>
+                      <ul class="dropdown-menu__list">
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Coffee Large - Ceramic</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Coffee Mugs Set of 4 - 12 Ounce Cups</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Hot Coffee Mug</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      class="dropdown-menu__catergories dropdown-menu__catergories--3"
+                    >
+                      <h3
+                        class="heading--3 dropdown-menu__title u-margin-bottom-small"
+                      >
+                        Coffee Makers & Grinder
+                      </h3>
+                      <ul class="dropdown-menu__list">
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Aluminium Grinder</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >BARATZA SETTE 30 GRINDER</a
+                          >
+                        </li>
+                        <li class="dropdown-menu__items">
+                          <a class="dropdown-menu__link" href="http://"
+                            >Hot Coffee Mug</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                    <div
+                      class="dropdown-menu__catergories dropdown-menu__catergories--4"
+                    >
+                      <h3 class="heading--3 dropdown-menu__title">
+                        Danh mục sản phẩm
+                      </h3>
+                      <ul class="dropdown-menu__list"></ul>
+                    </div>
+                  </div>
+                </div>
 
 
 
