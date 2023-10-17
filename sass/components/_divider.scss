@@ -1,0 +1,21 @@
+.divider {
+  &-style-1 {
+    display: flex;
+    &__point {
+      background-color: $color-tertiary-dark-1;
+      width: 1rem;
+      height: 1rem;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    &__line {
+      display: inline-block;
+      width: 60px;
+      height: 6px;
+      background-color: $color-secondary;
+      margin-left: .5rem;
+      border-radius: 8px;
+      align-self: end;
+    }
+  }
+}

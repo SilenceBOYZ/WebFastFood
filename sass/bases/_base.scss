@@ -23,7 +23,9 @@ html {
   @include respond(tab-land){
     font-size: 50%;
   }
-  
+  @include respond(tab-port){
+    font-size: 43.75%;
+  }
 }
 
 .main {
@@ -42,3 +44,4 @@ html {
     transition: all .3s;
   }
 }
+

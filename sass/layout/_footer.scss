@@ -1,6 +1,6 @@
 .footer {
   box-sizing: border-box;
-  &__wrapper{
+  &__wrapper {
     max-width: 120rem;
     padding: 2rem 4rem 4rem 4rem;
   }
@@ -8,6 +8,12 @@
     display: flex;
     gap: 6rem;
     margin-bottom: 5rem;
+    @include respond(tab-port) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      font-size: 1.6rem;
+    }
   }
   &__list {
     list-style: none;
@@ -25,7 +31,8 @@
     white-space: nowrap;
   }
   &__link {
-    &:link, &:visited {
+    &:link,
+    &:visited {
       color: $color-text-dark-2;
       text-decoration: none;
       font-size: 1.8rem;
@@ -36,12 +43,14 @@
 
   &__banner {
     flex: 0 1 49%;
-    height: 23.333rem;
     margin-left: auto;
     display: flex;
     justify-content: end;
     border-radius: 1.8rem;
     box-shadow: 1.5rem 1.5rem 0rem rgba($color-tertiary, $alpha: 1);
+    @include respond(tab-port) {
+      margin-left: 0;
+    }
   }
 
   &__imagebox {
@@ -55,13 +64,20 @@
   &__socialBox {
     display: flex;
     justify-content: space-between;
+    @include respond(tab-port) {
+      text-align: center;
+      flex-direction: column;
+    }
   }
 
   &__copyright {
     font-size: 1.6rem;
+    @include respond(tab-port) {
+      font-size: 1.8rem;
+    }
   }
 
-  &__social{
+  &__social {
     display: flex;
   }
 }

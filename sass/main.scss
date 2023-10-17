@@ -5,6 +5,9 @@
 @import 'layout/header';
 @import 'layout/footer';
 @import 'pages/homepage';
+@import 'pages/shopStyle';
+@import 'typographies/typographies';  
+
 
 @import 'bases/animation';
 @import 'bases/base';
@@ -18,10 +21,16 @@
 @import 'components/policies';
 @import 'components/customerReview';
 @import 'components/blogFood';
+@import 'components/inputSearch';
+@import 'components/shopMenu';
+@import 'components/divider';
+@import 'components/itemDetails';
+@import 'components/tabpanel';
 
 
-@import 'typographies/typographies';  
 
 @import 'ultilities/ultiliy.scss';
+
+
 
 

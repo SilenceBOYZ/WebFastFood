@@ -8,3 +8,8 @@ menus.forEach(menu => {
     menu.classList.add("active_menuDetails");
   });
 });
+
+
+const icon = document.querySelectorAll(".shop-menu__statusIcon");
+
+console.log(icon);

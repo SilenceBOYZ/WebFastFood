@@ -17,7 +17,16 @@
 .u-align-text-right {text-align: right;}
 .u-align-text-justify {text-align: justify;}
 
+.u-text-normal-weight {font-weight: 400;}
+.u-text-medium-weight {font-weight: 500;}
+
 .u-color-primary {
   color: $color-primary-light-1;
 }
+.clearFix::after {
+  content: "";
+  display: inline-block;
+  clear: both;
+}
+
 

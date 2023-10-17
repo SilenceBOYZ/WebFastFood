@@ -2,6 +2,12 @@
   display: flex;
   justify-content: center;
   gap: 2rem;
+  @include respond(tab-port) {
+    max-width: 114rem;
+  }
+  @include respond(tab-port) {
+    flex-wrap: wrap;
+  }
 }
 
 .card-order {
@@ -18,7 +24,14 @@
   border-radius: 5px;
   box-sizing: border-box;
   transition: all 0.4s 0.2s;
-
+  &--5, &--6 {
+    display: none;
+  }
+  @include respond(tab-port) {
+    &--5, &--6 {
+      display: flex;
+    }
+  }
   &::after {
     width: 35rem;
     height: 35rem;

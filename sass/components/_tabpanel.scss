@@ -1,0 +1,149 @@
+.item-information {
+  &__wrapper {
+    padding: 10rem;
+  }
+}
+
+.tab-panel {
+  &__box {
+    display: flex;
+    border-bottom: 2px solid $color-text-light-1;
+    gap: 0.8rem;
+    margin-bottom: 4rem;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem 3rem;
+    font-size: 1.6rem;
+    font-family: $font-family-secondary;
+    font-weight: 500;
+    color: $color-text-dark-2;
+    border-radius: 4px 4px 0 0;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    background: none;
+    &--active {
+      background-color: $color-text-light-1;
+    }
+
+    &:hover {
+      background-color: $color-text-light-1;
+    }
+  }
+
+  &__icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}
+
+.tab-content {
+  display: none;
+  font-family: $font-family-secondary;
+  &__describe {
+    font-size: 1.6rem;
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__evaluate {
+    padding-left: 2rem;
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    & img {
+      width: 1.5rem;
+      height: 1.5rem;
+      filter: $icon-color-tertiary;
+      padding-top: 0.5rem;
+    }
+    & p {
+      font-size: 1.6rem;
+      line-height: 1.8;
+    }
+  }
+}
+
+.tab-graphic {
+  display: none;
+  &__table {
+    font-size: 1.6rem;
+    width: 100%;
+    border-collapse: collapse;
+    & th,
+    & td {
+      width: 50%;
+      height: 6rem;
+      padding-left: 2rem;
+      border: 1px solid $color-text-light-1;
+    }
+
+    & th {
+      text-align: left;
+      font-family: $font-family-secondary;
+      font-weight: 500;
+    }
+
+    & td {
+      font-family: $font-family-secondary;
+      font-weight: 500;
+    }
+  }
+
+  &__icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+.tab-comment {
+  &__list {
+    list-style: none;
+  }
+  &__items {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 1px solid $color-text-light-1;
+    padding-bottom: 2rem;
+    margin-bottom: 3rem;
+  }
+  &__customerImage {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    & img {
+      width: 100%;
+      border-radius: 50%;
+    }
+  }
+  &__customerCommentBox {
+    font-family: $font-family-secondary;
+  }
+  &__customerName {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  &__customerRating {
+    & img {
+      width: 2rem;
+      height: 2rem;
+      filter: $icon-color-secondary;
+    }
+    margin-bottom: .8rem;
+  }
+  &__customerComment {
+    font-size: 1.8rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: currentColor;
+  }
+}

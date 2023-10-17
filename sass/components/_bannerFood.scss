@@ -20,6 +20,9 @@
       height: 53rem;
       gap: 0.5rem 2.5rem;
     }
+    @include respond(tab-port) {
+      grid-template-columns: minmax(28rem, 32rem) 40rem 27rem;
+    }
   }
 
   &__box {

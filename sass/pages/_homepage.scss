@@ -17,6 +17,9 @@
   @include respond(medium-desktop) {
     justify-content: center;
   }
+  @include respond(tab-port) {
+    max-width: 110rem;
+  }
 }
 
 
