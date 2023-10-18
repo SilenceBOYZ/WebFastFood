@@ -55,3 +55,88 @@
 .shopStyle-main {
   width: 100%;
 }
+
+.checkout {
+  padding: 10rem;
+  &__wrapper {
+    display: flex;
+    font-family: $font-family-secondary;
+  }
+  &__whistlist {
+    flex: 1 1 66.666667%;
+  }
+
+  &__paymentMethod {
+    flex: 1 1 33.333333%;
+    padding: 0 2rem;
+  }
+
+  &__quality {
+    padding: 0 !important;
+    padding-left: 1.5rem !important;
+  }
+
+  &__input {
+    flex: 1 1 100%;
+  }
+
+  &__selection {
+    flex: 1 1 100%;
+    font-size: 1.6rem;
+    padding-left: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border: 2px solid $color-text-light-1;
+    border-radius: 8px;
+    transition: all 0.3s;
+    outline: none;
+
+    & option {
+      font-size: 2rem;
+    }
+  }
+  // &__vnpayQr {
+  //   position: fixed;
+  //   width: 100%;
+  //   height: 100%;
+  //   top:50%;
+  //   left:50%;
+  //   transform: translate(-50%, -50%) scale(0);
+  //   z-index: 1000000;
+  //   background-color: #000;
+  //   opacity: 0.9;
+  //   user-select: none;
+  //   transition: all .3s;
+  // }
+
+  // &__imageQr {
+  //   height: 50vh;
+  //   position: absolute;
+  //   top:50%;
+  //   left:50%;
+  //   transform: translate(-50%, -50%);
+  // }
+
+  // &__buy:focus~&__vnpayQr{
+  //   transform: translate(-50%, -50%) scale(1);
+  // }
+
+  &__buy {
+      padding: 1.2rem 2rem;
+      font-family: $font-family-secondary;
+      font-size: 1.6rem;
+      font-weight: 500;
+      border-radius: 3.5px;
+      transition: all .1s;
+      background-color: $color-primary-light-1;
+      // text-shadow: 0px 0px 0px #fff, 120px 0px 0px #fff;
+      color: $color-text-light;
+      border: none;
+      cursor: pointer;
+      transition: all .3s;
+      &:hover {
+      background-color: $color-tertiary;
+      color: $color-text-dark;  
+    }
+  }
+}

@@ -2,7 +2,10 @@
   padding: 0;
   margin: 0;
 }
-
+::selection {
+  color: #fff;
+  background-color: $color-primary-light-1;
+}
 body {
   box-sizing: border-box;
   font-family: 'Coiny', cursive, sans-serif;

@@ -43,7 +43,6 @@
 }
 
 .tab-content {
-  display: none;
   font-family: $font-family-secondary;
   &__describe {
     font-size: 1.6rem;
@@ -74,7 +73,6 @@
 }
 
 .tab-graphic {
-  display: none;
   &__table {
     font-size: 1.6rem;
     width: 100%;
@@ -137,8 +135,9 @@
       width: 2rem;
       height: 2rem;
       filter: $icon-color-secondary;
+      user-select: none;
     }
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
   }
   &__customerComment {
     font-size: 1.8rem;

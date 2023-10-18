@@ -1,0 +1,73 @@
+.form-contact {
+  &__inputBox {
+    width: 100%;
+    display: flex;
+    gap: 2rem;
+  }
+
+  &__input {
+    width: 50%;
+    &[type="text"],
+    &[type="email"] {
+      font-size: 1.6rem;
+      padding-left: 2rem;
+      padding-top: 1.5rem;
+      padding-bottom: 1.5rem;
+      border: 2px solid $color-text-light-1;
+      border-radius: 8px;
+      transition: all 0.3s;
+      outline: none;
+    }
+    &:focus-visible {
+      border: 2px solid $color-primary-light-1;
+    }
+  }
+
+  &__rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    & h5 {
+      font-size: 2.4rem;
+    }
+    margin-bottom: 2rem;
+  }
+
+  &__iconBox {
+    display: flex;
+    align-items: center;
+  }
+
+  &__textArea {
+    width: 98%;
+    height: 20rem;
+    resize: none;
+    padding-left: 2rem;
+    padding-top: 2rem;
+    font-size: 1.8rem;
+    font-family: $font-family-secondary;
+    border: 2px solid $color-text-light-1;
+    transition: all 0.3s;
+    outline: none;
+    border-radius: 8px;
+
+    &:focus-visible {
+      border: 2px solid $color-primary-light-1;
+    }
+  }
+
+  &__button {
+    border: none;
+    margin-top: 2.4rem;
+    cursor: pointer;
+    & span {
+      display: inline-block;
+      padding: 1.5rem 4rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #fff;
+    }
+    background-color: $color-tertiary-dark-1;
+    border-radius: 6px;
+  }
+}
