@@ -11,7 +11,7 @@ body {
   font-family: 'Coiny', cursive, sans-serif;
   font-weight: 300;
   overflow-x: hidden;
-
+  position: relative;
 }
 
 html {
@@ -48,3 +48,7 @@ html {
   }
 }
 
+.icon-svg {
+  width: 2rem;
+  height: 2rem;
+}

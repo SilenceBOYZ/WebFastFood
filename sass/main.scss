@@ -6,12 +6,14 @@
 @import 'layout/footer';
 @import 'pages/homepage';
 @import 'pages/shopStyle';
+@import 'pages/loginSite';
 @import 'typographies/typographies';  
 
 
 @import 'bases/animation';
 @import 'bases/base';
 
+@import 'components/cart';
 @import 'components/navigation';
 @import 'components/bannerFood';
 @import 'components/specialFood';
@@ -28,8 +30,6 @@
 @import 'components/tabpanel';
 @import 'components/formContact';
 @import 'components/whistList';
-
-
 
 
 @import 'ultilities/ultiliy.scss';

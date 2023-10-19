@@ -4,8 +4,6 @@
   }
 }
 
-
-
 .navbar-top {
   width: 100%;
   display: flex;
@@ -89,12 +87,10 @@
     transition: transform 0.3s;
   }
 
-
   // -------------------- Style icons -------------------- //
   &__box {
     display: flex;
     align-items: center;
-    gap: 2rem;
     justify-content: space-evenly;
   }
 
@@ -124,7 +120,7 @@
     &--order {
       display: inline-block;
       padding: 1rem 2rem;
-      border-radius: 100px;
+      border-radius: 8px;
       border: 1px solid #fff;
       transition: all 0.2s;
       align-items: center;
@@ -140,14 +136,19 @@
     &--account:visited {
       display: flex;
       padding: 1rem;
-      border-radius: 50%;
+      border-radius: 8px;
       border: 1px solid #fff;
       transition: all 0.2s;
       justify-content: center;
       align-items: center;
 
       &:hover {
-        background-color: $color-primary;
+        background-color: #fff;
+
+        & .navbar-top__iconBox {
+          filter: $icon-color-primary;
+          
+        }
       }
     }
 
@@ -160,7 +161,18 @@
 
     &--cart {
       position: relative;
-
+      display: flex;
+      align-items: center;
+      margin-left: 1rem;
+      cursor: pointer;
+      & svg {
+        width: 2.5rem;
+        height: 2.5rem;
+        fill: #000;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 1rem;
+      }
       &::after {
         position: absolute;
         content: "0";
@@ -170,9 +182,13 @@
         height: 2rem;
         align-items: center;
         justify-content: center;
-        right: 0.3rem;
+        padding: .4rem;
+        border-radius: 50%;
+        right: -1rem;
         top: -1rem;
-        background-color: $color-primary;
+        font-size: 1.6rem;
+        color: $color-text-light;
+        background-color: $color-text-dark-2;
       }
     }
   }
@@ -196,13 +212,13 @@
     right: 0;
     visibility: hidden;
     opacity: 0;
-    border-bottom: 1px solid  $color-text-dark-2;
-    background-color: #7DA640;  // SỬA NÈ
+    border-bottom: 1px solid $color-text-dark-2;
+    background-color: #7da640; // SỬA NÈ
     transform-origin: top;
     transform: scaleY(0);
     transition: all 0.4s;
     z-index: 1000;
-      // Làm chậm hiệu ứng animation để có thể select menu
+    // Làm chậm hiệu ứng animation để có thể select menu
     // Làm dropdown menu phụ thuộc rất lớn vào đối tượng cha và con
   }
 
@@ -214,7 +230,7 @@
 
   &__icons--accountBox {
     position: relative;
-    margin-left: 1rem;
+    margin-left: 3rem;
   }
 
   &__item--1 &__dropdown-menu-small,
@@ -222,9 +238,11 @@
   &__item--3 &__dropdown-menu-small,
   &__icons--accountBox &__dropdown-menu-small {
     position: fixed;
+    font-family: $font-family-secondary;
+    font-weight: 500;
     display: flex;
     width: auto;
-    top: 9.4rem;
+    top: 9.2rem;
     visibility: hidden;
     opacity: 0;
     background-color: #e76262; // SỬA NÈ
@@ -290,18 +308,89 @@
     color: $color-text-light; // SỬA NÈ
     display: inline-block;
     letter-spacing: 0.2rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
     text-decoration: none;
     text-transform: capitalize;
     font-size: 1.6rem;
     transition: all 0.4s !important;
+    border-bottom: 1px solid transparent;
   }
 
   &__link:hover,
   &__link:active {
-    border-color: $color-text-dark;
+    border-bottom: 1px solid #fff;
   }
 
   &__items {
   }
+}
+
+
+////////// giỏ hàng //////////
+.customerOrderCart {
+  position: absolute;
+  background-color: #fff;
+  width: 25rem;
+  border-radius: 8px;
+  box-shadow: 0 2rem 3rem rgba($color: #000000, $alpha: 0.09);
+  padding: 2rem;
+  right: 0;
+  top: 120%;
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: all .4s;
+  &__item {
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed $color-text-light-1;
+  }
+
+  &__title {
+    // Sử dụng important để thay thế shopMenu 
+    padding-top: 1.2rem;
+    font-size: 1.8rem;
+    font-family: $font-family-secondary;
+    margin-bottom: .8rem;
+  }
+
+  &__price {
+    font-family: $font-family-secondary;
+    font-size: 1.8rem !important;
+  }
+
+  &__closeTag {
+    background-color: $color-primary-light-1;
+    align-self: start;
+    border-radius: 4px;
+    & button {
+      padding: .8rem 1rem;
+      color: #fff !important;
+    }
+    cursor: pointer;
+  }
+
+  &__titleBox {
+    margin-top: -1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px dashed $color-text-light-1;
+  }
+
+  &__total {
+    font-family: $font-family-secondary;
+    font-size: 1.8rem !important;
+    color: $color-tertiary-dark-1 !important;
+  }
+
+
+  &__orderButton {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    & a:link,  & a:visited{
+    background-color: $color-tertiary-dark-1;
+    }
+  }
+}
+
+.navbar-top__icons--cart:hover .customerOrderCart{
+  transform: scale(1);
 }
