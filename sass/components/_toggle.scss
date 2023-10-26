@@ -1,0 +1,47 @@
+.toggle {
+  width: 5rem;
+  height: 5rem;
+  background-color: $color-primary-light-1;
+  border-radius: 8px;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all .3s;
+  @include respond(tab-port) {
+    display: flex;
+    position: relative;
+    z-index: 9999999;
+  }
+
+  &__shape {
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    transition: all .3s;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+  
+  }
+
+  &__active &__shape{
+    transition: all .3s;
+    &--2 {
+      display: none;
+    }
+
+    &--1 {
+      transform: rotate(45deg) translate(3px, 3px);
+    }
+
+    &--3 {
+      transform: rotate(-45deg) translate(4px, -3px);
+    }
+  }
+}

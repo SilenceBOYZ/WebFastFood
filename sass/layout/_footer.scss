@@ -1,18 +1,18 @@
 .footer {
   box-sizing: border-box;
+  background-color: rgb(34, 34, 34);
   &__wrapper {
     max-width: 120rem;
-    padding: 2rem 4rem 4rem 4rem;
+    padding: 4rem 4rem 8rem 4rem;
   }
   &__box {
     display: flex;
     gap: 6rem;
     margin-bottom: 5rem;
     @include respond(tab-port) {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      font-size: 1.6rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 2rem;
     }
   }
   &__list {
@@ -23,6 +23,7 @@
     font-size: 2.4rem;
     font-weight: 600;
     margin-bottom: 1.4rem;
+    color: $color-text-light-1;
   }
   &__item {
     &:not(:last-child) {
@@ -33,11 +34,11 @@
   &__link {
     &:link,
     &:visited {
-      color: $color-text-dark-2;
+      color: #838383;
       text-decoration: none;
       font-size: 1.8rem;
       cursor: pointer;
-      font-weight: 1000;
+      font-weight: 500;
     }
   }
 
@@ -62,22 +63,71 @@
     border-radius: 1.8rem;
   }
   &__socialBox {
-    display: flex;
-    justify-content: space-between;
     @include respond(tab-port) {
       text-align: center;
-      flex-direction: column;
     }
   }
 
   &__copyright {
     font-size: 1.6rem;
+    color: $color-tertiary-dark-1;
     @include respond(tab-port) {
       font-size: 1.8rem;
     }
   }
 
-  &__social {
+  &__contact {
+    & h4 {
+      font-family: $font-family-secondary;
+    }
+  }
+
+  &__input {
     display: flex;
+    & input {
+      width: 31rem;
+      padding: 1rem;
+      outline: none;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    & button {
+      border: none;
+      font-size: 1.4rem;
+      padding: 1rem 2rem;
+      font-weight: 500;
+      cursor: pointer;
+      outline: none;
+      background-color: $color-tertiary-dark-1;
+      margin-left: -6.7rem;
+    }
+  }
+
+  &__social{
+    @include respond(tab-port) {
+      text-align: center;
+    }
+  }
+
+  &__socialLink {
+    &:not(:last-child) {
+      margin-right: .5rem;
+    }
+   
+  }
+
+  &__socialIcon {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    filter: $icon-color-tertiary;
+    
+    &--3 {
+      border-radius: 12px;
+      filter: invert(59%) sepia(50%) saturate(1138%) hue-rotate(0deg) brightness(99%) contrast(60%);
+    }
   }
 }

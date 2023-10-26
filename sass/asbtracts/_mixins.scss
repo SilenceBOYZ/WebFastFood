@@ -18,6 +18,12 @@
     };
   }
 
+  @if $media-query == phoneMediumsize {
+    @media only screen and (max-width: 43.75em) {
+        @content
+    };
+  }
+
   @if $media-query == tab-port {
     @media only screen and (max-width: 56.25em) {
         @content

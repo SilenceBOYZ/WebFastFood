@@ -1,4 +1,5 @@
 .login-site {
+  display: none;
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -23,6 +24,7 @@
       transform: translateX(0);
     }
   }
+
   &__form {
     margin: 0 auto;
     padding: 0rem 6rem 0rem 6rem;

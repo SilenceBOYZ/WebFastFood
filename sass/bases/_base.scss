@@ -24,11 +24,10 @@ html {
     font-size: 56.25%;
   } 
   @include respond(tab-land){
-    font-size: 50%;
+    font-size: 56.25%;
   }
-  @include respond(tab-port){
-    font-size: 43.75%;
-  }
+  overflow-x: hidden;
+
 }
 
 .main {

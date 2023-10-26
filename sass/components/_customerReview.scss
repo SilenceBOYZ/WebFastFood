@@ -3,10 +3,8 @@
   background-color: $color-primary-light-3;
   height: auto;
   color: $color-text-light;
+
 &__wrapper{
-  @include respond (tab-port) {
-    padding: 8rem;
-  }
   padding: 4.4rem;
 }
 &__boxTitle{
@@ -18,6 +16,9 @@
 }
 &__bannerImg{
   width: 12rem;
+  @include respond(phoneMediumsize) {
+    display: none;
+  }
   &--left {
     transform: rotate(-20deg);
   }
@@ -31,6 +32,12 @@
 &__title{
   display: inline-block;
   margin: 0 5rem;
+  @include respond(tab-port) {
+    font-size: 4.8rem;
+  }
+  @include respond(phone) {
+    margin: 0 1rem;
+  }
 }
 &__container{
   display: flex;
@@ -47,8 +54,21 @@
   padding-left: 2.5rem;
   box-sizing: border-box;
   box-shadow: 1rem 1rem 0rem $shadow-boxReview;
+  
   @include respond(tab-port) {
     &--4{
+      display: none;
+    }
+  }
+
+  @include respond(phoneMediumsize) {
+    &--3{
+      display: none;
+    }
+  }
+
+  @include respond(phone) {
+    &:not(:first-child){
       display: none;
     }
   }

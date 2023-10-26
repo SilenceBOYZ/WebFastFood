@@ -8,6 +8,8 @@
   @include respond(tab-port) {
     flex-wrap: wrap;
   }
+
+ 
 }
 
 .card-order {
@@ -17,6 +19,10 @@
   justify-content: center;
   align-items: center;
   padding: 3rem 4rem 6rem 4rem;
+  @include respond(tab-port) {
+    padding: 2.8rem 2.8rem 4.8rem 2.8rem;
+    margin-bottom: 1.5rem;
+  }
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -24,6 +30,7 @@
   border-radius: 5px;
   box-sizing: border-box;
   transition: all 0.4s 0.2s;
+
   &--5, &--6 {
     display: none;
   }
@@ -32,6 +39,21 @@
       display: flex;
     }
   }
+
+
+
+  @include respond(phoneMediumsize) {
+    &--5, &--6 {
+      display: none;
+    }
+  }
+
+  @include respond(phone) {
+    &:not(:first-child) {
+      display: none;
+    }
+  }
+
   &::after {
     width: 35rem;
     height: 35rem;
@@ -79,8 +101,8 @@
   &__title {
     font-size: 3.2rem;
     margin-bottom: 1rem;
+   
   }
-
   &__description {
     text-align: center;
     font-size: 1.6rem;
@@ -88,6 +110,9 @@
     color: $color-text-dark-2;
     font-weight: 500;
     margin-bottom: 1.6rem;
+    @include respond(tab-port) {
+      font-size: 1.9rem;
+    }
   }
 
   &__price {

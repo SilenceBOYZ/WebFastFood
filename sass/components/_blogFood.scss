@@ -13,6 +13,11 @@
     padding-bottom: 4rem;
     border-bottom: 4px solid $color-primary-dark-2;
 
+    @include respond(tab-port) {
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
   }
   &__box {
     display: flex;

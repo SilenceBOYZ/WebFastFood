@@ -237,131 +237,127 @@
       </div>
     </figure>
 
-    <main class="shopStyle-main">
-      <section class="shop-menu" >
-        <div class="container shop-menu__wrapper">
-          <div class="shop-menu__catergories">
-            <div class="shop-menu__titleBox">
-              <h4 class="heading--4 shop-menu__title">Tìm kiếm gần nhất</h4>
-              <div class="divider-style-1">
-                <span class="divider-style-1__point"></span>
-                <span class="divider-style-1__line"></span>
-              </div>
-            </div>
+   <main class="main">
+    <section class="whistlist">
+      <div class="container whistlist__wrapper">
+        <form class="whistlist__form" action="" method="post">
+          <table class="whistlist__list">
+            <thead class="whistlist__heading">
+              <tr>
+                <th class="whistlist__title">Món ăn</th>
+                <th class="whistlist__title">Tên món ăn</th>
+                <th class="whistlist__title">Giá</th>
+                <th class="whistlist__title">Thêm vào giỏ hàng</th>
+                <th class="whistlist__title">Đóng</th>
+              </tr>
+            </thead>
 
-            <div class="shop-menu__itemBox">
-              <a href="#" class="shop-menu__itemFind"
-                ><h5 class="heading--5 shop-menu__itemName">Burger</h5>
-              </a>
-              <a href="#" class="shop-menu__itemFind"
-                ><h5 class="heading--5 shop-menu__itemName">Restaurant</h5>
-              </a>
-              <a href="#" class="shop-menu__itemFind"
-                ><h5 class="heading--5 shop-menu__itemName">Pizza</h5>
-              </a>
-              <a href="#" class="shop-menu__itemFind"
-                ><h5 class="heading--5 shop-menu__itemName">Burger</h5>
-              </a>
-            </div>
-
-            <div class="shop-menu__titleBox">
-              <h4 class="heading--4 shop-menu__title">Danh sách món ăn</h4>
-              <div class="divider-style-1">
-                <span class="divider-style-1__point"></span>
-                <span class="divider-style-1__line"></span>
-              </div>
-            </div>
-
-            <ul class="shop-menu__list">
-              <li class="shop-menu__item">
-                <input type="checkbox" checked="true" id="pizzaItem" /><label
-                  for="pizzaItem"
-                  >Pizza</label
-                >
-              </li>
-              <li class="shop-menu__item">
-                <input type="checkbox" id="pasta" /><label for="pasta"
-                  >Pasta</label
-                >
-              </li>
-              <li class="shop-menu__item">
-                <input type="checkbox" id="burger" /><label for="burger"
-                  >Burger</label
-                >
-              </li>
-              <li class="shop-menu__item">
-                <input type="checkbox" id="drink" /><label for="drink"
-                  >Drink</label
-                >
-              </li>
-              <li class="shop-menu__item">
-                <input type="checkbox" id="pastry" /><label for="pastry"
-                  >Pastry</label
-                >
-              </li>
-            </ul>
-          </div>
-          <div class="shop-menu__menuItem">
-              <div class="shop-menu__titleBox">
-                <h4 class="heading--4 shop-menu__title clearFix">
-                  Kết quả<span class="shop-menu__result">30 Món ăn</span>
-                </h4>
-              </div>
-
-            <ul class="shop-menu__listOfFood">
-              <li class="shop-menu__foodItem">
-                <div class="shop-menu__imageBox">
-                  <img
-                    src="img/foodItem/fooditem1.jpg"
-                    alt=""
-                    srcset=""
-                    class="shop-menu__image"
-                  />
-                </div>
-                <a href="#" class="shop-menu__foodItemContainer">
-                  <div class="shop-menu__foodTitle">
-                    <i
-                      class="shop-menu__statusIcon shop-menu__statusIcon-active"
-                    ></i>
-                    <h5 class="shop-menu__foodItemName">Hamburger</h5>
-                    <i class="shop-menu__rate">
-                      <img
-                        src="img/svg/star.svg"
-                        alt="icon"
-                        srcset=""
-                        class="shop-menu__icon"
-                      />
-                      <span class="shop-menu__ratePoint">4.5</span>
-                    </i>
+            <tbody class="whistlist__body">
+              <tr>
+                <td>
+                  <div class="whistlist__imageBox">
+                    <img
+                      class="whistlist__image"
+                      src="img/foodItem/fooditem1.jpg"
+                      alt=""
+                      srcset=""
+                    />
                   </div>
+                </td>
+                <td><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
+                <td><i class="whistlist__price">300,000 vnđ</i></td>
+                <td>
+                  <a href="http://" class="btn-link card-order__btn"
+                    >Add to cart</a
+                  >
+                </td>
+                <td>
+                  <button class="whistlist__cta" type="submit">
+                    <img src="img/svg/cross.svg" alt="" srcset="" />
+                  </button>
+                </td>
+              </tr>
 
-                  <div class="shop-menu__foodStatus">
-                    <div class="shop-menu__foodStatus-box--left">
-                      <p class="shop-menu__foodStatus-content">
-                        By<strong>ThanhTrí</strong>
-                      </p>
-                      <div class="shop-menu__foodStatus-content">
-                        <img
-                          src="img/svg/fast-food-delivery-bike-12992.svg"
-                          class="shop-menu__icon--2"
-                          alt=""
-                          srcset=""
-                        /><i>30 phút</i>
-                      </div>
-                    </div>
-                    <div class="shop-menu__foodStatus-box--right">
-                      <p class="shop-menu__prices">100,000 vnđ</p>
-                      <i class="shop-menu__foodStatus-box--right-item">1 cái</i>
-                    </div>
+              <tr>
+                <td>
+                  <div class="whistlist__imageBox">
+                    <img
+                      class="whistlist__image"
+                      src="img/foodItem/fooditem1.jpg"
+                      alt=""
+                      srcset=""
+                    />
                   </div>
-                </a>
-              </li>
-              
-            </ul>
-          </div>
-        </div>
-      </section>
-    </main>
+                </td>
+                <td><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
+                <td><i class="whistlist__price">300,000 vnđ</i></td>
+                <td>
+                  <a href="http://" class="btn-link card-order__btn"
+                    >Add to cart</a
+                  >
+                </td>
+                <td>
+                  <button class="whistlist__cta" type="submit">
+                    <img src="img/svg/cross.svg" alt="" srcset="" />
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="whistlist__imageBox">
+                    <img
+                      class="whistlist__image"
+                      src="img/foodItem/fooditem1.jpg"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                </td>
+                <td><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
+                <td><i class="whistlist__price">300,000 vnđ</i></td>
+                <td>
+                  <a href="http://" class="btn-link card-order__btn"
+                    >Add to cart</a
+                  >
+                </td>
+                <td>
+                  <button class="whistlist__cta" type="submit">
+                    <img src="img/svg/cross.svg" alt="" srcset="" />
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <div class="whistlist__imageBox">
+                    <img
+                      class="whistlist__image"
+                      src="img/foodItem/fooditem1.jpg"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                </td>
+                <td><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
+                <td><i class="whistlist__price">300,000 vnđ</i></td>
+                <td>
+                  <a href="http://" class="btn-link card-order__btn"
+                    >Add to cart</a
+                  >
+                </td>
+                <td>
+                  <button class="whistlist__cta" type="submit">
+                    <img src="img/svg/cross.svg" alt="" srcset="" />
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </section>
+   </main>
 
     <footer class="footer">
       <div class="container footer__wrapper">
@@ -427,7 +423,9 @@
         </div>
       </div>
     </footer>
-
+    
+    <script src="js/cardEffect.js"></script>
     <script src="js/todaymenuEffect.js"></script>
+    <script src="js/draggSlide.js"></script>
   </body>
 </html>

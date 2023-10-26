@@ -31,12 +31,18 @@
     &--left {
       bottom: 0;
       transform: translate(-50%, 10%);
+      @include respond(tab-land){
+        display: none;
+      }
     }
 
     &--right {
       right: 0;
       top: 0;
       transform: translate(30%, -10%);
+      @include respond(tab-land){
+        display: none;
+      }
       @include respond(mac-book) {
         transform: translate(50%, -10%);
       }
@@ -50,18 +56,47 @@
     gap: 1rem;
     margin-bottom: 4rem;
     user-select: none;
+  
   }
 
   &__icons {
+    @include respond(phone) {
+      display: none;
+    }
   }
 
   &__icon-svg {
     width: 5rem;
     height: 5rem;
 
+    @include respond(tab-port) {
+      width: 4.5rem;
+      height: 4.5rem;
+    }
+
     &-left:not(:last-child),
     &-right:not(:last-child) {
       margin-right: -1.2rem;
+    }
+
+
+    &-left {
+      @include respond(phoneMediumsize) {
+        &--3, &--4 {
+          display: none;
+        }
+      }
+    }
+
+    &-right {
+      @include respond(phoneMediumsize) {
+        grid-column: 1 / 2;
+      }
+      @include respond(phoneMediumsize) {
+        &--3, &--4 {
+          display: none;
+        }
+      }
     }
 
     &-left:nth-child(even),
@@ -73,6 +108,12 @@
   &__heading {
     font-size: 6.4rem;
     color: $color-primary-light-1;
+    @include respond(tab-port) {
+      font-size: 4.4rem;
+    }
+    @include respond(phone) {
+      font-size: 5.2rem;
+    }
   }
 
   &__btn {

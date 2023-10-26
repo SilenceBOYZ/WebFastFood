@@ -1,45 +1,87 @@
 .policies {
-&__box-title {
-  display: flex;
-  justify-content: center;
-  padding-top: 4.8rem;
-  align-items: center;
-  gap: 2rem;
-  margin-bottom: 4.8rem;
-}
-&__line-divider {
-  width: 30rem;
-  border-top: 2px solid $color-primary-light-1;
-}
-&__title {
-  text-align: center;
-}
-&__content {
-  display: flex;
-  gap: 8rem;
-  justify-content: center;
-}
-&__description {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  &:nth-child(even) {
-    transform: translateY(5rem);
+  &__wrapper {
+    @include respond(tab-port) {
+      padding: 4rem 2rem;
+    }
+
+    @include respond(phone) {
+      padding: 4rem .8rem;
+    }
   }
-  user-select: none;
-}
-&__icon {
-  height: 8rem;
-  margin-bottom: 2.4rem;
-  filter: $icon-color-primary;
-  &--2 {
-    height: 9rem;
+  &__box-title {
+    display: flex;
+    justify-content: center;
+    padding-top: 4.8rem;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 4.8rem;
+    @include respond(tab-port) {
+      padding-top: 0rem;
+    }
   }
-}
-&__describe {
-   color: $color-primary-light-1; 
-   line-height: 1.2;
-   font-weight: 300;
-}
+  &__line-divider {
+    width: 30rem;
+    border-top: 2px solid $color-primary-light-1;
+    @include respond(tab-port) {
+      width: 15rem;
+    }
+    @include respond(phoneMediumsize) {
+      display: none;
+    }
+  }
+  &__title {
+    text-align: center;
+    @include respond(tab-port) {
+      font-size: 5.4rem;
+    }
+  }
+  &__content {
+    display: flex;
+    margin: 0 auto;
+    gap: 8rem;
+    @include respond(tab-port) {
+      max-width: 65rem;
+
+      gap: 6rem;
+      flex-wrap: wrap;
+    }
+    justify-content: center;
+    @include respond(tab-port) {
+      flex-wrap: wrap;
+    }
+  }
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &:nth-child(even) {
+      transform: translateY(5rem);
+      @include respond(tab-port) {
+        transform: translateY(0);
+      }
+    }
+    user-select: none;
+  }
+  &__icon {
+    height: 8rem;
+    @include respond(phone) {
+      height: 7rem;
+    }
+    margin-bottom: 2.4rem;
+    filter: $icon-color-primary;
+    &--2 {
+    @include respond(phone) {
+      height: 7rem;
+    }
+    }
+  }
+  &__describe {
+    color: $color-primary-light-1;
+    line-height: 1.2;
+    font-weight: 300;
+    @include respond(phone) {
+      font-size: 2.4rem;
+    }
+  }
 }

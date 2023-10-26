@@ -2,6 +2,10 @@
   @include respond(mac-book) {
     max-width: 110rem;
   }
+
+  @include respond(tab-port) {
+    max-width: 80rem;
+  }
 }
 
 .navbar-top {
@@ -9,25 +13,35 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
+  @include respond(phoneMediumsize) {
+    width: 95%;
+  }
   &__logo-link {
+    width: 15rem;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     box-sizing: content-box;
     padding: 3.5rem 0rem;
+    outline: none;
+    user-select: none;
   }
 
   &__logo {
     transform: scale(1.5);
     display: inline-block;
+    outline: none;
+    user-select: none;
   }
 
   &__list {
     display: flex;
     list-style: none;
-    gap: 1.5rem;
+    gap: 3rem;
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 
   &__right {
@@ -38,7 +52,7 @@
 
   &__link:link,
   &__link:visited {
-    color: $color-text-light;
+    color: $color-primary-light-1;
     text-decoration: none;
     text-transform: capitalize;
     font-size: 2rem;
@@ -83,7 +97,7 @@
   &__icon {
     width: 1.2rem;
     height: 1.5rem;
-    fill: #fff;
+    fill: red;
     transition: transform 0.3s;
   }
 
@@ -92,12 +106,15 @@
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    @include respond(tab-port) {
+      display: none;
+    }
   }
 
   &__iconBox {
     width: 2rem;
     height: 2rem;
-    fill: #fff;
+    fill: red;
     &--title {
       font-size: 1.4rem;
       letter-spacing: 0.3rem;
@@ -121,7 +138,7 @@
       display: inline-block;
       padding: 1rem 2rem;
       border-radius: 8px;
-      border: 1px solid #fff;
+      border: 1px solid $color-primary-light-1;
       transition: all 0.2s;
       align-items: center;
 
@@ -137,7 +154,7 @@
       display: flex;
       padding: 1rem;
       border-radius: 8px;
-      border: 1px solid #fff;
+      border: 1px solid $color-primary-light-1;
       transition: all 0.2s;
       justify-content: center;
       align-items: center;
@@ -147,7 +164,6 @@
 
         & .navbar-top__iconBox {
           filter: $icon-color-primary;
-          
         }
       }
     }
@@ -182,7 +198,7 @@
         height: 2rem;
         align-items: center;
         justify-content: center;
-        padding: .4rem;
+        padding: 0.4rem;
         border-radius: 50%;
         right: -1rem;
         top: -1rem;
@@ -245,7 +261,9 @@
     top: 9.2rem;
     visibility: hidden;
     opacity: 0;
-    background-color: #e76262; // SỬA NÈ
+    background-color: #fff;
+    border: 5px solid #e76262;
+    border-radius: 8px;
     transform-origin: top;
     transform: scaleY(0);
     transition: all 0.4s;
@@ -305,12 +323,12 @@
   &__link:link,
   &__link:visited {
     width: 100%;
-    color: $color-text-light; // SỬA NÈ
+    color: $color-primary-light-1; // SỬA NÈ
     display: inline-block;
-    letter-spacing: 0.2rem;
-    padding-bottom: 1rem;
     text-decoration: none;
     text-transform: capitalize;
+    font-weight: 800;
+    padding: 0.8rem;
     font-size: 1.6rem;
     transition: all 0.4s !important;
     border-bottom: 1px solid transparent;
@@ -318,13 +336,11 @@
 
   &__link:hover,
   &__link:active {
-    border-bottom: 1px solid #fff;
   }
 
   &__items {
   }
 }
-
 
 ////////// giỏ hàng //////////
 .customerOrderCart {
@@ -338,18 +354,18 @@
   top: 120%;
   transform-origin: top;
   transform: scaleY(0);
-  transition: all .4s;
+  transition: all 0.4s;
   &__item {
     padding-bottom: 1rem;
     border-bottom: 1px dashed $color-text-light-1;
   }
 
   &__title {
-    // Sử dụng important để thay thế shopMenu 
+    // Sử dụng important để thay thế shopMenu
     padding-top: 1.2rem;
     font-size: 1.8rem;
     font-family: $font-family-secondary;
-    margin-bottom: .8rem;
+    margin-bottom: 0.8rem;
   }
 
   &__price {
@@ -362,7 +378,7 @@
     align-self: start;
     border-radius: 4px;
     & button {
-      padding: .8rem 1rem;
+      padding: 0.8rem 1rem;
       color: #fff !important;
     }
     cursor: pointer;
@@ -380,17 +396,112 @@
     color: $color-tertiary-dark-1 !important;
   }
 
-
   &__orderButton {
     display: flex;
     gap: 1rem;
     justify-content: center;
-    & a:link,  & a:visited{
-    background-color: $color-tertiary-dark-1;
+    & a:link,
+    & a:visited {
+      background-color: $color-tertiary-dark-1;
     }
   }
 }
 
-.navbar-top__icons--cart:hover .customerOrderCart{
+.navbar-top__icons--cart:hover .customerOrderCart {
   transform: scale(1);
+}
+
+// Navbar mobile
+
+.navbar-mobile {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-image: linear-gradient(to left, rgba($color: #000000, $alpha: 0.4) 70%, transparent);
+  display: block;
+  transform: translateX(-100%);
+  transition: all .3s;
+  &__wrapper {
+    width: 30rem;
+    height: 100%;
+    padding: 2rem 2rem 0rem 2rem;
+    background-color: #fff;
+  }
+
+  &__imageBox {
+    width: 100%;
+    margin-bottom: 3rem;
+  }
+
+  &__image {
+    display: inline-block;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  &__list {
+    list-style: none;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2.8rem;
+    & li {
+      margin-bottom: 1.5rem;
+      display: flex;
+      width: 80%;
+      padding-bottom: 1rem;
+      cursor: pointer;
+      & img {
+        display: inline-block;
+        padding: 0.8rem;
+        background-color: $color-tertiary-dark-1;
+        border-radius: 8px;
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      color: $color-text-dark-2;
+      text-decoration: none;
+      font-size: 2.4rem;
+      font-family: $font-family-secondary;
+      font-weight: 600;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+  }
+
+  &__iconList {
+    list-style: none;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3.5rem;
+  }
+
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+  }
+
+  &__author {
+    font-family: $font-family-secondary;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-align: center;
+  }
+}
+
+.navbar-mobile.active__mobile {
+  transform: translateX(0%);
 }
