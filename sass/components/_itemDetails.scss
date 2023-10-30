@@ -1,12 +1,25 @@
 .item-Details {
   font-family: $font-family-secondary;
   margin-bottom: 5rem;
+  @include respond(tab-port) {
+    padding: 0rem 2rem;
+  }
   &__wrapper {
     margin-top: 5rem;
     display: flex;
+    @include respond(phoneMediumsize) {
+      flex-wrap: wrap;
+      gap: 4rem;
+    }
   }
   &__imageBox {
     flex: 0 0 33.333333%;
+    @include respond(tab-port) {
+      flex: 1 0 41.666667%;
+    }
+    @include respond(phoneMediumsize) {
+      flex: 1 1 100%;
+    }
   }
   &__imageContent {
     width: 100%;
@@ -19,7 +32,14 @@
 
   &__content {
     flex: 0 1 66.666667%;
+    @include respond(tab-port) {
+      flex: 1 1 58.333333%;
+    }
     padding-left: 2.5rem;
+    @include respond(phoneMediumsize) {
+      flex: 1 1 100%;
+      padding-left: 0;
+    }
   }
 
   &__title {
@@ -38,6 +58,9 @@
     height: 10rem;
     overflow-y: hidden;
     margin-bottom: 1.5rem;
+    @include respond(tab-port) {
+      height: 15rem;
+    }
   }
 
   &__price {
@@ -128,6 +151,14 @@
   &__itemImageBox {
     width: 5rem;
     height: 5rem;
+    @include respond(phoneMediumsize) {
+      width: 8rem;
+      height: 8rem;
+    }
+    @include respond(phone) {
+      width: 10rem;
+      height: 10rem;
+    }
     border-radius: 4px;
     overflow: hidden;
   }
@@ -145,6 +176,16 @@
     padding: 1rem;
     border-radius: 8px;
     background-color: $color-text-light;
+    @include respond(tab-port) {
+      width: 40%;
+    }
+    @include respond(phoneMediumsize) {
+      width: 45%;
+
+    }
+    @include respond(phone) {
+      width: 100%;
+    }
   }
 
   &__titleAddition {
@@ -162,6 +203,10 @@
       accent-color: $color-primary-light-2;
     }
     margin-left: auto;
+    @include respond(tab-port) {
+      width: 3rem;
+      height: 3rem;
+    }
   }
 
   &__purchase {
@@ -224,16 +269,30 @@
     &--buyNow:hover,
     &--buyNow:active {
     }
+
+    @include respond(tab-port) {
+      flex-wrap: wrap;
+    }
   }
 
   &__customerImageBox {
-    margin-left: auto;
     display: flex;
     align-items: center;
+    @include respond(tab-port) {
+      margin-left: 0;
+    }
+    @include respond(phone) {
+      margin-top: 1rem;
+      flex: 1 1 100%;
+    }
   }
   &__customerImg {
     width: 3.5rem;
     height: 3.5rem;
+    @include respond(phone) {
+      width: 5rem;
+      height: 5rem;
+    }
     border-radius: 50%;
     border: 2px solid #fff;
     display: flex;

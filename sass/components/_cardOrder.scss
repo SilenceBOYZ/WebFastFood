@@ -8,8 +8,6 @@
   @include respond(tab-port) {
     flex-wrap: wrap;
   }
-
- 
 }
 
 .card-order {
@@ -23,6 +21,10 @@
     padding: 2.8rem 2.8rem 4.8rem 2.8rem;
     margin-bottom: 1.5rem;
   }
+
+  @include respond(phoneSmallSize) {
+    padding: 2.8rem 3.8rem 4.8rem 3.8rem;
+  }
   position: relative;
   overflow: hidden;
   cursor: pointer;
@@ -31,19 +33,20 @@
   box-sizing: border-box;
   transition: all 0.4s 0.2s;
 
-  &--5, &--6 {
+  &--5,
+  &--6 {
     display: none;
   }
   @include respond(tab-port) {
-    &--5, &--6 {
+    &--5,
+    &--6 {
       display: flex;
     }
   }
 
-
-
   @include respond(phoneMediumsize) {
-    &--5, &--6 {
+    &--5,
+    &--6 {
       display: none;
     }
   }
@@ -66,6 +69,11 @@
     z-index: 1;
     border-radius: 50%;
     transition: all 0.3s;
+
+    @include respond(phoneSmallSize) {
+      width: 40rem;
+      height: 38rem;
+    }
   }
 
   &::before {
@@ -80,6 +88,10 @@
     z-index: 1;
     border-radius: 50%;
     transition: all 0.5s;
+    @include respond(phoneSmallSize) {
+      width: 40rem;
+      height: 38rem;
+    }
   }
 
   &__image {
@@ -89,6 +101,9 @@
     display: inline-block;
     padding: 1rem;
     background-color: $color-text-light;
+    @include respond(phoneSmallSize) {
+      height: 17rem;
+    }
   }
 
   &__title,
@@ -101,7 +116,6 @@
   &__title {
     font-size: 3.2rem;
     margin-bottom: 1rem;
-   
   }
   &__description {
     text-align: center;
@@ -113,6 +127,10 @@
     @include respond(tab-port) {
       font-size: 1.9rem;
     }
+    @include respond(phoneSmallSize) {
+      font-size: 2.4rem;
+      height: 6rem;
+    }
   }
 
   &__price {
@@ -121,12 +139,18 @@
     font-weight: 600;
     font-size: 2.8rem;
     margin-bottom: 1.6rem;
+    @include respond(phoneSmallSize) {
+      font-size: 3.2rem;
+    }
   }
 
   &__money-unit {
     font-family: $font-family-secondary;
     font-size: 1.2rem;
     font-weight: 600;
+    @include respond(phoneSmallSize) {
+      font-size: 1.8rem;
+    }
   }
 
   &__btn {
@@ -137,11 +161,14 @@
       font-size: 1.6rem;
       font-weight: 500;
       border-radius: 3.5px;
-      transition: all .1s;
+      transition: all 0.1s;
       background-color: $color-primary-light-1;
       // text-shadow: 0px 0px 0px #fff, 120px 0px 0px #fff;
       color: $color-text-light;
       overflow: hidden;
+      @include respond(phoneSmallSize) {
+        font-size: 2rem;
+      }
     }
     // &:hover{
     //   text-shadow: -120px 0px 0px #fff, 0px 0px 0px #fff;

@@ -39,6 +39,9 @@
     font-size: 14rem;
     color: $color-primary;
     font-weight: 350;
+    @include respond(phoneSmallSize) {
+      margin-bottom: 5.8rem;
+    }
   }
 
   &__text {

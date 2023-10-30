@@ -26,11 +26,19 @@
     background-color: #fff;
     border: 1px solid rgba(0,0,0, 0.08);
     box-shadow: 0 2rem 3rem rgba(0,0,0, 0.02);
+    @include respond(phoneSmallSize) {
+      width: 40rem;
+      flex-direction: column;
+    }
   }
   &__imagebox {
-    width: 24rem;
-    height: 24rem;
+    height: 25rem;
     overflow: hidden;
+    width: 25rem;
+    @include respond(phoneSmallSize) {
+      width: 100%;
+      align-self: stretch;
+    }
   }
   &__image {
     width: 100%;
@@ -71,7 +79,7 @@
   }
   &__titleSmall {
     color: $color-text-dark;
-    font-size: 1.8rem;
+    font-size: 2rem;
     text-transform: capitalize;
     margin-bottom: 0.8rem;
   }
@@ -82,6 +90,10 @@
     line-height: 1.4;
     overflow-x: hidden;
     margin-bottom: 0.5rem;
+    @include respond(phoneSmallSize) {
+      width: 100%;
+      font-size: 2rem;
+    }
   }
   &__cta {
     &:link,

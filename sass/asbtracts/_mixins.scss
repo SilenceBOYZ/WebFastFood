@@ -12,6 +12,13 @@
 */
 
 @mixin respond ($media-query) {
+
+  @if $media-query == phoneSmallSize {
+    @media only screen and (max-width: 25em) {
+        @content
+    };
+  }
+
   @if $media-query == phone {
     @media only screen and (max-width: 37.5em) {
         @content
@@ -22,6 +29,7 @@
     @media only screen and (max-width: 43.75em) {
         @content
     };
+    // 700 widths
   }
 
   @if $media-query == tab-port {

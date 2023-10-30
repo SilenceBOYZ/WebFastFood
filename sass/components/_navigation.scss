@@ -16,6 +16,11 @@
   @include respond(phoneMediumsize) {
     width: 95%;
   }
+  @include respond(phoneSmallSize) {
+    padding: 1rem;
+    justify-content: end;
+  }
+  
   &__logo-link {
     width: 15rem;
     height: 100%;
@@ -26,6 +31,9 @@
     padding: 3.5rem 0rem;
     outline: none;
     user-select: none;
+    @include respond(phoneSmallSize) {
+      display: none;
+    }
   }
 
   &__logo {
@@ -149,8 +157,7 @@
 
     &--search:link,
     &--search:visited,
-    &--account:link,
-    &--account:visited {
+    &--account {
       display: flex;
       padding: 1rem;
       border-radius: 8px;
@@ -158,7 +165,8 @@
       transition: all 0.2s;
       justify-content: center;
       align-items: center;
-
+      cursor: pointer;
+      background-color: #fff;
       &:hover {
         background-color: #fff;
 
@@ -423,16 +431,28 @@
   display: block;
   transform: translateX(-100%);
   transition: all .3s;
+  @include respond(phoneSmallSize) {
+    background: #fff;
+  }
   &__wrapper {
-    width: 30rem;
+    max-width: 30rem;
     height: 100%;
     padding: 2rem 2rem 0rem 2rem;
     background-color: #fff;
+    @include respond(phoneSmallSize) {
+      margin: 0 auto;
+    }
+    @include respond(phoneSmallSize) {
+      max-width: 32rem;
+    }
   }
 
   &__imageBox {
     width: 100%;
     margin-bottom: 3rem;
+    @include respond(phoneSmallSize) {
+      padding-top: 10rem;
+    }
   }
 
   &__image {
@@ -450,17 +470,27 @@
     margin-bottom: 2.8rem;
     & li {
       margin-bottom: 1.5rem;
+      @include respond(phoneSmallSize) {
+        margin-bottom: 2.5rem;
+      }
       display: flex;
       width: 80%;
       padding-bottom: 1rem;
       cursor: pointer;
+      @include respond(phoneSmallSize) {
+        width: 100%;
+      }
       & img {
         display: inline-block;
         padding: 0.8rem;
         background-color: $color-tertiary-dark-1;
         border-radius: 8px;
-        width: 15px;
-        height: 15px;
+        width: 1.5rem;
+        height: 1.5rem;
+        @include respond(phoneSmallSize) {
+          width: 3rem;
+          height: 3rem;
+        }
       }
     }
   }
@@ -477,6 +507,9 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
+      @include respond(phoneSmallSize) {
+        font-size: 3.2rem;
+      }
     }
   }
 
@@ -492,6 +525,10 @@
   &__icon {
     width: 4rem;
     height: 4rem;
+    @include respond(phoneSmallSize) {
+      width: 6rem;
+      height: 6rem;
+    }
   }
 
   &__author {
@@ -499,6 +536,9 @@
     font-size: 1.6rem;
     font-weight: 600;
     text-align: center;
+    @include respond(phoneSmallSize) {
+      font-size:2rem;
+    }
   }
 }
 

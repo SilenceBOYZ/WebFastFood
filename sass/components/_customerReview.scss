@@ -38,6 +38,10 @@
   @include respond(phone) {
     margin: 0 1rem;
   }
+  @include respond(phoneSmallSize) {
+    text-align: center;
+    font-size: 4.8rem;
+  }
 }
 &__container{
   display: flex;
@@ -87,6 +91,9 @@
   overflow: hidden;
   margin-bottom: 1rem;
   color: $color-text-dark-2;
+  @include respond(phoneSmallSize) {
+    line-height: 1.8;
+  }
 }
 &__customer{
   &::after {

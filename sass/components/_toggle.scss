@@ -16,6 +16,11 @@
     position: relative;
     z-index: 9999999;
   }
+  @include respond(phoneSmallSize) {
+    width: 7rem;
+    height: 7rem;
+  }
+  
 
   &__shape {
     width: 30px;

@@ -129,14 +129,13 @@
                 </svg>
               </a>
               <div class="navbar-top__icons--accountBox">
-                <a
-                  href="http://"
+                <button
                   class="navbar-top__link navbar-top__icons navbar-top__icons--account"
                 >
                   <svg class="navbar-top__iconBox">
                     <use xlink:href="#lnr-user"></use>
                   </svg>
-                </a>
+                </button>
                 <div class="navbar-top__dropdown-menu-small dropdown-menu">
                   <div
                     class="dropdown-menu__catergories dropdown-menu__catergories--account"
@@ -145,7 +144,7 @@
                       <li class="dropdown-menu__items">
                         <a
                           id="login"
-                          class="dropdown-menu__link u-bold-text"
+                          class="dropdown-menu__link u-bold-text login-action"
                           href="http://"
                           >Log in</a
                         >
@@ -153,7 +152,7 @@
                       <li class="dropdown-menu__items">
                         <a
                           id="register"
-                          class="dropdown-menu__link u-bold-text"
+                          class="dropdown-menu__link u-bold-text login-action"
                           href="http://"
                           >Create Account</a
                         >
@@ -346,7 +345,7 @@
               </ul>
 
               <p class="navbar-mobile__author">
-                <strong>Copy right &copy; by Nguyễn Thanh Trí</strong>
+                Copy right &copy; by Nguyễn Thanh Trí
               </p>
             </div>
           </div>
@@ -1414,7 +1413,7 @@
             Đăng nhập
           </button>
           <p class="login-site__switchSite">
-            Đăng ký <a href="http://">tại đây</a>
+            Đăng ký <a href="" class="btn-changeSite" id="login-form">tại đây</a>
           </p>
         </form>
         <button class="login-site__button">X</button>
@@ -1485,7 +1484,7 @@
             Đăng ký
           </button>
           <p class="login-site__switchSite">
-            Đăng nhập <a href="http://">tại đây</a> nếu bạn đã có <br />
+            Đăng nhập <a href="" class="btn-changeSite" id="register-form">tại đây</a> nếu bạn đã có <br />
             tài khoản
           </p>
         </form>

@@ -1,11 +1,17 @@
 .shop-menu {
   padding: 15rem 10rem 5rem 10rem;
+  @include respond(tab-land) {
+    padding: 8rem 2rem 5rem 2rem;
+  }
   font-family: $font-family-secondary;
   margin-bottom: 4rem;
   &__wrapper {
     display: flex;
     padding-bottom: 8rem;
     border-bottom: 3px solid $color-primary-dark-1;
+    @include respond(phoneMediumsize  ) {
+      flex-wrap: wrap;
+    }
   }
   &__catergories {
     flex: 1 1 25%;
@@ -20,6 +26,15 @@
   &__title {
     font-size: 2.4rem;
     margin-bottom: 0.5rem;
+
+    @include respond(tab-land) {
+      margin-bottom: 1.5rem;
+    }
+    @include respond(phoneMediumsize) {
+      padding-left: 0 !important;
+    }
+
+    
   }
   &__itemBox {
     width: 80%;
@@ -52,6 +67,7 @@
     padding: 1rem 2rem;
     border: 1px solid $color-text-dark-2;
     border-radius: 8px;
+   
   }
 
   &__list {
@@ -136,6 +152,16 @@
     &:not(:last-child) {
       margin-bottom: 2rem;
     }
+
+    @include respond(tab-land) {
+      box-sizing: border-box;
+      padding: 0 2rem;
+    }
+
+    @include respond(phoneMediumsize) {
+      padding: 0rem;
+    }
+
   }
 
   &__imageBox {
@@ -143,6 +169,9 @@
     min-width: 10rem;
     border-radius: 10px 0px 0px 10px;
     overflow: hidden;
+    @include respond(tab-land) {
+      width: 20rem;
+    }
   }
 
   &__image {
@@ -232,17 +261,27 @@
       filter: invert(60%) sepia(22%) saturate(1030%) hue-rotate(42deg)
         brightness(96%) contrast(86%);
     }
-  
   }
 
   &__foodItemName {
     font-size: 1.6rem;
     color: $color-text-dark;
+    
+    @include respond(tab-land) {
+      font-size: 1.8rem;
+    }
   }
 
   &__foodStatus {
     display: flex;
     align-items: center;
+    @include respond(tab-land) {
+      gap: 1.5rem;
+      flex-direction: column;
+    }
+    @include respond(phoneMediumsize) {
+      align-items: start;
+    }
     &-box {
       &--left {
         display: flex;
@@ -250,6 +289,9 @@
         gap: 2rem;
         font-size: 1.4rem;
         color: $color-text-dark;
+        @include respond(tab-land) {
+          font-size: 1.8rem;
+        }
       }
       &--right {
         margin-left: auto;
@@ -279,6 +321,9 @@
     color: $color-tertiary-dark-1;
     font-size: 1.8rem;
     font-weight: 800;
+    @include respond(tab-land) {
+      font-size: 2.2rem;
+    }
     // background-image: radial-gradient();
   }
 }

@@ -27,12 +27,18 @@ html {
     font-size: 56.25%;
   }
   overflow-x: hidden;
-
+  @include respond(phoneSmallSize){
+    font-size: 50%;
+  }
 }
 
 .main {
   width: 100%;
   padding-top: 10rem;
+}
+
+.main-shopDetail {
+  padding-bottom: 10rem;
 }
 .btn-link {
   &:link, &:visited {

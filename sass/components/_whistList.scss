@@ -7,6 +7,10 @@
   &__list {
     width: 100%;
     border-collapse: collapse;
+    @include respond(phoneMediumsize){
+      flex: 1 1 100%;
+      overflow: auto;
+    }
   }
   &__heading {
     background-color: $color-text-dark;

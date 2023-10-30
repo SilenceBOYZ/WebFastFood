@@ -114,6 +114,12 @@
     @include respond(phone) {
       font-size: 5.2rem;
     }
+
+    @include respond(phoneSmallSize) {
+      width: 100%;
+      text-align: center;
+      font-size: 4.4rem;
+    }
   }
 
   &__btn {

@@ -20,7 +20,10 @@
     @include respond(phone) {
       max-width: 29rem;
     }
-  
+
+    @include respond(phoneSmallSize) {
+      max-width: 35rem;
+    }
   }
 
   // &__slides &__details {
@@ -34,6 +37,10 @@
     position: relative;
     width: 25rem;
     height: 32.5rem;
+    @include respond(phoneSmallSize) {
+      width: 30rem;
+      height: 37.5rem;
+    }
     overflow: hidden;
     border-radius: 5px;
     cursor: pointer;
@@ -60,7 +67,7 @@
   }
 
   &__media {
-    width: 25rem;
+    width: 100%;
     // background-color: aquamarine;
     overflow: hidden;
     position: absolute;
@@ -73,7 +80,6 @@
   &__images {
     width: 100%;
     vertical-align: middle;
-    
   }
   &__descriptions {
     position: absolute;
@@ -170,6 +176,9 @@
     border: none;
     border-radius: 50%;
     padding: 1rem;
+    @include respond(phoneSmallSize) {
+
+    }
     overflow: hidden;
     cursor: pointer;
     z-index: 10;
@@ -178,6 +187,9 @@
     & img {
       width: 2rem;
       border-radius: 50%;
+      @include respond(phoneSmallSize) {
+        width: 3rem;
+      }
     }
     &--left {
       left: 0rem;
@@ -200,6 +212,14 @@
       }
       &--right {
         right: 10rem;
+      }
+    }
+    @include respond(phoneSmallSize) {
+      &--left {
+        left: 4rem;
+      }
+      &--right {
+        right: 4rem;
       }
     }
   }
@@ -245,14 +265,9 @@
   transform: translateY(30rem);
 }
 
-
 //////// Khúc mobile
 .daily-menu__mobiles .daily-menu__box-prices {
   @include respond(tab-port) {
     transform: translateY(0rem);
   }
 }
-
-
-
-

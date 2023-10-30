@@ -29,7 +29,13 @@
     }
 
     @include respond(phoneMediumsize) {
-      grid-template-columns: minmax(max-content, 41rem)
+      grid-template-columns: minmax(max-content, 41rem);
+    }
+
+    @include respond(phoneSmallSize) {
+      grid-template-rows: repeat(2, 18rem);
+      row-gap: 2rem;
+      height: 48rem;
     }
   }
 
@@ -195,6 +201,12 @@
         margin-bottom: 0.5rem;
       }
     }
+
+    &--2 {
+      @include respond(phoneSmallSize) {
+        margin-bottom: 0.8rem;
+      }
+    }
     &--2,
     &--3 {
       color: $color-text-light;
@@ -210,6 +222,7 @@
   }
 
   &__btn {
+    
     &:hover {
       transform: translateY(-0.5rem);
     }
@@ -225,6 +238,10 @@
     &:visited {
       @include respond(mac-book) {
         font-size: 1.4rem !important;
+      }
+
+      @include respond(phoneSmallSize) {
+        display: none;
       }
     }
   }
