@@ -1,3 +1,192 @@
+.shopStyle-body {
+  .shop-menu {
+    &__catergories {
+      @include respond(phoneMediumsize) {
+        position: fixed;
+        flex: 1 1 100%;
+        height: 100vh;
+        padding: 8rem 8rem 0rem 4rem;
+        box-sizing: border-box;
+        top: 0;
+        left: 0;
+        background-color: #fff;
+        z-index: 9999999999;
+        transform: translateX(-100%);
+        transition: 0.3s all;
+      }
+    }
+
+    .unshow {
+      @include respond(phoneMediumsize) {
+        display: none;
+      }
+    }
+
+    &__itemBox {
+      @include respond(phoneMediumsize) {
+        display: none;
+      }
+    }
+
+    &__item {
+      @include respond(tab-land) {
+        margin-bottom: 3rem;
+      }
+      &:first-child {
+        @include respond(tab-land) {
+          margin-top: 4rem;
+        }
+      }
+      & label {
+        @include respond(tab-land) {
+          font-size: 2rem;
+        }
+      }
+
+      & input[type="checkbox"] {
+        @include respond(tab-land) {
+          width: 2.5rem;
+          height: 2.5rem;
+        }
+      }
+    }
+
+    &__listOfFood {
+    }
+    &__foodItem {
+      @include respond(tab-land) {
+        padding: 0;
+      }
+
+      @include respond(phoneSmallSize) {
+        flex-direction: column;
+      }
+    }
+    &__imageBox {
+      @include respond(tab-land) {
+        width: 15rem;
+      }
+      @include respond(phone) {
+        width: 20rem;
+      }
+      @include respond(phoneSmallSize) {
+        width: 100%;
+        align-self: stretch;
+        border-radius: 10px 10px 0px 0px;
+      }
+    }
+    &__image {
+    }
+    &__foodItemContainer {
+      position: relative;
+      @include respond(phoneSmallSize) {
+        // flex-direction: column;
+        border-radius: 0;
+      }
+    }
+
+    &__titleBoxMobile {
+      @include respond(phoneMediumsize) {
+        display: flex;
+      }
+
+      & h4 {
+        align-self: end;
+        margin-bottom: 0;
+      }
+
+      & span {
+        float: none;
+        margin-left: 0.8rem;
+        font-size: 1.8rem;
+        color: $color-text-dark-2;
+      }
+
+      & button.shopStyle-searchBtn {
+        margin-left: auto;
+      }
+    }
+
+    &__menuItem {
+      @include respond(phoneMediumsize) {
+        flex: 1 1 100%;
+      }
+    }
+
+    &__foodItemName {
+    }
+    &__foodStatus {
+      @include respond(tab-land) {
+        flex-direction: row;
+      }
+    }
+    &__foodStatus {
+      @include respond(phone) {
+        flex-direction: column;
+      }
+      &-box--right {
+        @include respond(phone) {
+          margin-left: 0;
+        }
+        @include respond(phone) {
+          display: flex;
+          align-items: center;
+          width: 100%;
+
+          &-item {
+            display: none;
+          }
+        }
+      }
+    }
+    &__prices {
+    }
+
+    &__btnCta {
+      display: none;
+      align-items: center;
+      border: none;
+      background: none;
+      background-color: $color-tertiary-dark-1;
+      border-radius: 4px;
+      margin-left: auto;
+      @include respond(phone) {
+        display: flex;
+      }
+
+      & img {
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0.5rem 1.5rem;
+        filter: $icon-color-white;
+        @include respond(phoneMediumsize) {
+          width: 2.5rem;
+          height: 2.5rem;
+          padding: 1.5rem;
+        }
+      }
+    }
+
+    &__buttonMobile {
+      display: none;
+      @include respond(phoneMediumsize) {
+        display: inline-block;
+        position: absolute;
+        right: 1rem;
+        top: 2rem;
+        border: none;
+        border-radius: 50%;
+        padding: 1rem 1.5rem;
+        background-color: $color-tertiary;
+        & span {
+          font-size: 2rem;
+          color: $color-text-dark-2;
+        }
+      }
+    }
+  }
+}
+
 .shopStyle-banner {
   position: relative;
   &__image-container {
@@ -63,7 +252,6 @@
       @include respond(phoneMediumsize) {
         font-size: 2rem;
       }
-     
     }
     & span {
       font-size: 2rem;
@@ -76,4 +264,21 @@
   width: 100%;
 }
 
-
+.shopStyle-searchBtn {
+  display: none;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: $color-tertiary-dark-1;
+  cursor: pointer;
+  & img {
+    width: 2rem;
+    height: 2rem;
+    padding: 0.8rem 1.5rem;
+    filter: $icon-color-white;
+  }
+  @include respond(phoneMediumsize) {
+    display: flex;
+  }
+}

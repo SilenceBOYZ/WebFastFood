@@ -3,8 +3,9 @@
   background-color: $color-primary-light-1;
   position: fixed;
   z-index: 1000;
+  background-color: transparent;
   &__shopStyle {
-    background-color: transparent ;
+    background-color: transparent;
   }
 }
 // -----Video background ------- //
@@ -20,8 +21,6 @@
     object-fit: cover;
     object-position: center;
   }
-
-  
 }
 
 

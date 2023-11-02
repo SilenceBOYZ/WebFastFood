@@ -20,6 +20,11 @@
     width: 7rem;
     height: 7rem;
   }
+
+  @include respond(phone) {
+    width: 6rem;
+    height: 6rem;
+  }
   
 
   &__shape {

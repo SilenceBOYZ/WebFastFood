@@ -1,4 +1,8 @@
 .whistlist {
+  padding: 0rem 2rem;
+  @include respond(phoneSmallSize) {
+    padding: 0rem 1rem;
+  }
   &__wrapper {
     font-family: $font-family-secondary;
   }
@@ -7,7 +11,7 @@
   &__list {
     width: 100%;
     border-collapse: collapse;
-    @include respond(phoneMediumsize){
+    @include respond(phoneMediumsize) {
       flex: 1 1 100%;
       overflow: auto;
     }
@@ -20,13 +24,48 @@
   &__body {
     & tr {
       border: 1px solid $color-text-light-1;
+      position: relative;
     }
 
-    & td{
+    & td {
       padding: 1.5rem;
       font-size: 1.8rem;
       &:last-child {
         text-align: right;
+      }
+      @include respond(phoneMediumsize) {
+        display: grid;
+        grid-template-columns: 15ch auto;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        &:last-child {
+          text-align: left;
+        }
+        &::before {
+          content: attr(data-cell);
+          text-transform: capitalize;
+          font-weight: 700;
+        }
+
+        &[role="button-addToCart"] {
+          & a {
+            text-align: center;
+          }
+        }
+
+        &[role="button-remove"] {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+
+      @include respond(phoneSmallSize) {
+        &[role="button-remove"] {
+          position: absolute;
+          top: -1.2rem;
+          right: -1.2rem;
+        }
       }
     }
   }
@@ -40,13 +79,20 @@
     &:last-child {
       text-align: right;
     }
+    @include respond(phoneMediumsize) {
+      display: none;
+    }
   }
 
-  &__imageBox{
+  &__imageBox {
     width: 10rem;
     height: 10rem;
     overflow: hidden;
     border-radius: 50%;
+    @include respond(phoneMediumsize) {
+      width: 15rem;
+      height: 15rem;
+    }
   }
   &__image {
     width: 100%;
@@ -57,7 +103,7 @@
     font-weight: 500;
   }
   &__cta {
-    border:none;
+    border: none;
     padding: 1.5rem 1.5rem 1.3rem 1.5rem;
     background-color: $color-tertiary-dark-1;
     border-radius: 8px;
