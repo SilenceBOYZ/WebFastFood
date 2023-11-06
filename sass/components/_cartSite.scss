@@ -1,0 +1,67 @@
+.shoppingCart-side {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 42rem;
+  height: 100vh;
+  padding: 8rem 4rem;
+  box-sizing: border-box;
+  background-color: #fff;
+  z-index: 10000000000;
+  &__btn {
+    background: none;
+    display: inline-block;
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    padding: 1.1rem 1.5rem;
+    border-radius: 4px;
+    border: none;
+    background-color: $color-primary;
+    cursor: pointer;
+    & span {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+    }
+  }
+  &__title {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 4rem;
+  }
+
+  &__containerItem {
+    width: 100%;
+    padding-right: 1.5rem;
+    // overflow-y: scroll;
+    & .cart__item {
+      height: auto;
+    }
+
+    & .shop-menu__foodItemName {
+      font-size: 1.8rem;
+      margin-bottom: 1.8rem;
+      font-weight: 600;
+      font-family: $font-family-secondary;
+    }
+
+    & .cart__closeTag {
+      justify-content: space-between;
+    }
+    & .cart__price {
+      margin-top: 0;
+      color: $color-primary-light-1;
+    }
+  }
+  & .cart__bill i{
+    color: $color-primary-light-1;
+  }
+  & .customerOrderCart__orderButton .card-order__btn{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-primary-light-1;
+  }
+}
