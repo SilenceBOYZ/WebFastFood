@@ -34,6 +34,9 @@
     margin: 0 auto;
     padding: 0rem 6rem 0rem 6rem;
     margin-top: 15rem;
+    @include respond(phoneSmallSize) {
+      padding: 0rem 3rem 0rem 8rem;
+    }
   }
   &__button {
     background-color: transparent;
@@ -42,6 +45,11 @@
     position: absolute;
     left: 2rem;
     top: 2rem;
+    @include respond(phoneSmallSize) {
+      right: 3rem;
+      left: 37rem;
+      top: 2rem;
+    }
     cursor: pointer;
     padding: 0.5rem 1rem;
     color: #fff;

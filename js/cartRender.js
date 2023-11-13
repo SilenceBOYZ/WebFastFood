@@ -1,6 +1,11 @@
 let shopListCart = document.getElementById("cartShop");
 let sideCart = document.getElementById("your-cart-side");
 let cartPrice = document.getElementById("total-prices");
+let countItem = document.getElementById("itemCount");
+let cartSite = document.getElementById("cartShoppingSide");
+let btnRemoveCart = document.getElementById("removeCartSide");
+let openCart = document.getElementById("cartSide-cta");
+
 // Kinh nghiệm rút ra không được đạt trùng id trong html
 
 let lockInputType = () => {
@@ -9,6 +14,16 @@ let lockInputType = () => {
     input.readOnly = true;
   })
 }
+
+// Click để bỏ giỏ hàng 
+btnRemoveCart.onclick = () => {
+  cartSite.classList.toggle("openCartList");
+};
+
+openCart.onclick = () => {
+  cartSite.classList.add("openCartList");
+};
+
 
 
 let itemData = [
@@ -38,6 +53,8 @@ let itemData = [
 let basket = [];
 let listItemSelected = [];
 
+
+// Load dữ liệu giỏ hàng
 generateShop = () => {
   return (shopListCart.innerHTML = itemData.map((product) => {
     let { id, name, desc, image, price } = product;
@@ -73,26 +90,34 @@ generateShop = () => {
 
 generateShop();
 
+
+// Thêm vào giỏ hàng
 let addtocart = (id) => {
   let selectedItem = id;
   // Xử lý logic đã tồn tại id
   addToSide(selectedItem.id);
+  cartSite.classList.add("openCartList");
 }
 
+// Phương thức khởi tạo giỏ hàng khi Item được thêm
 let addToSide = (id) => {
   let findProduct = id;
   let searchProduct = basket.find((x) => { return x.id === findProduct });
   if (searchProduct === undefined) {
     basket.push({
       id: findProduct,
-      quantity: 1
+      quantity: 1,
+      removeItem: false
     })
   } else if (searchProduct.quantity === 0) {
-    basket = basket.filter((x)=> {return x.quantity > 0});
+    basket = basket.filter((x) => { return x.quantity > 0 });
+  } else if (searchProduct.removeItem) {
+    basket = basket.filter((x) => { return x.removeItem === false });
   }
   else {
     searchProduct.quantity += 1;
   }
+
   sideCart.innerHTML = basket.map((x) => {
     let find = itemData.find((y) => { return y.id === x.id }) || [];
     let { quantity } = x;
@@ -136,7 +161,7 @@ let addToSide = (id) => {
       </div>
     </div>
     <div class="cart__closeTag">
-      <button>X</button>
+      <button class="removeBtn-Order" onclick="removeItem(${id})" id="removeItem-${id}">X</button>
       <i class="shop-menu__prices cart__price cart-side__price" id="price-${id}">${price * quantity}</i>
     </div>
   </div>
@@ -144,6 +169,7 @@ let addToSide = (id) => {
   }).join("");
   lockInputType();
   calcTotalPrice();
+  calculation();
 }
 // Làm sao để select đúng id của từng sản phẩm
 let increment = (id) => {
@@ -161,7 +187,10 @@ let increment = (id) => {
   }
   update(selectedItem.id);
   // parseInt
+  calculation();
 }
+
+// Giảm số lượng giỏ hàng
 let decrement = (id) => {
   let selectedItem = id;
   let itemId = `quantity-${selectedItem.id}`;
@@ -180,8 +209,10 @@ let decrement = (id) => {
     }
   }
   update(selectedItem.id);
+  calculation();
 }
 
+// Cập nhật lại giá và số lượng giỏ hàng
 let update = (id) => {
   let itemPrice = `price-${id}`;
   // Xử lý update giỏ hàng
@@ -197,6 +228,8 @@ let update = (id) => {
   calcTotalPrice();
 }
 
+
+// Cập nhật tổng tiền
 let calcTotalPrice = () => {
   let sum = 0;
   let listOfPrice = document.querySelectorAll(".cart-side__price");
@@ -206,6 +239,26 @@ let calcTotalPrice = () => {
   cartPrice.innerHTML = new Intl.NumberFormat('vi', { maximumSignificantDigits: 10 }).format(
     sum
   ) + ` <span>vnđ</span>`;
+}
+
+// Bỏ item ra khỏi giỏ hàng khi click vào nút
+let removeItem = (id) => {
+  let itemSelected = id;
+  let itemRemove = `removeItem-${itemSelected.id}`;
+  let itemRemoveSelected = document.getElementById(itemRemove);
+  if (itemRemoveSelected) {
+    let addStatusRemove = basket.find((x) => { return x.id === itemSelected.id })
+    if (addStatusRemove) {
+      addStatusRemove.removeItem = true;
+      addToSide(itemSelected.id);
+    }
+  }
+  calculation();
+}
+
+let calculation = () => {
+  let calculateItem = basket.map((x) => x.quantity).reduce((x, y) => x + y, 0);
+  countItem.innerHTML = calculateItem;
 }
 
 /* 

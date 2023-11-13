@@ -24,7 +24,7 @@
     align-items: center;
     gap: 1rem;
     &:link,
-    &:hover {
+    &:visited {
       color: $color-primary;
       font-size: 1.8rem;
       text-decoration: none;
@@ -58,6 +58,8 @@
     @include respond(phoneSmallSize) {
       grid-template-columns: repeat(1, 1fr);
     }
+
+  
   }
   &__cartItem {
     width: 100%;
@@ -165,4 +167,13 @@
       filter: $icon-color-white;
     }
   }
+}
+
+.removeBtn-Order {
+  padding: .7rem 1rem;
+  border-radius: 50%;
+  background-color: $color-primary-light-1 !important;
+  color: $color-text-light !important;
+  cursor: pointer;
+  margin-top: -1rem;
 }

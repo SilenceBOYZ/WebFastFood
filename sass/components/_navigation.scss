@@ -197,24 +197,24 @@
         border-radius: 8px;
         padding: 1rem;
       }
-      &::after {
-        position: absolute;
-        content: "0";
-        display: flex;
-        border-radius: 0.2rem;
-        width: 2rem;
-        height: 2rem;
-        align-items: center;
-        justify-content: center;
-        padding: 0.4rem;
-        border-radius: 50%;
-        right: -1rem;
-        top: -1rem;
-        font-size: 1.6rem;
-        color: $color-text-light;
-        background-color: $color-text-dark-2;
-      }
     }
+  }
+
+  &__countItem {
+    position: absolute;
+    display: flex;
+    border-radius: 0.2rem;
+    width: 2rem;
+    height: 2rem;
+    align-items: center;
+    justify-content: center;
+    padding: 0.4rem;
+    border-radius: 50%;
+    right: -1rem;
+    top: -1rem;
+    font-size: 1.6rem;
+    color: $color-text-light;
+    background-color: $color-text-dark-2;
   }
 }
 
@@ -369,7 +369,6 @@
   }
 
   &__title {
-    // Sử dụng important để thay thế shopMenu
     padding-top: 1.2rem;
     font-size: 1.8rem;
     font-family: $font-family-secondary;

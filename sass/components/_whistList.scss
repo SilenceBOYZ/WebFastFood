@@ -108,6 +108,8 @@
     background-color: $color-tertiary-dark-1;
     border-radius: 8px;
     cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
 
     & img {
       width: 1.5rem;

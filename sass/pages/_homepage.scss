@@ -130,7 +130,8 @@
     width: 60rem;
   }
   @include respond(phone) {
-    display: none;
+    order: -1;
+    height: auto;
   }
 
   &__sources {
@@ -140,6 +141,14 @@
     }
     @include respond(tab-land) {
       width: 100%;
+    }
+
+    @include respond(phone) {
+      width: 85%;
+    }
+
+    @include respond(phoneSmallSize) {
+      width: 80%;
     }
   }
 }
