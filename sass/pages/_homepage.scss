@@ -42,6 +42,11 @@
     @include respond(phoneSmallSize) {
       margin-bottom: 5.8rem;
     }
+
+    @include respond(phoneUnder5xx) {
+      margin-bottom: 5.8rem;  
+    }
+    
   }
 
   &__text {
@@ -54,6 +59,10 @@
     @include respond(tab-port) {
       margin-top: -4.5rem;
       margin-bottom: 1rem;
+    }
+
+    @include respond(phoneUnder5xx) {
+      font-size: 2rem;
     }
   }
 
@@ -167,7 +176,6 @@
     // background-color: antiquewhite;
   }
 
- 
   &__banner {
     width: 20rem;
     position: absolute;
@@ -201,7 +209,6 @@
         bottom: -2rem;
       }
     }
-    
   }
   &__title {
     @include respond(phoneMediumsize) {

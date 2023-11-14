@@ -114,6 +114,10 @@
     @include respond(phone) {
       font-size: 5.2rem;
     }
+    
+    @include respond(phoneUnder5xx) {
+      font-size: 4.2rem;
+    }
 
     @include respond(phoneSmallSize) {
       width: 100%;

@@ -179,6 +179,9 @@
     @media only screen and (max-width: 25em) {
       .content-banner__title {
         margin-bottom: 5.8rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .content-banner__title {
+        margin-bottom: 5.8rem; } }
   .content-banner__text {
     font-size: 2.8rem;
     text-transform: uppercase;
@@ -189,6 +192,9 @@
       .content-banner__text {
         margin-top: -4.5rem;
         margin-bottom: 1rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .content-banner__text {
+        font-size: 2rem; } }
   .content-banner__btn:link, .content-banner__btn:visited {
     color: #fff;
     text-decoration: none;
@@ -1551,6 +1557,9 @@ html {
     @media only screen and (max-width: 37.5em) {
       .special-foods__heading {
         font-size: 5.2rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .special-foods__heading {
+        font-size: 4.2rem; } }
     @media only screen and (max-width: 25em) {
       .special-foods__heading {
         width: 100%;
@@ -1887,11 +1896,16 @@ html {
       left: 10rem; }
     .daily-menu__button--right {
       right: 10rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .daily-menu__button--left {
+      left: 5rem; }
+    .daily-menu__button--right {
+      right: 5rem; } }
   @media only screen and (max-width: 25em) {
     .daily-menu__button--left {
-      left: 4rem; }
+      left: 1rem; }
     .daily-menu__button--right {
-      right: 4rem; } }
+      right: 1rem; } }
 
 .daily-menu__dots {
   position: relative;
@@ -1980,6 +1994,9 @@ html {
   @media only screen and (max-width: 56.25em) {
     .policies__title {
       font-size: 5.4rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .policies__title {
+      font-size: 4.2rem; } }
 
 .policies__content {
   display: flex;
@@ -2032,6 +2049,10 @@ html {
   color: #fff; }
   .customer-review__wrapper {
     padding: 4.4rem; }
+    @media only screen and (max-width: 31.25em) {
+      .customer-review__wrapper {
+        padding: 2.4rem 2.4rem 3.2rem 2.4rem;
+        box-sizing: content-box; } }
   .customer-review__boxTitle {
     display: flex;
     justify-content: center;
@@ -2062,10 +2083,16 @@ html {
       .customer-review__title {
         text-align: center;
         font-size: 4.8rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .customer-review__title {
+        font-size: 4.2rem; } }
   .customer-review__container {
     display: flex;
     gap: 3.2rem;
     justify-content: center; }
+    @media only screen and (max-width: 31.25em) {
+      .customer-review__container {
+        padding: 1.4rem 2.4rem; } }
   .customer-review__description {
     width: 28rem;
     height: 28rem;
@@ -2096,10 +2123,14 @@ html {
     height: 15rem;
     overflow: hidden;
     margin-bottom: 1rem;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.5;
     color: #474747; }
-    @media only screen and (max-width: 25em) {
-      .customer-review__comment {
-        line-height: 1.8; } }
+    @media only screen and (max-width: 31.25em) {
+      @supports (line-height: 1.8) {
+        .customer-review__comment {
+          line-height: 1.8;
+          font-family: "Coiny", cursive, sans-serif; } } }
   .customer-review__customer::after {
     content: "";
     display: block;
@@ -2143,7 +2174,7 @@ html {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   box-shadow: 0 2rem 3rem rgba(0, 0, 0, 0.02); }
-  @media only screen and (max-width: 25em) {
+  @media only screen and (max-width: 37.5em) {
     .blog-food__box {
       width: 40rem;
       flex-direction: column; } }
@@ -2152,7 +2183,7 @@ html {
   height: 25rem;
   overflow: hidden;
   width: 25rem; }
-  @media only screen and (max-width: 25em) {
+  @media only screen and (max-width: 37.5em) {
     .blog-food__imagebox {
       width: 100%;
       align-self: stretch; } }
@@ -2204,6 +2235,11 @@ html {
   line-height: 1.4;
   overflow-x: hidden;
   margin-bottom: 0.5rem; }
+  @media only screen and (max-width: 37.5em) {
+    .blog-food__paragraph {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem; } }
   @media only screen and (max-width: 25em) {
     .blog-food__paragraph {
       width: 100%;

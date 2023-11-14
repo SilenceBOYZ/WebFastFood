@@ -19,6 +19,12 @@
     };
   }
 
+  @if $media-query == phoneUnder5xx {
+    @media only screen and (max-width: 31.25em) {
+        @content
+    };
+  }
+
   @if $media-query == phone {
     @media only screen and (max-width: 37.5em) {
         @content

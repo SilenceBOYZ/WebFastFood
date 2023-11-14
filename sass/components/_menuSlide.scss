@@ -214,12 +214,20 @@
         right: 10rem;
       }
     }
-    @include respond(phoneSmallSize) {
+    @include respond(phoneUnder5xx) {
       &--left {
-        left: 4rem;
+        left: 5rem;
       }
       &--right {
-        right: 4rem;
+        right: 5rem;
+      }
+    }
+    @include respond(phoneSmallSize) {
+      &--left {
+        left: 1rem;
+      }
+      &--right {
+        right: 1rem;
       }
     }
   }

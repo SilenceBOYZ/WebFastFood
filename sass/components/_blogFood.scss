@@ -26,7 +26,7 @@
     background-color: #fff;
     border: 1px solid rgba(0,0,0, 0.08);
     box-shadow: 0 2rem 3rem rgba(0,0,0, 0.02);
-    @include respond(phoneSmallSize) {
+    @include respond(phone) {
       width: 40rem;
       flex-direction: column;
     }
@@ -35,7 +35,7 @@
     height: 25rem;
     overflow: hidden;
     width: 25rem;
-    @include respond(phoneSmallSize) {
+    @include respond(phone) {
       width: 100%;
       align-self: stretch;
     }
@@ -90,6 +90,11 @@
     line-height: 1.4;
     overflow-x: hidden;
     margin-bottom: 0.5rem;
+    @include respond(phone) {
+      width: 100%;
+      height: auto;
+      margin-bottom: 1rem ;
+    }
     @include respond(phoneSmallSize) {
       width: 100%;
       font-size: 2rem;
