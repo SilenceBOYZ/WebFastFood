@@ -1444,6 +1444,9 @@ html {
   .banner-food__catergories {
     color: #fff;
     font-size: 2.8rem; }
+    @media only screen and (max-width: 31.25em) {
+      .banner-food__catergories {
+        margin-bottom: 1.8rem; } }
     .banner-food__catergories--2, .banner-food__catergories--3 {
       color: #FFC222; }
   .banner-food__title {
