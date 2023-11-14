@@ -324,7 +324,9 @@
     background-color: #fff;
     z-index: 9999999999;
     transform: translateX(-100%);
-    transition: 0.3s all; } }
+    transition: 0.3s all; }
+    .shopStyle-body .shop-menu__catergories.movingSlide {
+      transform: translateX(0); } }
 
 @media only screen and (max-width: 43.75em) {
   .shopStyle-body .shop-menu .unshow {
@@ -451,12 +453,12 @@
       right: 1rem;
       top: 2rem;
       border: none;
-      border-radius: 50%;
+      border-radius: 8px;
       padding: 1rem 1.5rem;
-      background-color: #B0D9B1; }
+      background-color: #EE2737; }
       .shopStyle-body .shop-menu__buttonMobile span {
         font-size: 2rem;
-        color: #474747; } }
+        color: #fff; } }
 
 .shopStyle-banner {
   position: relative; }

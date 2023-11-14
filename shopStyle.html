@@ -399,7 +399,7 @@
     <main class="shopStyle-main">
       <section class="shop-menu">
         <div class="container shop-menu__wrapper">
-          <div class="shop-menu__catergories">
+          <div class="shop-menu__catergories" id="catergories">
             <div class="shop-menu__titleBox unshow">
               <h4 class="heading--4 shop-menu__title">Tìm kiếm gần nhất</h4>
               <div class="divider-style-1">
@@ -460,14 +460,14 @@
               </li>
             </ul>
 
-            <button class="shop-menu__buttonMobile"><span>X</span></button>
+            <button class="shop-menu__buttonMobile" id="catergories__removeBtn"><span>X</span></button>
           </div>
           <div class="shop-menu__menuItem">
               <div class="shop-menu__titleBox shop-menu__titleBoxMobile">
                 <h4 class="heading--4 shop-menu__title clearFix">
                   Kết quả<span class="shop-menu__result">30 Món ăn</span>
                 </h4>
-                <button class="shopStyle-searchBtn">
+                <button class="shopStyle-searchBtn" id="btnFindMenuSearch">
                   <img src="img/svg/search.svg" alt="icon-svg">
                 </button>
               </div>
@@ -623,5 +623,6 @@
 
     
     <script src="js/todaymenuEffect.js"></script>
+    <script src="js/openingMenuSearch.js"></script>
   </body>
 </html>

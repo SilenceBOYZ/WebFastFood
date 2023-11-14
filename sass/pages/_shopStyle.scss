@@ -13,6 +13,10 @@
         z-index: 9999999999;
         transform: translateX(-100%);
         transition: 0.3s all;
+
+        &.movingSlide {
+          transform: translateX(0);
+        }
       }
     }
 
@@ -175,12 +179,12 @@
         right: 1rem;
         top: 2rem;
         border: none;
-        border-radius: 50%;
+        border-radius: 8px;
         padding: 1rem 1.5rem;
-        background-color: $color-tertiary;
+        background-color: $color-primary;
         & span {
           font-size: 2rem;
-          color: $color-text-dark-2;
+          color: $color-text-light;
         }
       }
     }
