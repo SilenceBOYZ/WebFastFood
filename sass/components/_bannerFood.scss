@@ -2,7 +2,6 @@
   transform: translateY(-15rem);
   @include respond(phone) {
     transform: translateY(-12rem);
-
   }
   &__wrapper {
     height: 49rem;
@@ -32,6 +31,10 @@
       grid-template-columns: minmax(max-content, 41rem);
     }
 
+    @include respond(phoneUnder5xx) {
+      grid-template-rows: repeat(auto-fit, 20rem);
+    }
+
     @include respond(phoneSmallSize) {
       grid-template-rows: repeat(2, 18rem);
       row-gap: 2rem;
@@ -51,7 +54,7 @@
       @include respond(mac-book) {
         width: auto;
       }
-      @include respond(tab-port){
+      @include respond(tab-port) {
         grid-columns: 3 / 4;
         display: none;
       }
@@ -66,7 +69,7 @@
         width: auto;
       }
       @include respond(tab-port) {
-        & img{
+        & img {
           border-radius: 1.2rem;
         }
       }
@@ -91,7 +94,7 @@
       // @include respond(medium-desktop) {
       //   display: none;
       // }
-      @include respond(tab-port){
+      @include respond(tab-port) {
         grid-column: 1 / 2;
       }
       @include respond(tab-port) {
@@ -202,9 +205,10 @@
       }
     }
 
-    &--1, &--2 {
+    &--1,
+    &--2 {
       @include respond(phoneUnder5xx) {
-        margin-bottom: 0.8rem;
+        margin-bottom: 1.2rem;
       }
     }
     &--2,
@@ -222,7 +226,6 @@
   }
 
   &__btn {
-    
     &:hover {
       transform: translateY(-0.5rem);
     }
