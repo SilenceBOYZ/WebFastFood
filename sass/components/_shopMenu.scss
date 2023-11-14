@@ -80,59 +80,59 @@
     gap: 2rem;
     margin-bottom: 2.5rem;
 
-    & input[type="checkbox"] {
+    & input[type="radio"] {
       width: 2rem;
       height: 2rem;
       position: relative;
       font-size: 1.4rem;
       border-radius: 8px;
       cursor: pointer;
-      // visibility: hidden;
-      // &::before {
-      //   width: 120%;
-      //   height: 120%;
-      //   border-radius: 15px;
-      //   position: absolute;
-      //   left: 0;
-      //   top: 0%;
-      //   background-color: #ffffff;
-      //   content: "";
-      //   display: inline-block;
-      //   visibility: visible;
-      //   box-sizing: border-box;
-      //   border: 2px solid $color-primary-light-1;
-      //   transform: translateY(-10%);
-      //   cursor: pointer;
-      // }
-
-      // &::after {
-      //   width: 80%;
-      //   height: 80%;
-      //   border-radius: 15px;
-      //   position: absolute;
-      //   left: 50%;
-      //   top: 50%;
-      //   background-color: $color-primary-light-1;
-      //   content: "";
-      //   display: inline-block;
-      //   visibility: visible;
-      //   box-sizing: border-box;
-      //   transform: translateY(-10%);
-      //   cursor: pointer;
-      //   transform: translate(-38%, -52%);
-      //   visibility: hidden;
-      //   opacity: 0;
-      // }
-
-      // &:checked::after {
-      //   visibility: visible;
-      //   opacity: 1;
-      // }
-
-      &:checked {
-        border-color: $color-primary-light-1;
-        accent-color: $color-primary-light-1;
+      visibility: hidden;
+      &::before {
+        width: 120%;
+        height: 120%;
+        border-radius: 15px;
+        position: absolute;
+        left: 0;
+        top: 0%;
+        background-color: #ffffff;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        box-sizing: border-box;
+        border: 2px solid $color-primary-light-1;
+        transform: translateY(-10%);
+        cursor: pointer;
       }
+
+      &::after {
+        width: 80%;
+        height: 80%;
+        border-radius: 15px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: $color-primary-light-1;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        box-sizing: border-box;
+        transform: translateY(-10%);
+        cursor: pointer;
+        transform: translate(-38%, -52%);
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &:checked::after {
+        visibility: visible;
+        opacity: 1;
+      }
+
+      // &:checked {
+      //   border-color: $color-primary-light-1;
+      //   accent-color: $color-primary-light-1;
+      // }
     }
     & label {
       font-size: 1.6rem;

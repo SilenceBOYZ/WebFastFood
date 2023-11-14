@@ -54,7 +54,10 @@
         }
 
         &[role="button-remove"] {
-          position: absolute;
+          position: relative;
+          @supports (position: absolute) {
+            position: absolute;
+          }
           top: 0;
           right: 0;
         }
@@ -62,7 +65,9 @@
 
       @include respond(phoneSmallSize) {
         &[role="button-remove"] {
-          position: absolute;
+          @supports (position: absolute) {
+            position: absolute;
+          }
           top: -1.2rem;
           right: -1.2rem;
         }

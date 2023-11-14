@@ -2365,16 +2365,49 @@ html {
     align-items: center;
     gap: 2rem;
     margin-bottom: 2.5rem; }
-    .shop-menu__item input[type="checkbox"] {
+    .shop-menu__item input[type="radio"] {
       width: 2rem;
       height: 2rem;
       position: relative;
       font-size: 1.4rem;
       border-radius: 8px;
-      cursor: pointer; }
-      .shop-menu__item input[type="checkbox"]:checked {
-        border-color: #F33F4D;
-        accent-color: #F33F4D; }
+      cursor: pointer;
+      visibility: hidden; }
+      .shop-menu__item input[type="radio"]::before {
+        width: 120%;
+        height: 120%;
+        border-radius: 15px;
+        position: absolute;
+        left: 0;
+        top: 0%;
+        background-color: #ffffff;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        box-sizing: border-box;
+        border: 2px solid #F33F4D;
+        transform: translateY(-10%);
+        cursor: pointer; }
+      .shop-menu__item input[type="radio"]::after {
+        width: 80%;
+        height: 80%;
+        border-radius: 15px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background-color: #F33F4D;
+        content: "";
+        display: inline-block;
+        visibility: visible;
+        box-sizing: border-box;
+        transform: translateY(-10%);
+        cursor: pointer;
+        transform: translate(-38%, -52%);
+        visibility: hidden;
+        opacity: 0; }
+      .shop-menu__item input[type="radio"]:checked::after {
+        visibility: visible;
+        opacity: 1; }
     .shop-menu__item label {
       font-size: 1.6rem;
       text-transform: capitalize;
@@ -2597,7 +2630,7 @@ html {
       font-family: "Roboto", sans-serif; }
     .item-Details__informationBox:last-child {
       margin-left: 4rem; }
-    .item-Details__information .form {
+    .item-Details__information .form, .item-Details__information form {
       position: relative; }
   .item-Details__button {
     display: flex;
@@ -3037,14 +3070,19 @@ html {
         .whistlist__body td[role="button-addToCart"] a {
           text-align: center; }
         .whistlist__body td[role="button-remove"] {
-          position: absolute;
+          position: relative;
           top: 0;
-          right: 0; } }
+          right: 0; }
+          @supports (position: absolute) {
+            .whistlist__body td[role="button-remove"] {
+              position: absolute; } } }
     @media only screen and (max-width: 25em) {
       .whistlist__body td[role="button-remove"] {
-        position: absolute;
         top: -1.2rem;
-        right: -1.2rem; } }
+        right: -1.2rem; }
+        @supports (position: absolute) {
+          .whistlist__body td[role="button-remove"] {
+            position: absolute; } } }
   .whistlist__title {
     padding: 1.5rem;
     font-size: 1.8rem;
