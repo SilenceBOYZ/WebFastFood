@@ -490,7 +490,8 @@
     font-size: 5.4rem; }
     @media only screen and (max-width: 43.75em) {
       .shopStyle-banner__title {
-        font-size: 4.4rem; } }
+        font-size: 4.4rem;
+        margin-bottom: 2rem; } }
   .shopStyle-banner__breadcrumb {
     padding: 1rem 3rem;
     background-color: #F33F4D;
