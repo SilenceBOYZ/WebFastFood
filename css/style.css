@@ -473,7 +473,7 @@
     user-select: none; }
     @media only screen and (max-width: 43.75em) {
       .shopStyle-banner__image {
-        width: 135%; } }
+        width: 200%; } }
   .shopStyle-banner__content {
     font-size: 1.6rem;
     position: absolute;
@@ -2287,7 +2287,7 @@ html {
     @media only screen and (max-width: 43.75em) {
       .input-search__inputTag {
         flex: 0 1 40%; } }
-    @media only screen and (max-width: 25em) {
+    @media only screen and (max-width: 37.5em) {
       .input-search__inputTag {
         flex: 0 1 30%; } }
   .input-search__btnBox {
@@ -3191,9 +3191,9 @@ html {
     cursor: pointer;
     transform: translateY(-2px);
     transition: 0.4s all; }
-    @media only screen and (max-width: 25em) {
+    @media only screen and (max-width: 37.5em) {
       .order-menu__cartItem {
-        height: 43rem; } }
+        height: auto; } }
     .order-menu__cartItem:hover {
       border: 2px dashed #F33F4D;
       background: none;
@@ -3229,14 +3229,17 @@ html {
     margin-bottom: 1rem;
     height: 20rem;
     overflow: hidden; }
-    @media only screen and (max-width: 25em) {
+    @media only screen and (max-width: 37.5em) {
       .order-menu__imageBox {
-        height: 25rem; } }
+        height: auto; } }
   .order-menu__image {
     width: 100%; }
   .order-menu__title {
     font-size: 1.6rem;
     margin-bottom: 0.6rem; }
+    @media only screen and (max-width: 37.5em) {
+      .order-menu__title {
+        font-size: 2rem; } }
   .order-menu__desc {
     padding-right: 0.5rem;
     font-size: 1.4rem;
@@ -3244,6 +3247,10 @@ html {
     overflow-y: hidden;
     line-height: 1.6;
     margin-bottom: 0.8rem; }
+    @media only screen and (max-width: 37.5em) {
+      .order-menu__desc {
+        font-size: 1.6rem;
+        height: auto; } }
   .order-menu__prices {
     display: flex;
     justify-content: space-between;
@@ -3252,6 +3259,9 @@ html {
     font-size: 1.8rem;
     font-weight: 600;
     color: #F33F4D; }
+    @media only screen and (max-width: 37.5em) {
+      .order-menu__price {
+        font-size: 2rem; } }
   .order-menu__addToCart {
     border: none;
     background: none;
