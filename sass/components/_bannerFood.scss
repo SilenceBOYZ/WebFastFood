@@ -202,8 +202,8 @@
       }
     }
 
-    &--2 {
-      @include respond(phoneSmallSize) {
+    &--1, &--2 {
+      @include respond(phoneUnder5xx) {
         margin-bottom: 0.8rem;
       }
     }
