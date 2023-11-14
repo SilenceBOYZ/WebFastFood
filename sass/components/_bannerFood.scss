@@ -185,6 +185,9 @@
   &__catergories {
     color: $color-text-light;
     font-size: 2.8rem;
+    @include respond (phoneUnder5xx) {
+      margin-bottom: 0.8rem;
+    }
     &--1 {
     }
     &--2,
