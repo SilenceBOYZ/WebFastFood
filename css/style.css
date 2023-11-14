@@ -1204,7 +1204,7 @@ html {
   background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4) 70%, transparent);
   display: block;
   transform: translateX(-100%);
-  transition: all .3s; }
+  transition: all 0.3s; }
   @media only screen and (max-width: 25em) {
     .navbar-mobile {
       background: #fff; } }
@@ -1248,17 +1248,21 @@ html {
       @media only screen and (max-width: 25em) {
         .navbar-mobile__list li {
           width: 100%; } }
-      .navbar-mobile__list li img {
-        display: inline-block;
-        padding: 0.8rem;
-        background-color: #7DA640;
+      .navbar-mobile__list li button {
+        box-sizing: border-box;
         border-radius: 8px;
-        width: 1.5rem;
-        height: 1.5rem; }
-        @media only screen and (max-width: 25em) {
-          .navbar-mobile__list li img {
-            width: 3rem;
-            height: 3rem; } }
+        padding: 0.8rem 0.8rem 0.6rem 0.8rem;
+        border: none;
+        background-color: #EE2737; }
+        .navbar-mobile__list li button img {
+          display: inline-block;
+          width: 2rem;
+          height: 2rem;
+          filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg) brightness(109%) contrast(100%); }
+          @media only screen and (max-width: 25em) {
+            .navbar-mobile__list li button img {
+              width: 3rem;
+              height: 3rem; } }
   .navbar-mobile__link:link, .navbar-mobile__link:visited {
     color: #474747;
     text-decoration: none;
