@@ -2706,6 +2706,7 @@ html {
     border: 1px solid #dad9d9;
     padding: 1rem;
     border-radius: 8px;
+    cursor: pointer;
     background-color: #fff; }
     @media only screen and (max-width: 56.25em) {
       .item-Details__itemAddition {

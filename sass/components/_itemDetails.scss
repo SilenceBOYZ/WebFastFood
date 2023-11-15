@@ -175,6 +175,7 @@
     border: 1px solid $color-text-light-1;
     padding: 1rem;
     border-radius: 8px;
+    cursor: pointer;
     background-color: $color-text-light;
     @include respond(tab-port) {
       width: 40%;
