@@ -3,20 +3,25 @@
   @include respond(tab-land) {
     padding: 6rem 4rem;
   }
+  
   &__wrapper {
     margin: 0 auto;
   }
+
+  &__slideWrapper {
+    max-width: 65rem;
+    margin: 0 auto;
+    overflow-x: hidden;
+  }
+
   &__titleContain {
+    margin: 0rem auto 4rem auto;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 3rem;
-    margin-bottom: 4rem;
+    gap: 2rem;
+    transition: 2s all;
     @include respond(phone) {
-      flex-wrap: wrap;
       gap: 1.5rem;
-      align-items: start;
-      justify-content: start;
     }
   }
   &__itemAction {
