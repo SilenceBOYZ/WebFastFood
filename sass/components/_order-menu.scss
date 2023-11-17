@@ -3,7 +3,10 @@
   @include respond(tab-land) {
     padding: 6rem 4rem;
   }
-  
+  @include respond(phoneSmallSize) {
+    padding: 6rem 2rem;
+  }
+
   &__wrapper {
     margin: 0 auto;
   }
@@ -11,15 +14,20 @@
   &__slideWrapper {
     max-width: 65rem;
     margin: 0 auto;
-    overflow-x: hidden;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    margin-bottom: 4rem;
   }
 
   &__titleContain {
-    margin: 0rem auto 4rem auto;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     gap: 2rem;
     transition: 2s all;
+    padding: 0rem 0rem 0rem 2.5rem;
     @include respond(phone) {
       gap: 1.5rem;
     }
@@ -63,8 +71,6 @@
     @include respond(phoneSmallSize) {
       grid-template-columns: repeat(1, 1fr);
     }
-
-  
   }
   &__cartItem {
     width: 100%;
@@ -182,10 +188,32 @@
       filter: $icon-color-white;
     }
   }
+
+  &__btnMoveSlide {
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 2.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-primary-light-1;
+    z-index: 100;
+    padding: 2rem 0;
+    & img {
+      filter: $icon-color-white;
+    }
+    &--left {
+      left: 0;
+    }
+    &--right {
+      right: 0;
+    }
+  }
 }
 
 .removeBtn-Order {
-  padding: .7rem 1rem;
+  padding: 0.7rem 1rem;
   border-radius: 50%;
   background-color: $color-primary-light-1 !important;
   color: $color-text-light !important;
