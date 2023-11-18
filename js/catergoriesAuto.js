@@ -39,13 +39,13 @@ let examWindowWidth = () => {
     var isMouseDown = false;
     var startX, startScrollLeft;
 
-    container.addEventListener("mousedown", function (e) {
+    container.addEventListener("touchstart", function (e) {
       isMouseDown = true;
       startX = e.pageX - container.offsetLeft;
       startScrollLeft = container.scrollLeft;
     });
 
-    container.addEventListener("mousemove", function (e) {
+    container.addEventListener("touchmove", function (e) {
       if (!isMouseDown) return;
 
       var mouseX = e.pageX - container.offsetLeft;
@@ -54,14 +54,13 @@ let examWindowWidth = () => {
       container.scrollLeft = startScrollLeft - moveX;
     });
 
-    container.addEventListener("mouseup", function () {
+    container.addEventListener("touchend", function () {
       isMouseDown = false;
     });
 
-    container.addEventListener("mouseleave", function () {
+    container.addEventListener("touchcancel", function () {
       isMouseDown = false;
     });
-
   } else {
     btns.forEach((btn) => {
       btn.onclick = () => {
