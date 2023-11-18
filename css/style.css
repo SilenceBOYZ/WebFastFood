@@ -3182,7 +3182,8 @@ html {
     overflow: hidden;
     display: flex;
     align-items: center;
-    margin-bottom: 4rem; }
+    margin-bottom: 4rem;
+    cursor: pointer; }
   .order-menu__titleContain {
     margin: 0 auto;
     display: flex;
@@ -3193,10 +3194,14 @@ html {
     @media only screen and (max-width: 37.5em) {
       .order-menu__titleContain {
         gap: 1.5rem; } }
+    @media only screen and (max-width: 25em) {
+      .order-menu__titleContain {
+        padding: 0rem 0rem 0rem 3rem; } }
   .order-menu__itemAction {
     display: flex;
     align-items: center;
-    gap: 1rem; }
+    gap: 1rem;
+    user-select: none; }
     .order-menu__itemAction:link, .order-menu__itemAction:visited {
       color: #EE2737;
       font-size: 1.8rem;
@@ -3334,7 +3339,8 @@ html {
     justify-content: center;
     background-color: #F33F4D;
     z-index: 100;
-    padding: 2rem 0; }
+    padding: 2rem 0;
+    cursor: pointer; }
     .order-menu__btnMoveSlide img {
       filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg) brightness(109%) contrast(100%); }
     .order-menu__btnMoveSlide--left {

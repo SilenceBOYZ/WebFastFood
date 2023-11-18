@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #container {
+      width: 300px;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+      border: 1px solid #ccc;
+    }
+
+    #content {
+      width: 600px;
+      height: 200px;
+      position: absolute;
+      transition: transform 0.3s ease-out;
+    }
+  </style>
+  <title>Mouse Slide</title>
+</head>
+<body>
+
+<div id="container">
+  <div id="content">
+    <!-- Your content goes here -->
+    <img src="your-image.jpg" alt="Your Image">
+  </div>
+</div>
+
+<script>
+  var container = document.getElementById("container");
+  var content = document.getElementById("content");
+
+  var isMouseDown = false;
+  var startX, startTranslateX;
+
+  container.addEventListener("mousedown", function (e) {
+    isMouseDown = true;
+    startX = e.pageX;
+    startTranslateX = getTranslateX(content);
+  });
+
+  container.addEventListener("mousemove", function (e) {
+    if (!isMouseDown) return;
+
+    var mouseX = e.pageX;
+    var moveX = mouseX - startX;
+
+    var newTranslateX = startTranslateX + moveX;
+
+    // Limit the sliding within the container width
+    var maxTranslateX = container.offsetWidth - content.offsetWidth;
+    newTranslateX = Math.max(0, Math.min(newTranslateX, maxTranslateX));
+
+    content.style.transform = "translate3d(" + -newTranslateX + "px, 0, 0)";
+  });
+
+  container.addEventListener("mouseup", function () {
+    isMouseDown = false;
+  });
+
+  container.addEventListener("mouseleave", function () {
+    isMouseDown = false;
+  });
+
+  function getTranslateX(element) {
+    var style = window.getComputedStyle(element);
+    var matrix = new WebKitCSSMatrix(style.transform);
+    return matrix.m41;
+  }
+</script>
+
+</body>
+</html>

@@ -47,6 +47,24 @@ let itemData = [
     desc: "Món ăn ngon giá rẻ",
     image: "fooditem3.png",
     price: 35000
+  },{
+    id: "acbs12",
+    name: "Tacos Việt Nam",
+    desc: "Món ăn ngon giá rẻ",
+    image: "fooditem1.png",
+    price: 50000
+  },{
+    id: "acbs15",
+    name: "Mì xào Việt Nam",
+    desc: "Món ăn ngon giá rẻ",
+    image: "fooditem2.png",
+    price: 45000
+  },{
+    id: "ac2s12",
+    name: "Pasta Việt Nam",
+    desc: "Món ăn ngon giá rẻ",
+    image: "fooditem1.png",
+    price: 55000
   },
 ];
 
