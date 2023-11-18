@@ -41,14 +41,14 @@ let examWindowWidth = () => {
 
     container.addEventListener("touchstart", function (e) {
       isMouseDown = true;
-      startX = e.pageX - container.offsetLeft;
+      startX = e.touches[0].pageX - container.offsetLeft;
       startScrollLeft = container.scrollLeft;
     });
 
     container.addEventListener("touchmove", function (e) {
       if (!isMouseDown) return;
 
-      var mouseX = e.pageX - container.offsetLeft;
+      var mouseX = e.touches[0].pageX - container.offsetLeft;
       var moveX = mouseX - startX;
 
       container.scrollLeft = startScrollLeft - moveX;
