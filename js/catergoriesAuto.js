@@ -7,7 +7,7 @@ let previousXPosition = 0;
 let positionToMove = -145;
 const mobileWidth = 550;
 let CountItem = 0;
-let lengthToReset = 5 ;
+let lengthToReset = 5;
 
 function slideMoving() {
   if (CountItem > items.length - lengthToReset) {
@@ -47,7 +47,6 @@ let examWindowWidth = () => {
 
     container.addEventListener("touchmove", function (e) {
       if (!isMouseDown) return;
-
       var mouseX = e.touches[0].pageX - container.offsetLeft;
       var moveX = mouseX - startX;
 
@@ -75,7 +74,7 @@ let examWindowWidth = () => {
         }
       };
     });
-    
+
     timeToSlide();
   }
 }

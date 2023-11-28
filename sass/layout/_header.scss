@@ -1,11 +1,29 @@
 .header {
   width: 100%;
   background-color: $color-primary-light-1;
-  position: fixed;
-  z-index: 1000;
   background-color: transparent;
+  transition: .8s all;
   &__shopStyle {
     background-color: transparent;
+  }
+}
+.sticky .header {
+  background-color: $color-primary-light-1;
+  position: fixed;
+  z-index: 1000;
+  & .navbar-top__link {
+    &:link,
+    &:visited {
+      color: #fff;
+    }
+  }
+  & .navbar-top__icon {
+    fill: #fff;
+  }
+  & .navbar-top__icons--order {
+    & .navbar-top__iconBox {
+      fill: #fff;
+    }
   }
 }
 // -----Video background ------- //
@@ -22,6 +40,3 @@
     object-position: center;
   }
 }
-
-
-

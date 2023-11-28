@@ -29,11 +29,21 @@
 .header {
   width: 100%;
   background-color: #F33F4D;
-  position: fixed;
-  z-index: 1000;
-  background-color: transparent; }
+  background-color: transparent;
+  transition: .8s all; }
   .header__shopStyle {
     background-color: transparent; }
+
+.sticky .header {
+  background-color: #F33F4D;
+  position: fixed;
+  z-index: 1000; }
+  .sticky .header .navbar-top__link:link, .sticky .header .navbar-top__link:visited {
+    color: #fff; }
+  .sticky .header .navbar-top__icon {
+    fill: #fff; }
+  .sticky .header .navbar-top__icons--order .navbar-top__iconBox {
+    fill: #fff; }
 
 .background__video {
   position: absolute;
