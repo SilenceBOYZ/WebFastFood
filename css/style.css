@@ -471,7 +471,8 @@
         color: #fff; } }
 
 .shopStyle-banner {
-  position: relative; }
+  position: relative;
+  z-index: -1; }
   .shopStyle-banner__image-container {
     height: 40rem;
     overflow: hidden;
@@ -779,10 +780,10 @@ html {
       font-size: 50%; } }
 
 .main {
-  width: 100%;
-  padding-top: 10rem; }
+  width: 100%; }
 
 .main-shopDetail {
+  margin-top: 10rem;
   padding-bottom: 10rem; }
 
 .shopWishlist-main {
@@ -935,7 +936,6 @@ html {
       .navbar-top__logo-link {
         display: none; } }
   .navbar-top__logo {
-    transform: scale(1.5);
     display: inline-block;
     outline: none;
     user-select: none; }
@@ -1169,7 +1169,8 @@ html {
   top: 120%;
   transform-origin: top;
   transform: scaleY(0);
-  transition: all 0.4s; }
+  transition: all 0.4s;
+  z-index: 10000000; }
   .customerOrderCart__item {
     padding-bottom: 1rem;
     border-bottom: 1px dashed #dad9d9; }
@@ -3044,10 +3045,12 @@ html {
     color: #fff; }
 
 .whistlist {
-  padding: 0rem 2rem; }
+  padding: 0rem 2rem;
+  padding-top: 10rem; }
   @media only screen and (max-width: 25em) {
     .whistlist {
-      padding: 0rem 1rem; } }
+      padding: 0rem 1rem;
+      padding-top: 5rem; } }
   .whistlist__wrapper {
     font-family: "Roboto", sans-serif; }
   .whistlist__list {

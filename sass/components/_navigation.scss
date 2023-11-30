@@ -37,7 +37,6 @@
   }
 
   &__logo {
-    transform: scale(1.5);
     display: inline-block;
     outline: none;
     user-select: none;
@@ -363,6 +362,7 @@
   transform-origin: top;
   transform: scaleY(0);
   transition: all 0.4s;
+  z-index: 10000000;
   &__item {
     padding-bottom: 1rem;
     border-bottom: 1px dashed $color-text-light-1;

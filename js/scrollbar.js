@@ -1,4 +1,9 @@
-const headerScroll = document.querySelector('.banner-homepage');
+const bannerHome = document.querySelector('.banner-homepage');
+const bannerShop = document.querySelector('.shopStyle-banner');
+const headerScroll = [
+  bannerHome,
+  bannerShop
+];
 
 const obs = new IntersectionObserver(function(entries){
   const ent = entries[0];
@@ -18,4 +23,10 @@ const obs = new IntersectionObserver(function(entries){
   rootMargin: '0px'
 });
 
-obs.observe(headerScroll);
+for(let i = 0; i < headerScroll.length; i++){
+  if(headerScroll[i] === null){
+    continue;
+  }
+  obs.observe(headerScroll[i]);
+}
+// 

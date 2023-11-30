@@ -193,6 +193,7 @@
 
 .shopStyle-banner {
   position: relative;
+  z-index: -1;
   &__image-container {
     height: 40rem;
     overflow: hidden;
