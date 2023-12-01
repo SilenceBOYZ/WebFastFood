@@ -935,6 +935,9 @@ html {
     @media only screen and (max-width: 25em) {
       .navbar-top__logo-link {
         display: none; } }
+    @media only screen and (max-width: 56.25em) {
+      .navbar-top__logo-link {
+        width: 25rem; } }
   .navbar-top__logo {
     display: inline-block;
     outline: none;
@@ -1234,6 +1237,7 @@ html {
       .navbar-mobile__wrapper {
         max-width: 32rem; } }
   .navbar-mobile__imageBox {
+    text-align: center;
     width: 100%;
     margin-bottom: 3rem; }
     @media only screen and (max-width: 25em) {
@@ -1241,8 +1245,7 @@ html {
         padding-top: 10rem; } }
   .navbar-mobile__image {
     display: inline-block;
-    margin: 0 auto;
-    width: 100%; }
+    margin: 0 auto; }
   .navbar-mobile__list {
     list-style: none;
     color: #000;
@@ -1314,7 +1317,8 @@ html {
         font-size: 2rem; } }
 
 .navbar-mobile.active__mobile {
-  transform: translateX(0%); }
+  transform: translateX(0%);
+  z-index: 100000; }
 
 .banner-food {
   transform: translateY(-15rem); }
