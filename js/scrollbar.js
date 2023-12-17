@@ -1,10 +1,10 @@
 const bannerHome = document.querySelector('.banner-homepage');
 const bannerShop = document.querySelector('.shopStyle-banner');
 
-  const headerScroll = [
-    bannerHome,
-    bannerShop
-  ];
+const headerScroll = [
+  bannerHome,
+  bannerShop
+];
   
   const obs = new IntersectionObserver(function(entries){
     const ent = entries[0];

@@ -19,7 +19,7 @@
     />
     <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
   </head>
-  <body>  
+  <body>
     <header class="header header__shopStyle">
       <div class="wrapping-header container">
         <nav class="navbar-top">
@@ -74,7 +74,7 @@
                   </div>
                 </div>
               </li>
-             
+
               <li class="navbar-top__item navbar-top__item--3">
                 <a href="http://" class="navbar-top__link">
                   page
@@ -104,7 +104,7 @@
                         >
                       </li>
                       <li class="dropdown-menu__items">
-                        <a class="dropdown-menu__link" href="shopDetail.html"
+                        <a class="dropdown-menu__link" href="shopOrder.html"
                           >Món ăn</a
                         >
                       </li>
@@ -235,7 +235,6 @@
                         <button>X</button>
                       </div>
                     </div>
-
                   </div>
 
                   <div class="shop-menu__titleBox customerOrderCart__titleBox">
@@ -256,7 +255,6 @@
                 </div>
 
                 <div class="navbar-top__countItem">0</div>
-
               </div>
             </div>
 
@@ -297,13 +295,19 @@
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="navbar-mobile__link open-sideLog" id="btn-mobileLogin"
+                  <a
+                    href="#"
+                    class="navbar-mobile__link open-sideLog"
+                    id="btn-mobileLogin"
                     ><span>Đăng nhập</span
                     ><img src="img/svg/chevron-thin-right.svg" alt="" srcset=""
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="navbar-mobile__link open-sideLog" id="btn-mobileCreate"
+                  <a
+                    href="#"
+                    class="navbar-mobile__link open-sideLog"
+                    id="btn-mobileCreate"
                     ><span>Đăng ký</span
                     ><img src="img/svg/chevron-thin-right.svg" alt="" srcset=""
                   /></a>
@@ -396,288 +400,431 @@
       </div>
     </figure>
 
-   <main class="main">
-    <section class="checkout">
-      <div class="container checkout__wrapper">
-        <div class="checkout__whistlist">
-          <div class="shop-menu__titleBox">
-            <h4 class="heading--4 shop-menu__title">Đơn hàng của bạn</h4>
-            <div class="divider-style-1">
-              <span class="divider-style-1__point"></span>
-              <span class="divider-style-1__line"></span>
+    <main class="main">
+      <section class="checkout">
+        <div class="container checkout__wrapper">
+          <div class="checkout__whistlist">
+            <div class="shop-menu__titleBox">
+              <h4 class="heading--4 shop-menu__title">Đơn hàng của bạn</h4>
+              <div class="divider-style-1">
+                <span class="divider-style-1__point"></span>
+                <span class="divider-style-1__line"></span>
+              </div>
             </div>
+
+            <form class="whistlist__form" action="" method="post">
+              <table class="whistlist__list">
+                <thead class="whistlist__heading">
+                  <tr>
+                    <th class="whistlist__title">Món ăn</th>
+                    <th class="whistlist__title">Tên món ăn</th>
+                    <th class="whistlist__title">Giá</th>
+                    <th class="whistlist__title">Số lượng</th>
+                    <th class="whistlist__title">Tổng</th>
+                  </tr>
+                </thead>
+
+                <tbody class="whistlist__body">
+                  <tr>
+                    <td data-cell="hình ảnh: ">
+                      <div class="whistlist__imageBox">
+                        <img
+                          class="whistlist__image"
+                          src="img/foodItem/fooditem1.jpg"
+                          alt=""
+                          srcset=""
+                        />
+                      </div>
+                    </td>
+                    <td data-cell="tên món ăn: ">
+                      <h4 class="whistlist__foodName">Cheese Pizza</h4>
+                    </td>
+                    <td data-cell="giá: ">
+                      <i class="whistlist__price">300,000</i>
+                    </td>
+                    <td data-cell="số lượng" class="checkout__quality">12</td>
+                    <td data-cell="tổng số tiền">3,600,000</td>
+                  </tr>
+
+                  <tr>
+                    <td data-cell="hình ảnh: ">
+                      <div class="whistlist__imageBox">
+                        <img
+                          class="whistlist__image"
+                          src="img/foodItem/fooditem1.jpg"
+                          alt=""
+                          srcset=""
+                        />
+                      </div>
+                    </td>
+                    <td data-cell="tên món ăn: ">
+                      <h4 class="whistlist__foodName">Cheese Pizza</h4>
+                    </td>
+                    <td data-cell="giá: ">
+                      <i class="whistlist__price">300,000</i>
+                    </td>
+                    <td data-cell="số lượng" class="checkout__quality">12</td>
+                    <td data-cell="tổng số tiền">3,600,000</td>
+                  </tr>
+
+                  <tr>
+                    <td data-cell="hình ảnh: ">
+                      <div class="whistlist__imageBox">
+                        <img
+                          class="whistlist__image"
+                          src="img/foodItem/fooditem1.jpg"
+                          alt=""
+                          srcset=""
+                        />
+                      </div>
+                    </td>
+                    <td data-cell="tên món ăn: ">
+                      <h4 class="whistlist__foodName">Cheese Pizza</h4>
+                    </td>
+                    <td data-cell="giá: ">
+                      <i class="whistlist__price">300,000</i>
+                    </td>
+                    <td data-cell="số lượng" class="checkout__quality">12</td>
+                    <td data-cell="tổng số tiền">3,600,000</td>
+                  </tr>
+
+                  <tr>
+                    <td data-cell="hình ảnh: ">
+                      <div class="whistlist__imageBox">
+                        <img
+                          class="whistlist__image"
+                          src="img/foodItem/fooditem1.jpg"
+                          alt=""
+                          srcset=""
+                        />
+                      </div>
+                    </td>
+                    <td data-cell="tên món ăn: ">
+                      <h4 class="whistlist__foodName">Cheese Pizza</h4>
+                    </td>
+                    <td data-cell="giá: ">
+                      <i class="whistlist__price">300,000</i>
+                    </td>
+                    <td data-cell="số lượng" class="checkout__quality">12</td>
+                    <td data-cell="tổng số tiền">3,600,000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </form>
           </div>
+          <div class="checkout__paymentMethod">
+            <div class="shop-menu__titleBox">
+              <h4 class="heading--4 shop-menu__title">Hóa đơn chi tiết</h4>
+              <div class="divider-style-1">
+                <span class="divider-style-1__point"></span>
+                <span class="divider-style-1__line"></span>
+              </div>
+            </div>
 
-          <form class="whistlist__form" action="" method="post">
-            <table class="whistlist__list">
-              <thead class="whistlist__heading">
-                <tr>
-                  <th class="whistlist__title">Món ăn</th>
-                  <th class="whistlist__title">Tên món ăn</th>
-                  <th class="whistlist__title">Giá</th>
-                  <th class="whistlist__title">Số lượng</th>
-                  <th class="whistlist__title">Tổng</th>
-                </tr>
-              </thead>
-
-              <tbody class="whistlist__body">
-                <tr>
-                  <td data-cell="hình ảnh: ">
-                    <div class="whistlist__imageBox">
-                      <img
-                        class="whistlist__image"
-                        src="img/foodItem/fooditem1.jpg"
-                        alt=""
-                        srcset=""
-                      />
-                    </div>
-                  </td>
-                  <td data-cell="tên món ăn: "><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
-                  <td data-cell="giá: "><i class="whistlist__price">300,000</i></td>
-                  <td data-cell="số lượng" class="checkout__quality">12</td>
-                  <td data-cell="tổng số tiền">3,600,000</td>
-                </tr>
-
-                <tr>
-                  <td data-cell="hình ảnh: ">
-                    <div class="whistlist__imageBox">
-                      <img
-                        class="whistlist__image"
-                        src="img/foodItem/fooditem1.jpg"
-                        alt=""
-                        srcset=""
-                      />
-                    </div>
-                  </td>
-                  <td data-cell="tên món ăn: "><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
-                  <td data-cell="giá: "><i class="whistlist__price">300,000</i></td>
-                  <td data-cell="số lượng" class="checkout__quality">12</td>
-                  <td data-cell="tổng số tiền">3,600,000</td>
-                </tr>
-                
-                <tr>
-                  <td data-cell="hình ảnh: ">
-                    <div class="whistlist__imageBox">
-                      <img
-                        class="whistlist__image"
-                        src="img/foodItem/fooditem1.jpg"
-                        alt=""
-                        srcset=""
-                      />
-                    </div>
-                  </td>
-                  <td data-cell="tên món ăn: "><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
-                  <td data-cell="giá: "><i class="whistlist__price">300,000</i></td>
-                  <td data-cell="số lượng" class="checkout__quality">12</td>
-                  <td data-cell="tổng số tiền">3,600,000</td>
-                </tr>
-
-                <tr>
-                  <td data-cell="hình ảnh: ">
-                    <div class="whistlist__imageBox">
-                      <img
-                        class="whistlist__image"
-                        src="img/foodItem/fooditem1.jpg"
-                        alt=""
-                        srcset=""
-                      />
-                    </div>
-                  </td>
-                  <td data-cell="tên món ăn: "><h4 class="whistlist__foodName">Cheese Pizza</h4></td>
-                  <td data-cell="giá: "><i class="whistlist__price">300,000</i></td>
-                  <td data-cell="số lượng" class="checkout__quality">12</td>
-                  <td data-cell="tổng số tiền">3,600,000</td>
-                </tr>
-              </tbody>
+            <table class="tab-graphic__table u-margin-bottom-medium">
+              <tr>
+                <th>Hóa đơn</th>
+                <td>14,000,000 vnđ</td>
+              </tr>
+              <tr>
+                <th>Mã giảm giá</th>
+                <td>10%</td>
+              </tr>
+              <tr>
+                <th>Phí giao hàng</th>
+                <td>Miễn phí</td>
+              </tr>
+              <tr>
+                <th>Thời gian giao hàng</th>
+                <td>32 phút</td>
+              </tr>
+              <tr>
+                <th>Thành tiền</th>
+                <td>12,600,000 vnđ</td>
+              </tr>
             </table>
-          </form>
-        </div>
-        <div class="checkout__paymentMethod">
-          <div class="shop-menu__titleBox">
-            <h4 class="heading--4 shop-menu__title">Hóa đơn chi tiết</h4>
-            <div class="divider-style-1">
-              <span class="divider-style-1__point"></span>
-              <span class="divider-style-1__line"></span>
-            </div>
-          </div>
 
-          <table class="tab-graphic__table u-margin-bottom-medium">
-            <tr>
-              <th>Hóa đơn</th>
-              <td>14,000,000 vnđ</td>
-            </tr>
-            <tr>
-              <th>Mã giảm giá</th>
-              <td>10%</td>
-            </tr>
-            <tr>
-              <th>Phí giao hàng</th>
-              <td>Miễn phí</td>
-            </tr>
-            <tr>
-              <th>Thời gian giao hàng</th>
-              <td>32 phút</td>
-            </tr>
-            <tr>
-              <th>Thành tiền</th>
-              <td>12,600,000 vnđ</td>
-            </tr>
-          </table>
+            <div class="shop-menu__titleBox">
+              <h4 class="heading--4 shop-menu__title">Chi tiết thanh toán</h4>
+              <div class="divider-style-1">
+                <span class="divider-style-1__point"></span>
+                <span class="divider-style-1__line"></span>
+              </div>
+            </div>
 
-          <div class="shop-menu__titleBox">
-            <h4 class="heading--4 shop-menu__title">Chi tiết thanh toán</h4>
-            <div class="divider-style-1">
-              <span class="divider-style-1__point"></span>
-              <span class="divider-style-1__line"></span>
-            </div>
-          </div>
-
-          <form action="" class="form-contact" method="post">
-            <div class="form-contact__inputBox u-margin-bottom-small">
-              <input
-                class="form-contact__input checkout__input"
-                type="text"
-                name=""
-                id=""
-                placeholder="Tên của bạn"
-              />
-            </div>
-            <div class="form-contact__inputBox u-margin-bottom-small">
-              <input
-                class="form-contact__input checkout__input"
-                type="text"
-                name=""
-                id=""
-                placeholder="Số điện thoại"
-              />
-            </div>
-            <div class="form-contact__inputBox u-margin-bottom-small">
-              <input
-                class="form-contact__input checkout__input"
-                type="text"
-                name=""
-                id=""
-                placeholder="Địa chỉ nhà"
-              />
-            </div>
-            <div class="form-contact__inputBox u-margin-bottom-medium">
-              <select
-                class="form-contact__input checkout__selection"
-                name="payment"
-                id="payment"
-              >
+            <form action="" class="form-contact" method="post">
+              <div class="form-contact__inputBox u-margin-bottom-small">
+                <input
+                  class="form-contact__input checkout__input"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Tên của bạn"
+                />
+              </div>
+              <div class="form-contact__inputBox u-margin-bottom-small">
+                <input
+                  class="form-contact__input checkout__input"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Số điện thoại"
+                />
+              </div>
+              <div class="form-contact__inputBox u-margin-bottom-small">
+                <input
+                  class="form-contact__input checkout__input"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Địa chỉ nhà"
+                />
+              </div>
+              <div class="form-contact__inputBox u-margin-bottom-medium">
+                <select
+                  class="form-contact__input checkout__selection"
+                  name="payment"
+                  id="payment"
+                >
                   <option selected="selected">Hình thức thanh toán</option>
                   <option value="cash">Tiền mặt</option>
                   <option value="transfer">Chuyển khoản</option>
-              </select>
-            </div>
-            <button type="submit" class="btn-link card-order__btn checkout__buy">Thanh toán</button>
-            <!-- <div class="checkout__vnpayQr">
+                </select>
+              </div>
+              <button
+                type="submit"
+                class="btn-link card-order__btn checkout__buy"
+              >
+                Thanh toán
+              </button>
+              <!-- <div class="checkout__vnpayQr">
               <img src="img/vnpay.jpg" class="checkout__imageQr" alt="" srcset="">
             </div> -->
-          </form>
-        </div>
-      </div>
-    </section>
-   </main>
-
-   <footer class="footer">
-    <div class="container footer__wrapper">
-      <div class="footer__box">
-        <ul class="footer__list">
-          <li class="footer__heading">Chính sách</li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Chất lượng</a>
-          </li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Thương hiệu TriPu</a>
-          </li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Về chúng tôi</a>
-          </li>
-        </ul>
-        <ul class="footer__list">
-          <li class="footer__heading">Thực đơn</li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Pizza</a>
-          </li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Hamburger</a>
-          </li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Pasta</a>
-          </li>
-        </ul>
-        <ul class="footer__list">
-          <li class="footer__heading">Liên Hệ</li>
-          <li class="footer__item">
-            <a href="" class="footer__link"
-              >Email: thanhtri230799@gmail.com</a
-            >
-          </li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Phone: 0332725527</a>
-          </li>
-          <li class="footer__item">
-            <a href="" class="footer__link">Instagram: thanhtri230799</a>
-          </li>
-        </ul>
-        <div class="footer__contact">
-          <h4 class="footer__heading">Liên hệ với chúng tôi qua email</h4>
-          <div class="footer__input">
-            <form action="" method="post">
-              <input
-                type="text"
-                value=""
-                placeholder="Email của bạn"
-              /><button type="submit">Gửi</button>
             </form>
           </div>
+        </div>
+      </section>
+    </main>
 
-          <div class="footer__social">
-            <a href="http://" class="footer__socialLink"
-              ><img
-                class="footer__socialIcon"
-                src="img/svg/facebook-5218.svg"
-                alt=""
-                srcset=""
-            /></a>
-            <a href="http://" class="footer__socialLink"
-              ><img
-                class="footer__socialIcon"
-                src="img/svg/twitter-2170.svg"
-                alt=""
-                srcset=""
-            /></a>
-            <a href="http://" class="footer__socialLink"
-              ><img
-                class="footer__socialIcon footer__socialIcon--3"
-                src="img/svg/instagram-logo-5544.svg"
-                alt=""
-                srcset=""
-            /></a>
-            <a href="http://" class="footer__socialLink"
-              ><img
-                class="footer__socialIcon"
-                src="img/svg/tiktok-logo-4505.svg"
-                alt=""
-                srcset=""
-            /></a>
+    <footer class="footer">
+      <div class="container footer__wrapper">
+        <div class="footer__box">
+          <ul class="footer__list">
+            <li class="footer__heading">Chính sách</li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Chất lượng</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Thương hiệu TriPu</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Về chúng tôi</a>
+            </li>
+          </ul>
+          <ul class="footer__list">
+            <li class="footer__heading">Thực đơn</li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Pizza</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Hamburger</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Pasta</a>
+            </li>
+          </ul>
+          <ul class="footer__list">
+            <li class="footer__heading">Liên Hệ</li>
+            <li class="footer__item">
+              <a href="" class="footer__link"
+                >Email: thanhtri230799@gmail.com</a
+              >
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Phone: 0332725527</a>
+            </li>
+            <li class="footer__item">
+              <a href="" class="footer__link">Instagram: thanhtri230799</a>
+            </li>
+          </ul>
+          <div class="footer__contact">
+            <h4 class="footer__heading">Liên hệ với chúng tôi qua email</h4>
+            <div class="footer__input">
+              <form action="" method="post">
+                <input
+                  type="text"
+                  value=""
+                  placeholder="Email của bạn"
+                /><button type="submit">Gửi</button>
+              </form>
+            </div>
+
+            <div class="footer__social">
+              <a href="http://" class="footer__socialLink"
+                ><img
+                  class="footer__socialIcon"
+                  src="img/svg/facebook-5218.svg"
+                  alt=""
+                  srcset=""
+              /></a>
+              <a href="http://" class="footer__socialLink"
+                ><img
+                  class="footer__socialIcon"
+                  src="img/svg/twitter-2170.svg"
+                  alt=""
+                  srcset=""
+              /></a>
+              <a href="http://" class="footer__socialLink"
+                ><img
+                  class="footer__socialIcon footer__socialIcon--3"
+                  src="img/svg/instagram-logo-5544.svg"
+                  alt=""
+                  srcset=""
+              /></a>
+              <a href="http://" class="footer__socialLink"
+                ><img
+                  class="footer__socialIcon"
+                  src="img/svg/tiktok-logo-4505.svg"
+                  alt=""
+                  srcset=""
+              /></a>
+            </div>
           </div>
         </div>
+        <div class="footer__socialBox">
+          <i class="footer__copyright"
+            >Copy right &copy; by Nguyễn Thanh Trí
+          </i>
+        </div>
       </div>
-      <div class="footer__socialBox">
-        <i class="footer__copyright"
-          >Copy right &copy; by Nguyễn Thanh Trí
-        </i>
+    </footer>
+    <div class="login-site">
+      <div class="login-site__wrapper login-site__wrapper--1">
+        <form action="" method="post" class="login-site__form">
+          <h4 class="login-site__title">Chào mừng bạn đến với TriBu Pizza</h4>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-name">Tên đăng nhập</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="text"
+              name="account-name"
+              id="account-name"
+              placeholder="Tên đăng nhập"
+            />
+          </div>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-password">Mật khẩu</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="password"
+              name="password"
+              id="account-password"
+              placeholder="Mật khẩu"
+            />
+            <div class="passwordHidden">
+              <img
+                src="img/svg/evil.svg"
+                class="icon-svg"
+                sizes=""
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn-link card-order__btn checkout__buy cart__buy u-margin-bottom-small"
+          >
+            Đăng nhập
+          </button>
+          <p class="login-site__switchSite">
+            Đăng ký
+            <a href="" class="btn-changeSite" id="login-form">tại đây</a>
+          </p>
+        </form>
+        <button class="login-site__button">X</button>
+      </div>
+
+      <div class="login-site__wrapper login-site__wrapper--2">
+        <form action="" method="post" class="login-site__form">
+          <h4 class="login-site__title">Trang đăng ký</h4>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-name">Tên đăng nhập</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="text"
+              name="account-name"
+              id="account-name"
+              placeholder="Tên đăng nhập"
+            />
+          </div>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-password">Mật khẩu</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="password"
+              name="password"
+              id="account-password"
+              placeholder="Mật khẩu"
+            />
+            <div class="passwordHidden">
+              <img
+                src="img/svg/evil.svg"
+                class="icon-svg"
+                sizes=""
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="confirm-password">Xác nhận lại mật khẩu</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="password"
+              name="password"
+              id="confirm-password"
+              placeholder="Xác nhận lại mật khẩu của bạn"
+            />
+            <div class="passwordHidden">
+              <img
+                src="img/svg/evil.svg"
+                class="icon-svg"
+                sizes=""
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn-link card-order__btn checkout__buy cart__buy u-margin-bottom-small"
+          >
+            Đăng ký
+          </button>
+          <p class="login-site__switchSite">
+            Đăng nhập
+            <a href="" class="btn-changeSite" id="register-form">tại đây</a> nếu
+            bạn đã có <br />
+            tài khoản
+          </p>
+        </form>
+        <button class="login-site__button">X</button>
       </div>
     </div>
-  </footer>
-    
-    <script src="js/cardEffect.js"></script>
-    <script src="js/todaymenuEffect.js"></script>
-    <script src="js/draggSlide.js"></script>
     <script src="js/scrollbar.js"></script>
+    <script src="js/todaymenuEffect.js"></script>
 
   </body>
 </html>

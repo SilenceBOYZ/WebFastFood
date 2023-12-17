@@ -471,8 +471,7 @@
         color: #fff; } }
 
 .shopStyle-banner {
-  position: relative;
-  z-index: -1; }
+  position: relative; }
   .shopStyle-banner__image-container {
     height: 40rem;
     overflow: hidden;
@@ -482,8 +481,7 @@
         height: 35rem; } }
   .shopStyle-banner__image {
     width: 100%;
-    opacity: 0.4;
-    user-select: none; }
+    opacity: 0.4; }
     @media only screen and (max-width: 43.75em) {
       .shopStyle-banner__image {
         width: 200%; } }

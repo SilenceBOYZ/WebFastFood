@@ -74,7 +74,7 @@
                   </div>
                 </div>
               </li>
-             
+
               <li class="navbar-top__item navbar-top__item--3">
                 <a href="http://" class="navbar-top__link">
                   page
@@ -104,7 +104,7 @@
                         >
                       </li>
                       <li class="dropdown-menu__items">
-                        <a class="dropdown-menu__link" href="shopDetail.html"
+                        <a class="dropdown-menu__link" href="shopOrder.html"
                           >Món ăn</a
                         >
                       </li>
@@ -235,7 +235,6 @@
                         <button>X</button>
                       </div>
                     </div>
-
                   </div>
 
                   <div class="shop-menu__titleBox customerOrderCart__titleBox">
@@ -256,7 +255,6 @@
                 </div>
 
                 <div class="navbar-top__countItem">0</div>
-
               </div>
             </div>
 
@@ -297,13 +295,19 @@
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="navbar-mobile__link open-sideLog" id="btn-mobileLogin"
+                  <a
+                    href="#"
+                    class="navbar-mobile__link open-sideLog"
+                    id="btn-mobileLogin"
                     ><span>Đăng nhập</span
                     ><img src="img/svg/chevron-thin-right.svg" alt="" srcset=""
                   /></a>
                 </li>
                 <li>
-                  <a href="#" class="navbar-mobile__link open-sideLog" id="btn-mobileCreate"
+                  <a
+                    href="#"
+                    class="navbar-mobile__link open-sideLog"
+                    id="btn-mobileCreate"
                     ><span>Đăng ký</span
                     ><img src="img/svg/chevron-thin-right.svg" alt="" srcset=""
                   /></a>
@@ -627,8 +631,133 @@
         </div>
       </div>
     </footer>
+    <div class="login-site">
+      <div class="login-site__wrapper login-site__wrapper--1">
+        <form action="" method="post" class="login-site__form">
+          <h4 class="login-site__title">Chào mừng bạn đến với TriBu Pizza</h4>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-name">Tên đăng nhập</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="text"
+              name="account-name"
+              id="account-name"
+              placeholder="Tên đăng nhập"
+            />
+          </div>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-password">Mật khẩu</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="password"
+              name="password"
+              id="account-password"
+              placeholder="Mật khẩu"
+            />
+            <div class="passwordHidden">
+              <img
+                src="img/svg/evil.svg"
+                class="icon-svg"
+                sizes=""
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn-link card-order__btn checkout__buy cart__buy u-margin-bottom-small"
+          >
+            Đăng nhập
+          </button>
+          <p class="login-site__switchSite">
+            Đăng ký
+            <a href="" class="btn-changeSite" id="login-form">tại đây</a>
+          </p>
+        </form>
+        <button class="login-site__button">X</button>
+      </div>
 
+      <div class="login-site__wrapper login-site__wrapper--2">
+        <form action="" method="post" class="login-site__form">
+          <h4 class="login-site__title">Trang đăng ký</h4>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-name">Tên đăng nhập</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="text"
+              name="account-name"
+              id="account-name"
+              placeholder="Tên đăng nhập"
+            />
+          </div>
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="account-password">Mật khẩu</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="password"
+              name="password"
+              id="account-password"
+              placeholder="Mật khẩu"
+            />
+            <div class="passwordHidden">
+              <img
+                src="img/svg/evil.svg"
+                class="icon-svg"
+                sizes=""
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
+            <label for="confirm-password">Xác nhận lại mật khẩu</label>
+            <input
+              class="form-contact__input checkout__input"
+              type="password"
+              name="password"
+              id="confirm-password"
+              placeholder="Xác nhận lại mật khẩu của bạn"
+            />
+            <div class="passwordHidden">
+              <img
+                src="img/svg/evil.svg"
+                class="icon-svg"
+                sizes=""
+                alt=""
+                srcset=""
+              />
+            </div>
+          </div>
+          <button
+            type="submit"
+            class="btn-link card-order__btn checkout__buy cart__buy u-margin-bottom-small"
+          >
+            Đăng ký
+          </button>
+          <p class="login-site__switchSite">
+            Đăng nhập
+            <a href="" class="btn-changeSite" id="register-form">tại đây</a> nếu
+            bạn đã có <br />
+            tài khoản
+          </p>
+        </form>
+        <button class="login-site__button">X</button>
+      </div>
+    </div>
     <script src="js/scrollbar.js"></script>
+    <script src="js/todaymenuEffect.js"></script>
 
   </body>
 </html>

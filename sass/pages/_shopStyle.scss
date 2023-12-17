@@ -55,8 +55,7 @@
       }
     }
 
-    &__listOfFood {
-    }
+
     &__foodItem {
       @include respond(tab-land) {
         padding: 0;
@@ -79,8 +78,8 @@
         border-radius: 10px 10px 0px 0px;
       }
     }
-    &__image {
-    }
+
+
     &__foodItemContainer {
       position: relative;
       @include respond(phoneSmallSize) {
@@ -117,8 +116,7 @@
       }
     }
 
-    &__foodItemName {
-    }
+
     &__foodStatus {
       @include respond(tab-land) {
         flex-direction: row;
@@ -143,9 +141,7 @@
         }
       }
     }
-    &__prices {
-    }
-
+ 
     &__btnCta {
       display: none;
       align-items: center;
@@ -193,7 +189,6 @@
 
 .shopStyle-banner {
   position: relative;
-  z-index: -1;
   &__image-container {
     height: 40rem;
     overflow: hidden;
@@ -205,7 +200,6 @@
   &__image {
     width: 100%;
     opacity: 0.4;
-    user-select: none;
     @include respond(phoneMediumsize) {
       width: 200%;
     }
