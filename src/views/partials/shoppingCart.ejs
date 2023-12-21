@@ -1,0 +1,97 @@
+<figure class="shopStyle-banner">
+  <div class="shopStyle-banner__image-container">
+    <img
+      class="shopStyle-banner__image"
+      src="img/background/backshopstyle1.jpg"
+      alt="Banner website"
+      srcset=""
+    />
+  </div>
+  <div class="shopStyle-banner__content">
+    <figcaption class="shopStyle-banner__title">Menu food</figcaption>
+    <h3 class="shopStyle-banner__breadcrumb">
+      <strong>Home</strong><span>></span> <strong>Menu</strong>
+    </h3>
+  </div>
+
+  <div class="input-search">
+    <input
+      type="text"
+      value=""
+      name=""
+      class="input-search__inputTag"
+      placeholder="Tìm kiếm món ăn mà bạn muốn"
+    />
+    <div class="input-search__btnBox">
+      <button type="submit" class="input-search__btn">
+        <span>search</span>
+      </button>
+    </div>
+  </div>
+</figure>
+
+<section class="order-menu">
+  <div class="container order-menu__wrapper">
+    <h3 class="shop-menu__title u-align-text-center u-margin-bottom-small">
+      Danh mục sản phẩm
+    </h3>
+    <div class="order-menu__slideWrapper">
+      <button
+        class="order-menu__btnMoveSlide order-menu__btnMoveSlide--left"
+        id="movingLeft"
+      >
+        <img src="img/svg/chevron-thin-left.svg" alt="" srcset="" />
+      </button>
+      <div class="order-menu__titleContain">
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pizzas</a
+        >
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Burgers</a
+        >
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastas</a
+        >
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
+        >
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
+        >
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
+        >
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
+        >
+        <a href="#" class="order-menu__itemAction"
+          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
+        >
+      </div>
+      <button
+        class="order-menu__btnMoveSlide order-menu__btnMoveSlide--right"
+        id="movingRight"
+      >
+        <img src="img/svg/chevron-thin-right.svg" alt="" srcset="" />
+      </button>
+    </div>
+
+    <div class="order-menu__cartList" id="cartShop"></div>
+  </div>
+</section>
+
+<section class="shoppingCart-side" id="cartShoppingSide">
+  <button class="shoppingCart-side__btn" id="removeCartSide">
+    <span>X</span>
+  </button>
+  <h3 class="shoppingCart-side__title">GIỎ HÀNG CỦA BẠN</h3>
+  <div class="shoppingCart-side__containerItem" id="your-cart-side"></div>
+  <div class="cart__bill">
+    <p>Tổng hóa đơn</p>
+    <i class="shop-menu__prices cart__price" id="total-prices">0</i>
+  </div>
+  <div class="customerOrderCart__orderButton">
+    <a href="" class="btn-link card-order__btn">Xem giỏ hàng</a>
+    <a href="" class="btn-link card-order__btn">Thanh toán</a>
+  </div>
+</section>
