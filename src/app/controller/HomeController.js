@@ -1,7 +1,7 @@
 
 class HomeController {
     HomeRender(req, res) {
-        res.render('pages/index');
+        res.render('index');
     }
 }
 

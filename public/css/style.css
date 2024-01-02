@@ -757,12 +757,13 @@ body {
   box-sizing: border-box;
   font-family: 'Coiny', cursive, sans-serif;
   font-weight: 300;
+  overflow-x: hidden;
   position: relative; }
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
-  }
+  overflow-x: hidden; }
   @media only screen and (max-width: 100em) {
     html {
       font-size: 62.5%; } }
@@ -3431,6 +3432,11 @@ html {
     justify-content: center;
     align-items: center;
     background-color: #F33F4D; }
+
+.admin__header {
+  width: 100%;
+  height: 10px;
+  background-color: red; }
 
 .u-margin-bottom-large {
   margin-bottom: 4.8rem; }
