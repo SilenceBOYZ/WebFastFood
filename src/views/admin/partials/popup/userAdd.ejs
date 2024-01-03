@@ -20,9 +20,9 @@
       <label for="selectcatergories" class="form-label label-title">Chọn loại món ăn</label>
       <select id="selectcatergories" class="form-select input-title" name="productCatergory">
         <option value="0">Chọn dạnh mục</option>
-        <option value="1">Pizza</option>
-        <option value="2">Burger</option>
-        <option value="3">Chicken</option>
+        <% for(let i = 0; i < dataCatergories.length; i++) { %>
+        <option value="<%= dataCatergories[i].id %>"><%= dataCatergories[i].catergoryName %></option>
+        <% } %>
       </select>
     </div>
     <div class="col-12 mb-3">

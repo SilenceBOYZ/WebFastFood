@@ -1,5 +1,6 @@
-const { where } = require("sequelize");
+const { QueryTypes } = require('sequelize');
 const db = require("../models/index");
+const { seqeuelize } = require("../config");
 
 let createNewItem = (data, imageName) => {
   return new Promise(async (resolve, reject) => {
@@ -94,7 +95,7 @@ let removeItem = (itemId) => {
           id: itemId
         }
       })
-      if(aItem) {
+      if (aItem) {
         await db.Items.destroy({
           where: {
             id: itemId
@@ -113,10 +114,22 @@ let removeItem = (itemId) => {
   })
 }
 
+let readCatergoryNames = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let catergoryNames = await seqeuelize.query("SELECT catergories.catergoryName FROM items, catergories WHERE catergories.id = items.catergoryId", { type: QueryTypes.SELECT })
+      resolve(catergoryNames);
+    } catch (e) {
+      reject(e);
+    }
+  })
+}
+
 module.exports = {
   createNewItem,
   readAllItems,
   editAItem,
   updateItem,
-  removeItem
+  removeItem,
+  readCatergoryNames
 }

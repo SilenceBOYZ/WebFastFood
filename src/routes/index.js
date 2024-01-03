@@ -2,7 +2,7 @@ const express = require("express")
 const HomeRoute = require("./HomeRoute");
 const ShopRoute = require("./ShopRoute");
 const AdminRoute = require("./AdminRoute");
-const ItemRoute = require("./ItemsCrud");
+const ItemRoute = require("./ItemsRoute");
 
 let route = (app) => {
   app.use("/shop", ShopRoute);

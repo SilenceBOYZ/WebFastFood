@@ -2,6 +2,7 @@ const { createNewItem } = require("../../services/itemServices");
 const { editAItem } = require("../../services/itemServices");
 const { updateItem } = require("../../services/itemServices");
 const { removeItem } = require("../../services/itemServices");
+
 const fs = require("fs");
 
 
@@ -9,7 +10,7 @@ let createANewItem = async (req, res) => {
   let data = await req.body;
   let imageName = await req.file.filename;
   await createNewItem(data, imageName);
-  return res.redirect("../admin");
+  return res.redirect("../admin?page=itemPage");
 }
 
 let getAItem = async (req, res) => {
@@ -32,14 +33,14 @@ let editItem = async (req, res) => {
   } else {
     newImage = req.body.old_image;
   }
-  let item = await updateItem(parseInt(itemId), data, newImage);
-  return res.redirect("../admin");
+  await updateItem(parseInt(itemId), data, newImage);
+  return res.redirect("../admin?page=itemPage");
 }
 
 let deleteItem = async (req, res) => {
   let idItem = req.query.id;
-  let message = await removeItem(parseInt(idItem));
-  return res.redirect("../admin");
+  await removeItem(parseInt(idItem));
+  return res.redirect("../admin?page=itemPage");
 }
 module.exports = {
   createANewItem: createANewItem,

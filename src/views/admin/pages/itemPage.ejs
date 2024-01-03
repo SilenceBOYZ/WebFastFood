@@ -1,0 +1,86 @@
+<main class="main">
+  <nav class="main-nav-bar">
+    <div class="btnChangeColor">
+      <div class="btnChange"></div>
+    </div>
+
+    <div class="main-nav-bar__right">
+      <div class="main-nav-bar__search">
+        <input
+          class="main-nav-bar__input"
+          type="text"
+          name=""
+          id=""
+          placeholder="Gõ những thứ bạn không tìm được"
+        />
+        <button class="main-nav-bar__button" type="submit">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+
+      <div class="main-nav-bar__logo">
+        <img
+          src="../img/customerImage/customer5.png"
+          alt=""
+          class="main-nav-bar__image"
+        />
+      </div>
+    </div>
+  </nav>
+  <section class="main-field">
+    <div class="main-top-wrapper">
+      <h1 class="main-title">Welcome to Admin</h1>
+      <a class="btn-addProduct btnHandleProduct" id="btnAddProduct"
+        ><i class="fas fa-plus"></i
+      ></a>
+    </div>
+    <div class="display-data-box">
+      <table class="data-table">
+        <tr>
+          <th class="th-stt">STT</th>
+          <th>Tên món ăn</th>
+          <th>Giá</th>
+          <th class="desc">Mô tả về món ăn</th>
+          <th>Hình ảnh</th>
+          <th>Danh mục món</th>
+          <th>Quản lý</th>
+        </tr>
+        <% for(i = 0; i < data.length; i++) { %>
+        <tr>
+          <td class="th-stt"><%- j= i + 1 %></td>
+          <td><%= data[i].foodName %></td>
+          <td><%= data[i].foodPrice %></td>
+          <td><p class="desc"><%= data[i].foodDesc %></p></td>
+          <td>
+            <img
+              class="imageData"
+              src="../img/uploads/<%= data[i].foodImage %>"
+              alt=""
+            />
+          </td>
+          <td><%= catergoriesName[i].catergoryName %></td>
+          <td class="manage">
+            <form action="../" method="post">
+              <a
+                class="btn-call-action btn-call-action-delete"
+                type="button"
+                href="#"
+                id="<%= data[i].id %>"
+              >
+                <i class="fas fa-trash-alt"></i>
+              </a>
+              <a
+                class="btn-call-action btn-call-action-edit"
+                id="<%= data[i].id %>"
+                href="../handle-item/get-item?id=<%= data[i].id %>"
+              >
+                <i class="fas fa-pen-nib"></i>
+              </a>
+            </form>
+          </td>
+        </tr>
+        <% } %>
+      </table>
+    </div>
+  </section>
+</main>

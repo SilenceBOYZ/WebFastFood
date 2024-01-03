@@ -19,7 +19,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 route(app);
 
-
 db.connect();
 
 app.listen(port, () => {

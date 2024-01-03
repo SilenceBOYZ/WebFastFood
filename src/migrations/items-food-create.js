@@ -41,7 +41,7 @@ module.exports = {
         table: 'Catergories',
         field: 'catergoryId'
       }
-    });0
+    });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Items');
