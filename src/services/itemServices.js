@@ -1,4 +1,4 @@
-const { QueryTypes } = require('sequelize');
+const { QueryTypes, STRING } = require('sequelize');
 const db = require("../models/index");
 const { seqeuelize } = require("../config");
 
@@ -19,16 +19,33 @@ let createNewItem = (data, imageName) => {
   })
 }
 
-let readAllItems = () => {
+let readAllItems = (pageNum) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let allItems = await db.Items.findAll({
-        raw: true,
-        order: [
-          ['id', 'DESC'],
-        ],
-      });
-      resolve(allItems);
+      let items = {};
+      let allItems = await seqeuelize.query("SELECT items.id, `foodName`, `foodPrice`, `foodDesc`, `foodImage`, `catergoryName` FROM items, catergories WHERE items.catergoryId = catergories.id", { type: QueryTypes.SELECT });
+      const resultPerPage = 5;
+      const numOfResult = allItems.length;
+      const numberOfPages = Math.ceil(numOfResult / resultPerPage);
+      // Tính ra tổng cộng số trang có trong một page (số link để click)
+      if (pageNum < 1) {
+        pageNum = 1
+      }
+      // Vị trí bắt đầu của phần tử trong một trang
+      const startIndex = (pageNum - 1) * resultPerPage;
+      let itemQuery = await seqeuelize.query(`SELECT items.id, items.foodName, items.foodPrice, items.foodDesc, items.foodImage, catergories.catergoryName FROM items, catergories WHERE items.catergoryId = catergories.id LIMIT ${startIndex}, ${resultPerPage}`, { type: QueryTypes.SELECT })
+      const iteratorLink = (pageNum - 5) < 1 ? 1 : pageNum - 5;
+      // Hiển thị ra những đường link có trong trang
+      const endingLink = (iteratorLink + 9) <= numberOfPages ? (iteratorLink + 9) : pageNum + (numberOfPages - pageNum);
+      console.log(endingLink);
+      items = {
+        pageNum,
+        itemQuery,
+        iteratorLink,
+        endingLink,
+        numberOfPages
+      }
+      resolve(items);
     } catch (e) {
       reject(e);
     }
@@ -114,10 +131,32 @@ let removeItem = (itemId) => {
   })
 }
 
-let readCatergoryNames = () => {
+let readCatergoryNames = (itemId) => {
   return new Promise(async (resolve, reject) => {
     try {
       let catergoryNames = await seqeuelize.query("SELECT catergories.catergoryName FROM items, catergories WHERE catergories.id = items.catergoryId", { type: QueryTypes.SELECT })
+      resolve(catergoryNames);
+    } catch (e) {
+      reject(e);
+    }
+  })
+}
+
+let readAllCatergoriesForItems = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let catergory = await db.Catergories.findAll()
+      resolve(catergory);
+    } catch (e) {
+      reject(e);
+    }
+  })
+}
+
+let readItemCatergoryNames = (itemId) => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let catergoryNames = await seqeuelize.query(`SELECT catergories.catergoryName, catergories.id FROM items, catergories WHERE catergories.id = items.catergoryId AND items.id = ${itemId}`, { type: QueryTypes.SELECT })
       resolve(catergoryNames);
     } catch (e) {
       reject(e);
@@ -131,5 +170,7 @@ module.exports = {
   editAItem,
   updateItem,
   removeItem,
-  readCatergoryNames
+  readCatergoryNames,
+  readItemCatergoryNames,
+  readAllCatergoriesForItems
 }

@@ -195,102 +195,62 @@
     </div>
 
     <div class="container card-orders">
-      <div class="card-order">
-        <img
-          src="img/foodItem/fooditem1.jpg"
-          alt=""
-          class="card-order__image"
-        />
-        <h3 class="card-order__title">Pizza</h3>
-        <p class="card-order__description">
-          Lorem ipsum dolor sit amet <br />
-          consectetur
-        </p>
-        <i class="card-order__price"
-          >150.000 <span class="card-order__money-unit">vnđ</span></i
-        >
-        <a href="" class="btn-link card-order__btn">Order now</a>
-      </div>
-      <div class="card-order active_card">
-        <img
-          src="img/foodItem/fooditem1.jpg"
-          alt=""
-          class="card-order__image"
-        />
-        <h3 class="card-order__title">Pizza</h3>
-        <p class="card-order__description">
-          Lorem ipsum dolor sit amet <br />
-          consectetur
-        </p>
-        <i class="card-order__price"
-          >150.000 <span class="card-order__money-unit">vnđ</span></i
-        >
-        <a href="" class="btn-link card-order__btn">Order now</a>
-      </div>
-      <div class="card-order">
-        <img
-          src="img/foodItem/fooditem1.jpg"
-          alt=""
-          class="card-order__image"
-        />
-        <h3 class="card-order__title">Pizza</h3>
-        <p class="card-order__description">
-          Lorem ipsum dolor sit amet <br />
-          consectetur
-        </p>
-        <i class="card-order__price"
-          >150.000 <span class="card-order__money-unit">vnđ</span></i
-        >
-        <a href="" class="btn-link card-order__btn">Order now</a>
-      </div>
-      <div class="card-order card-order--4">
-        <img
-          src="img/foodItem/fooditem1.jpg"
-          alt=""
-          class="card-order__image"
-        />
-        <h3 class="card-order__title">Pizza</h3>
-        <p class="card-order__description">
-          Lorem ipsum dolor sit amet <br />
-          consectetur
-        </p>
-        <i class="card-order__price"
-          >150.000 <span class="card-order__money-unit">vnđ</span></i
-        >
-        <a href="" class="btn-link card-order__btn">Order now</a>
-      </div>
-      <div class="card-order card-order--5">
-        <img
-          src="img/foodItem/fooditem1.jpg"
-          alt=""
-          class="card-order__image"
-        />
-        <h3 class="card-order__title">Pizza</h3>
-        <p class="card-order__description">
-          Lorem ipsum dolor sit amet <br />
-          consectetur
-        </p>
-        <i class="card-order__price"
-          >150.000 <span class="card-order__money-unit">vnđ</span></i
-        >
-        <a href="" class="btn-link card-order__btn">Order now</a>
-      </div>
-      <div class="card-order card-order--6">
-        <img
-          src="img/foodItem/fooditem1.jpg"
-          alt=""
-          class="card-order__image"
-        />
-        <h3 class="card-order__title">Pizza</h3>
-        <p class="card-order__description">
-          Lorem ipsum dolor sit amet <br />
-          consectetur
-        </p>
-        <i class="card-order__price"
-          >150.000 <span class="card-order__money-unit">vnđ</span></i
-        >
-        <a href="" class="btn-link card-order__btn">Order now</a>
-      </div>
+      <% for(let i = 1; i <= 6; i++) { %>
+          <% if(i == 1) { %>
+            <div class="card-order">
+              <img
+                src="img/uploads/itemImages/<%= itemDatas[i].foodImage %>"
+                alt=""
+                class="card-order__image"
+              />
+              <h3 class="card-order__title">Pizza</h3>
+              <p class="card-order__description">
+                Lorem ipsum dolor sit amet <br />
+                consectetur
+              </p>
+              <i class="card-order__price"
+                >150.000 <span class="card-order__money-unit">vnđ</span></i
+              >
+              <a href="" class="btn-link card-order__btn">Order now</a>
+            </div>
+          <%  } %> 
+          <% if(i == 2) { %>
+            <div class="card-order active_card">
+              <img
+                src="img/uploads/itemImages/<%= itemDatas[i].foodImage %>"
+                alt=""
+                class="card-order__image"
+              />
+              <h3 class="card-order__title">Pizza</h3>
+              <p class="card-order__description">
+                Lorem ipsum dolor sit amet <br />
+                consectetur
+              </p>
+              <i class="card-order__price"
+                >150.000 <span class="card-order__money-unit">vnđ</span></i
+              >
+              <a href="" class="btn-link card-order__btn">Order now</a>
+            </div>
+          <%  } %> 
+          <% if(i >= 3 && i <=6) { %>
+            <div class="card-order card-order--<%= i %>">
+              <img
+                src="img/uploads/itemImages/<%= itemDatas[i].foodImage %>"
+                alt=""
+                class="card-order__image"
+              />
+              <h3 class="card-order__title">Pizza</h3>
+              <p class="card-order__description">
+                Lorem ipsum dolor sit amet <br />
+                consectetur
+              </p>
+              <i class="card-order__price"
+                >150.000 <span class="card-order__money-unit">vnđ</span></i
+              >
+              <a href="" class="btn-link card-order__btn">Order now</a>
+            </div>
+          <%  } %>
+      <% } %>
     </div>
   </div>
   <div class="special-foods__banner special-foods__banner--right">
@@ -327,27 +287,62 @@
       Today's Menu
     </h2>
     <div class="container daily-menu__sildes">
-      <div
-        class="daily-menu__details daily-menu__mobiles active_menuDetails"
+      <% for(let i = 0; i < itemDatas.length; i++) { %>
+        <% if(i == 0) { %> 
+          <div
+          class="daily-menu__details daily-menu__mobiles active_menuDetails"
+        >
+          <div class="daily-menu__media">
+            <img
+              src="img/uploads/itemImages/<%= itemDatas[i].foodImage %>"
+              alt=""
+              srcset=""
+              class="daily-menu__images"
+            />
+          </div>
+          <div class="daily-menu__descriptions u-align-text-center">
+            <h3 class="daily-menu__small-title"><%= itemDatas[i].foodName %></h3>
+            <p class="daily-menu__describe">
+              <%= itemDatas[i].foodDesc %>
+            </p>
+          </div>
+          <div class="daily-menu__box-prices">
+            <div class="daily-menu__prices">
+              <h4 class="daily-menu__food-name"><%= itemDatas[i].foodName %></h4>
+              <i class="daily-menu__price"><%= itemDatas[i].foodPrice %></i>
+            </div>
+            <a href="#" class="daily-menu__cart">
+              <img
+                src="img/svg/shopping_cart.svg"
+                alt=""
+                srcset=""
+                class="daily-menu__cart--image"
+              />
+            </a>
+          </div>
+          </div>
+        <% } %>
+        <div
+        class="daily-menu__details daily-menu__mobiles"
       >
         <div class="daily-menu__media">
           <img
-            src="img/todaymenu/food1.jpg"
+            src="img/uploads/itemImages/<%= itemDatas[i].foodImage %>"
             alt=""
             srcset=""
             class="daily-menu__images"
           />
         </div>
         <div class="daily-menu__descriptions u-align-text-center">
-          <h3 class="daily-menu__small-title">Pizza Hút</h3>
+          <h3 class="daily-menu__small-title"><%= itemDatas[i].foodName %></h3>
           <p class="daily-menu__describe">
-            Bột bánh làm từ nguyên liệu Việt Nam qả
+            <%= itemDatas[i].foodDesc %>
           </p>
         </div>
         <div class="daily-menu__box-prices">
           <div class="daily-menu__prices">
-            <h4 class="daily-menu__food-name">Pizza</h4>
-            <i class="daily-menu__price">35.000 Vnđ</i>
+            <h4 class="daily-menu__food-name"><%= itemDatas[i].foodName %></h4>
+            <i class="daily-menu__price"><%= itemDatas[i].foodPrice %></i>
           </div>
           <a href="#" class="daily-menu__cart">
             <img
@@ -358,162 +353,8 @@
             />
           </a>
         </div>
-      </div>
-
-      <div class="daily-menu__details daily-menu__mobiles">
-        <div class="daily-menu__media">
-          <img
-            src="img/todaymenu/food1.jpg"
-            alt=""
-            srcset=""
-            class="daily-menu__images"
-          />
         </div>
-        <div class="daily-menu__descriptions u-align-text-center">
-          <h3 class="daily-menu__small-title">Pizza Hút</h3>
-          <p class="daily-menu__describe">
-            Bột bánh làm từ nguyên liệu Việt Nam qả
-          </p>
-        </div>
-        <div class="daily-menu__box-prices">
-          <div class="daily-menu__prices">
-            <h4 class="daily-menu__food-name">Pizza</h4>
-            <i class="daily-menu__price">35.000 Vnđ</i>
-          </div>
-          <a href="#" class="daily-menu__cart">
-            <img
-              src="img/svg/shopping_cart.svg"
-              alt=""
-              srcset=""
-              class="daily-menu__cart--image"
-            />
-          </a>
-        </div>
-      </div>
-
-      <div class="daily-menu__details daily-menu__mobiles">
-        <div class="daily-menu__media">
-          <img
-            src="img/todaymenu/food1.jpg"
-            alt=""
-            srcset=""
-            class="daily-menu__images"
-          />
-        </div>
-        <div class="daily-menu__descriptions u-align-text-center">
-          <h3 class="daily-menu__small-title">Pizza Hút</h3>
-          <p class="daily-menu__describe">
-            Bột bánh làm từ nguyên liệu Việt Nam qả
-          </p>
-        </div>
-        <div class="daily-menu__box-prices">
-          <div class="daily-menu__prices">
-            <h4 class="daily-menu__food-name">Pizza</h4>
-            <i class="daily-menu__price">35.000 Vnđ</i>
-          </div>
-          <a href="#" class="daily-menu__cart">
-            <img
-              src="img/svg/shopping_cart.svg"
-              alt=""
-              srcset=""
-              class="daily-menu__cart--image"
-            />
-          </a>
-        </div>
-      </div>
-
-      <div class="daily-menu__details daily-menu__mobiles">
-        <div class="daily-menu__media">
-          <img
-            src="img/todaymenu/food1.jpg"
-            alt=""
-            srcset=""
-            class="daily-menu__images"
-          />
-        </div>
-        <div class="daily-menu__descriptions u-align-text-center">
-          <h3 class="daily-menu__small-title">Pizza Hút</h3>
-          <p class="daily-menu__describe">
-            Bột bánh làm từ nguyên liệu Việt Nam qả
-          </p>
-        </div>
-        <div class="daily-menu__box-prices">
-          <div class="daily-menu__prices">
-            <h4 class="daily-menu__food-name">Pizza</h4>
-            <i class="daily-menu__price">35.000 Vnđ</i>
-          </div>
-          <a href="#" class="daily-menu__cart">
-            <img
-              src="img/svg/shopping_cart.svg"
-              alt=""
-              srcset=""
-              class="daily-menu__cart--image"
-            />
-          </a>
-        </div>
-      </div>
-
-      <div class="daily-menu__details daily-menu__mobiles">
-        <div class="daily-menu__media">
-          <img
-            src="img/todaymenu/food1.jpg"
-            alt=""
-            srcset=""
-            class="daily-menu__images"
-          />
-        </div>
-        <div class="daily-menu__descriptions u-align-text-center">
-          <h3 class="daily-menu__small-title">Pizza Hút</h3>
-          <p class="daily-menu__describe">
-            Bột bánh làm từ nguyên liệu Việt Nam qả
-          </p>
-        </div>
-        <div class="daily-menu__box-prices">
-          <div class="daily-menu__prices">
-            <h4 class="daily-menu__food-name">Pizza</h4>
-            <i class="daily-menu__price">35.000 Vnđ</i>
-          </div>
-          <a href="#" class="daily-menu__cart">
-            <img
-              src="img/svg/shopping_cart.svg"
-              alt=""
-              srcset=""
-              class="daily-menu__cart--image"
-            />
-          </a>
-        </div>
-      </div>
-
-      <div class="daily-menu__details daily-menu__mobiles">
-        <div class="daily-menu__media">
-          <img
-            src="img/todaymenu/food1.jpg"
-            alt=""
-            srcset=""
-            class="daily-menu__images"
-          />
-        </div>
-        <div class="daily-menu__descriptions u-align-text-center">
-          <h3 class="daily-menu__small-title">Pizza Hút</h3>
-          <p class="daily-menu__describe">
-            Bột bánh làm từ nguyên liệu Việt Nam qả
-          </p>
-        </div>
-        <div class="daily-menu__box-prices">
-          <div class="daily-menu__prices">
-            <h4 class="daily-menu__food-name">Pizza</h4>
-            <i class="daily-menu__price">35.000 Vnđ</i>
-          </div>
-          <a href="#" class="daily-menu__cart">
-            <img
-              src="img/svg/shopping_cart.svg"
-              alt=""
-              srcset=""
-              class="daily-menu__cart--image"
-            />
-          </a>
-        </div>
-      </div>
+      <% } %>
     </div>
     <div class="daily-menu__dots">
       <span class="daily-menu__dots-icon"></span>

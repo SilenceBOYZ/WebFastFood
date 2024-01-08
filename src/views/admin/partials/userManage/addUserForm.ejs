@@ -1,0 +1,42 @@
+<div class="form-crud user-form" id="addForm">
+  <form class="row g-3 form-crud__form" enctype="multipart/form-data" action="../handle-user/create-new-user" method="POST">
+    <div class="col-12">
+      <label for="Useremail" class="form-label label-title">Email</label>
+      <input type="text" class="form-control input-title" id="Useremail" name="userEmail" placeholder="Nhập Địa chỉ Email">
+    </div>
+    <div class="col-12">
+      <label for="Userpassword" class="form-label label-title">Mật khẩu</label>
+      <input type="password" class="form-control input-title" id="Userpassword" name="userPassword" placeholder="Nhập mật khẩu">
+    </div>
+    <div class="col-12">
+      <label for="Username" class="form-label label-title">Tên người dùng</label>
+      <input type="text" class="form-control input-title" id="Username" name="userName" placeholder="Nhập Tài khoản người dùng">
+    </div>
+    <div class="col-6 ">
+      <label for="productimage" class="form-label label-title">Upload hình ảnh</label>
+      <input type="file" accept="" class="form-control input-title mb-2" id="productimage" name="userImage" placeholder="upload hình">
+    </div>
+    <div class="col-6">
+      <label for="UserRole" class="form-label label-title">RoleId</label>
+      <select id="UserRole" class="form-select input-title" name="userRole">
+        <option value="">Thiết lập vai trò người dùng</option>
+        <% for(let i = 0; i < roleSelected.length; i++) { %>
+          <option value="<%= roleSelected[i].id %>"><%= roleSelected[i].roleName %></option>
+        <% } %>
+      </select>
+    </div>  
+
+    <div class="col-12 mb-3">
+      <div class="image-holder">
+        <div class="image-holder__img">
+          <img src="" alt="Image" id="output" class="image-holder__image">
+        </div>
+      </div>
+    </div>
+   
+    <div class="col-12 mt-5 mb-3 d-flex justify-item-center">
+      <button type="submit" class="btn btn-Submit btn-admin-page">Thêm người dùng vào hệ thống</button>
+    </div>
+  </form>
+  <div id="remove"><i class="fas fa-times"></i></div> 
+</div>

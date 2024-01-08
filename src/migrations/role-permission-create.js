@@ -28,7 +28,7 @@ module.exports = {
       name: "role_permission_association",
       references: {
         table: 'Roles',
-        field: 'roleId'
+        field: 'id'
       }
     });
     await queryInterface.addConstraint('RolePermissions', {
@@ -37,7 +37,7 @@ module.exports = {
       name: "role_Permissions_association",
       references: {
         table: 'Permissions',
-        field: 'permissionId'
+        field: 'id'
       }
     });
   },

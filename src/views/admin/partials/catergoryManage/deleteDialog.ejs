@@ -1,0 +1,37 @@
+<div class="modal-pop-up">
+  <div class="modal-pop-up__header">
+    <h4 class="modal-pop-up__title">Xóa sản phẩm</h4>
+    <button class="modal-pop-up__icon" id="removeModal">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+  <p class="modal-pop-up__paragraph">
+    Bạn chắc chắn muốn xóa sản phẩm này chứ
+  </p>
+  <form class="modal-pop-upBtn" id="formDelete" action="" method="POST">
+    <button class="btn-click-action" id="cancel-action" href="#">Hủy</button>
+    <button class="btn-click-action" id="delete-action" type="submit">Xóa</button>
+  </form>
+</div>
+
+<script type="module">
+  const btnDelete = document.querySelectorAll(".btn-call-action-delete");
+  const dialog = document.querySelector(".modal-pop-up");
+  const removeModal = document.getElementById("removeModal");
+  const cancelActionDelete = document.getElementById("cancel-action");
+  const deleteAction = document.getElementById("delete-action");
+  const formDelete = document.getElementById("formDelete");
+  btnDelete.forEach((btn) => {
+    btn.onclick = () => {
+      dialog.classList.add("modal-pop-up-active");
+      formDelete.setAttribute("action", `../handle-catergory/delete-catergory?_method=DELETE&id=${btn.id}`); 
+    };
+    cancelActionDelete.onclick = (e) => {
+      e.preventDefault();
+      dialog.classList.remove("modal-pop-up-active");
+    };
+  });
+  removeModal.onclick = () => {
+    dialog.classList.remove("modal-pop-up-active");
+  };
+</script>

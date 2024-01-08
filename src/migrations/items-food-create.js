@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Items', {
-      itemId: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -39,7 +39,7 @@ module.exports = {
       name: "catergories_item_association",
       references: {
         table: 'Catergories',
-        field: 'catergoryId'
+        field: 'id'
       }
     });
   },

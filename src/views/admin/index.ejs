@@ -5,19 +5,22 @@
     <div class="container-admin admin-page">
       <%- include('partials/navbar'); %>
       <% if(pageValue === "itemPage") { %>
-        <%- include("pages/itemPage", {data: dataValue}); %>
-        <%- include("partials/popup/userAdd", {dataCatergories}); %>
-        <%- include("partials/popup/deleteDialog"); %>
+        <%- include("pages/itemPage", {data: dataValue, Catergories}); %>
+        <script src="../js/previewImage.js"></script>
       <% } else if(pageValue === "catergoryPage") { %>  
-        <%- include("pages/catergoryPage"); %>
+        <%- include("pages/catergoryPage", { dataCatergories }); %>
       <% } else if(pageValue === "userPage") { %>  
-        <%- include("pages/userPage"); %>
+        <%- include("pages/userPage", { userData, roleSelected }); %>
+        <script src="../js/previewImage.js"></script>
       <% } else { %>
-        <div>This is index Page</div>    
+        <div class="index-page">
+          <h1>
+            Trang này chưa có ý tưởng
+          </h1>
+        </div>      
       <% } %>
     </div>
     <script src="../js/validateNumber.js"></script>
-    <script src="../js/previewImage.js"></script>
     <script src="../js/popUp.js"></script>
   </body>
 </html>

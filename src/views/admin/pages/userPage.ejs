@@ -38,11 +38,51 @@
       <table class="data-table">
         <tr>
           <th class="th-stt">STT</th>
-          <th>Tên User</th>
-          <th>Email</th>
+          <th class="user-email">Email</th>
+          <!-- <th>Mật Khẩu</th> -->
+          <th>Hình ảnh</th>
           <th>RoleId</th>
+          <th class="date-Crea-Updat">Ngày tạo</th>
+          <th class="manage-col">Quản lý</th>
         </tr>
+        <% for(let i = 0; i < userData.length; i++) { %>
+        <tr>
+          <td class="th-stt"><%= j= i + 1 %></td>
+          <td class="user-email"><%= userData[i].email %></td>
+          <!-- <td class="user-email"><span class="user-password"><%= userData[0].userPassword %></span></td> -->
+          <td>
+            <img
+              class="imageData"
+              src="../img/uploads/userImages/<%= userData[i].userImage %>"
+              alt=""
+            />
+          </td>
+          <td><%= userData[i].roleName %></td>
+          <td class="date-Crea-Updat"><%= userData[i].createdAt %> </td>
+          <td class="manage-col">
+            <form action="../" method="post">
+              <a
+                class="btn-call-action btn-call-action-delete"
+                type="button"
+                href="#"
+                id="<%= userData[i].id %>"  
+              >
+                <i class="fas fa-trash-alt"></i>
+              </a>
+              <a
+                class="btn-call-action btn-call-action-edit"
+                id=""
+                href="../handle-user/get-user?id=<%= userData[i].id %>"
+              >
+                <i class="fas fa-pen-nib"></i>
+              </a>
+            </form>
+          </td>
+        </tr>
+        <% } %>
       </table>
     </div>
   </section>
 </main>
+<%- include('../partials/userManage/addUserForm', {roleSelected}); %> 
+<%- include('../partials/userManage/deleteDialog'); %>

@@ -2,6 +2,8 @@ const { createNewItem } = require("../../services/itemServices");
 const { editAItem } = require("../../services/itemServices");
 const { updateItem } = require("../../services/itemServices");
 const { removeItem } = require("../../services/itemServices");
+const { readItemCatergoryNames } = require("../../services/itemServices");
+const { readAllCatergoriesForItems } = require("../../services/itemServices")
 
 const fs = require("fs");
 
@@ -16,7 +18,9 @@ let createANewItem = async (req, res) => {
 let getAItem = async (req, res) => {
   let itemId = req.query.id;
   let loadItem = await editAItem(parseInt(itemId));
-  return res.render("admin/partials/userEdit.ejs", { item: loadItem });
+  let loadCater = await readAllCatergoriesForItems();
+  let catergory = await readItemCatergoryNames(parseInt(itemId));
+  return res.render("admin/partials/itemManage/itemEdit.ejs", { item: loadItem, catergory, loadCater });
 }
 
 let editItem = async (req, res) => {
@@ -25,11 +29,6 @@ let editItem = async (req, res) => {
   let newImage = "";
   if (req.file) {
     newImage = req.file.filename;
-    try {
-      fs.unlinkSync("public/img/uploads/" + req.body.old_image);
-    } catch (error) {
-      console.log(error);
-    }
   } else {
     newImage = req.body.old_image;
   }

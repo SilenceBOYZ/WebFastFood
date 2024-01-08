@@ -3,7 +3,7 @@
     <div class="btnChangeColor">
       <div class="btnChange"></div>
     </div>
-    
+
     <div class="main-nav-bar__right">
       <div class="main-nav-bar__search">
         <input
@@ -43,8 +43,45 @@
           <th>Mô tả về danh mục</th>
           <th>Quản lý</th>
         </tr>
+        <% for(let i = 0; i < dataCatergories.catergoryQuery.length; i++) { %>
+        <tr>
+          <td class="th-stt"><%= j=i+1 %></td>
+          <td><%= dataCatergories.catergoryQuery[i].catergoryName %></td>
+          <td><%= dataCatergories.catergoryQuery[i].catergoryDesc %></td>
+          <td class="manage">
+            <form action="../" method="post">
+              <a
+                class="btn-call-action btn-call-action-delete"
+                type="button"
+                href="#"
+                id= "<%= dataCatergories.catergoryQuery[i].id %>"
+              >
+                <i class="fas fa-trash-alt"></i>
+              </a>
+              <a
+                class="btn-call-action btn-call-action-edit"
+                id=""
+                href="../handle-catergory/get-catergory?id=<%= dataCatergories.catergoryQuery[i].id %>"
+              >
+                <i class="fas fa-pen-nib"></i>
+              </a>
+            </form>
+          </td>
+        </tr>
+        <% } %>
       </table>
+    </div>
+    <div class="pagination-page">
+      <% if(dataCatergories.pageNum > 1) { %> <a class="selectedLink" href="?page=catergoryPage&pageNumber=<%= dataCatergories.pageNum - 1 %>"> < </a> <% } %>
+      <% for(let i = dataCatergories.iteratorLink; i < dataCatergories.endingLink; i++) { %>
+        <% if (i == dataCatergories.pageNum) { %>
+          <a class="selectedLink" href="?page=catergoryPage&pageNumber=<%= i %>"> <%= i %> </a>
+        <% continue; } %>
+          <a class="selectedLink" href="?page=catergoryPage&pageNumber=<%= i %>"> <%= i %> </a>
+      <% } %>
+      <% if(dataCatergories.pageNum < dataCatergories.numberOfPages) { %> <a class="selectedLink" href="?page=catergoryPage&pageNumber=<%= dataCatergories.pageNum + 1 %>"> > </a> <% } %>
     </div>
   </section>
 </main>
-
+<%- include('../partials/catergoryManage/addCartergoryForm'); %>
+<%- include('../partials/catergoryManage/deleteDialog'); %>

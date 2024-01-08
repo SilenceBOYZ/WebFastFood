@@ -46,6 +46,7 @@ $icon-color-white: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg)
 }
 body {
   position: relative;
+  overflow: hidden;
 }
 
 #backgroundColor {
@@ -270,6 +271,35 @@ html {
         color: white;
         font-size: 1.8rem;
       }
+      .user-name {
+        width: 24rem !important;
+      }
+
+      .user-password {
+        width: 35rem !important;
+        padding-top: 2rem;
+        overflow-x: scroll;
+        display: inline-block;
+      }
+      .user-email {
+        width: 30rem !important;
+      }
+      .manage-col {
+        width: 15rem !important;
+        form {
+          display: flex;
+          gap: 4rem;
+          justify-content: center;
+        } 
+        a {
+          padding: 0 !important;
+        }
+      }
+
+      .date-Crea-Updat {
+        width: 30rem !important;
+      }
+      
       .th-stt {
         width: 4rem !important;
         padding-left: 2rem;
@@ -347,6 +377,9 @@ html {
     font-size: 1.8rem;
     float: right;
   }
+  .btn-admin-page {
+    float: none;
+  }
   .image-holder {
     width: 100%;
     border-radius: 8px;
@@ -365,11 +398,23 @@ html {
   }
 }
 
+.catergory-form {
+  max-width: 45rem;
+}
+
+.user-form {
+  max-width: 65rem;
+}
+
 .form-crud.formActive,
 .form-crudEdit.formActive {
   transform: translate(-50%, -50%);
   opacity: 1;
   visibility: visible;
+}
+
+.user-form.formActive {
+  transform: translate(-50%, -60%);
 }
 
 #remove,
@@ -435,6 +480,7 @@ html {
     border-bottom: 1px solid #dddddd;
   }
   .modal-pop-upBtn {
+    display: flex;
     float: right;
     .btn-click-action {
       text-decoration: none;
@@ -457,3 +503,52 @@ html {
     visibility: visible;
   }
 }
+// index-page //
+.index-page {
+  margin: 40rem auto;
+  h1 {
+    font-family: $font-family;
+    font-size: 4.8rem;
+  }
+}
+
+// ---- Edit Btn wrap button ----- //
+.edit-form-btn-wrap {
+  display: flex;
+  float: right;
+  justify-content: end;
+  gap: 1rem;
+  button, a {
+    float: none !important;
+  }
+  button.btn-Submit {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: $color-primary-light-1;
+  }
+}
+
+// ---- Helper Class ---- //
+
+.justify-item-center {
+  justify-content: center;
+}
+
+
+.pagination-page {
+  display: flex;
+  margin-top: 5rem;
+  gap: 1rem;
+  justify-content: center;
+  .selectedLink {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #04aa6d;
+  }
+}
+

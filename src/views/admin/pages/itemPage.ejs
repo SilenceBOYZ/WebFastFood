@@ -45,34 +45,34 @@
           <th>Danh mục món</th>
           <th>Quản lý</th>
         </tr>
-        <% for(i = 0; i < data.length; i++) { %>
+        <% for(i = 0; i < data.itemQuery.length; i++) { %>
         <tr>
           <td class="th-stt"><%- j= i + 1 %></td>
-          <td><%= data[i].foodName %></td>
-          <td><%= data[i].foodPrice %></td>
-          <td><p class="desc"><%= data[i].foodDesc %></p></td>
+          <td><%= data.itemQuery[i].foodName %></td>
+          <td><%= data.itemQuery[i].foodPrice %></td>
+          <td><p class="desc"><%= data.itemQuery[i].foodDesc %></p></td>
           <td>
             <img
               class="imageData"
-              src="../img/uploads/<%= data[i].foodImage %>"
+              src="../img/uploads/itemImages/<%= data.itemQuery[i].foodImage %>"
               alt=""
             />
           </td>
-          <td><%= catergoriesName[i].catergoryName %></td>
+          <td><%= data.itemQuery[i].catergoryName %></td>
           <td class="manage">
             <form action="../" method="post">
               <a
                 class="btn-call-action btn-call-action-delete"
                 type="button"
                 href="#"
-                id="<%= data[i].id %>"
+                id="<%= data.itemQuery[i].id %>"
               >
                 <i class="fas fa-trash-alt"></i>
               </a>
               <a
                 class="btn-call-action btn-call-action-edit"
-                id="<%= data[i].id %>"
-                href="../handle-item/get-item?id=<%= data[i].id %>"
+                id="<%= data.itemQuery[i].id %>"
+                href="../handle-item/get-item?id=<%= data.itemQuery[i].id %>"
               >
                 <i class="fas fa-pen-nib"></i>
               </a>
@@ -82,5 +82,17 @@
         <% } %>
       </table>
     </div>
+    <div class="pagination-page">
+      <% if(data.pageNum > 1) { %> <a class="selectedLink" href="?page=itemPage&pageNumber=<%= data.pageNum - 1 %>"> < </a> <% } %>
+      <% for(let i = data.iteratorLink; i < data.endingLink; i++) { %>
+        <% if (i == data.pageNum) { %>
+          <a class="selectedLink" href="?page=itemPage&pageNumber=<%= i %>"> <%= i %> </a>
+        <% continue; } %>
+          <a class="selectedLink" href="?page=itemPage&pageNumber=<%= i %>"> <%= i %> </a>
+      <% } %>
+      <% if(data.pageNum < data.numberOfPages) { %> <a class="selectedLink" href="?page=itemPage&pageNumber=<%= data.pageNum + 1 %>"> > </a> <% } %>
+    </div>
   </section>
 </main>
+<%- include("../partials/itemManage/itemAdd", { Catergories }); %>
+<%- include("../partials/itemManage/deleteDialog"); %>

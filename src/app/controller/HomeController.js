@@ -1,8 +1,10 @@
+const items = require("../../services/indexPage/itemQuery");
 
-class HomeController {
-    HomeRender(req, res) {
-        res.render('index');
-    }
+let HomeRender = async (req, res) => {
+    let itemData = await items.readAllItems();
+    res.render('index', { itemDatas: itemData });
 }
 
-module.exports = new HomeController;
+module.exports = {
+    HomeRender
+};

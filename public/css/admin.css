@@ -10,7 +10,8 @@
   font-family: "Poppins", sans-serif; }
 
 body {
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 #backgroundColor {
   background-color: #dfe9f5;
@@ -189,6 +190,25 @@ html {
         background-color: #04aa6d;
         color: white;
         font-size: 1.8rem; }
+      .admin-page .display-data-box .data-table .user-name {
+        width: 24rem !important; }
+      .admin-page .display-data-box .data-table .user-password {
+        width: 35rem !important;
+        padding-top: 2rem;
+        overflow-x: scroll;
+        display: inline-block; }
+      .admin-page .display-data-box .data-table .user-email {
+        width: 30rem !important; }
+      .admin-page .display-data-box .data-table .manage-col {
+        width: 15rem !important; }
+        .admin-page .display-data-box .data-table .manage-col form {
+          display: flex;
+          gap: 4rem;
+          justify-content: center; }
+        .admin-page .display-data-box .data-table .manage-col a {
+          padding: 0 !important; }
+      .admin-page .display-data-box .data-table .date-Crea-Updat {
+        width: 30rem !important; }
       .admin-page .display-data-box .data-table .th-stt {
         width: 4rem !important;
         padding-left: 2rem; }
@@ -252,6 +272,9 @@ html {
     padding: 1rem 1.2rem;
     font-size: 1.8rem;
     float: right; }
+  .form-crud .btn-admin-page,
+  .form-crudEdit .btn-admin-page {
+    float: none; }
   .form-crud .image-holder,
   .form-crudEdit .image-holder {
     width: 100%;
@@ -269,11 +292,20 @@ html {
       height: 100%;
       border-radius: 8px; }
 
+.catergory-form {
+  max-width: 45rem; }
+
+.user-form {
+  max-width: 65rem; }
+
 .form-crud.formActive,
 .form-crudEdit.formActive {
   transform: translate(-50%, -50%);
   opacity: 1;
   visibility: visible; }
+
+.user-form.formActive {
+  transform: translate(-50%, -60%); }
 
 #remove,
 #removeEdit {
@@ -329,6 +361,7 @@ html {
     border-top: 1px solid #dddddd;
     border-bottom: 1px solid #dddddd; }
   .modal-pop-up .modal-pop-upBtn {
+    display: flex;
     float: right; }
     .modal-pop-up .modal-pop-upBtn .btn-click-action {
       text-decoration: none;
@@ -345,3 +378,39 @@ html {
     top: 20%;
     opacity: 1;
     visibility: visible; }
+
+.index-page {
+  margin: 40rem auto; }
+  .index-page h1 {
+    font-family: "Coiny", cursive, sans-serif;
+    font-size: 4.8rem; }
+
+.edit-form-btn-wrap {
+  display: flex;
+  float: right;
+  justify-content: end;
+  gap: 1rem; }
+  .edit-form-btn-wrap button, .edit-form-btn-wrap a {
+    float: none !important; }
+  .edit-form-btn-wrap button.btn-Submit {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    background-color: #f33f4d; }
+
+.justify-item-center {
+  justify-content: center; }
+
+.pagination-page {
+  display: flex;
+  margin-top: 5rem;
+  gap: 1rem;
+  justify-content: center; }
+  .pagination-page .selectedLink {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #04aa6d; }

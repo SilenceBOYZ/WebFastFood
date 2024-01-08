@@ -3,7 +3,7 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Carts', {
-      cartId: {
+      id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
@@ -34,7 +34,7 @@ module.exports = {
       name: "user_cart_association",
       references: {
         table: 'Users',
-        field: 'userId'
+        field: 'id'
       }
     });
     await queryInterface.addConstraint('Carts', {
@@ -43,7 +43,7 @@ module.exports = {
       name: "item_cart_association",
       references: {
         table: 'Items',
-        field: 'itemId'
+        field: 'id'
       }
     });
   },
