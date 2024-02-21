@@ -1,0 +1,60 @@
+.account-userLogin {
+  border-radius: 50% !important;
+  padding: .5rem !important;
+  overflow: hidden !important;
+}
+
+.image-userLogin {
+  border-radius: 50% !important;
+  width: 100% !important;
+}
+
+div.form {
+  button {
+    display: flex;
+    position: absolute;
+    font-size: 2.8rem;
+    font-weight: 300;
+    background-color: $color-text-light;
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    &#left {
+      left: 0.4rem;
+      top: 50%;
+      z-index: 5;
+      transform: translateY(-50%);
+      & i {
+        padding-bottom: 0.4rem;
+        font-size: 2.8rem;
+      }
+    }
+
+    &#right {
+      right: 0.4rem;
+      top: 50%;
+      z-index: 5;
+      transform: translateY(-50%);
+    }
+  }
+
+  & input {
+    width: 100%;
+    position: relative;
+    border-radius: 4px;
+    border: none;
+    background-color: #eaeaea;
+    &[type="text"] {
+      font-size: 1.6rem;
+      width: 10rem;
+      height: 2.8rem;
+      text-align: center;
+      font-weight: 400;
+      padding: 0.5rem;
+    }
+  }
+}

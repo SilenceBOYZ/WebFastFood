@@ -1,6 +1,6 @@
 .login-site {
   opacity: 0;
-  visibility:hidden;
+  visibility: hidden;
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -9,7 +9,6 @@
   background-color: rgba(#000, 0.8);
   z-index: 99999;
   transition: all 500ms;
-  
 
   &__wrapper {
     position: absolute;
@@ -33,7 +32,7 @@
   &__form {
     margin: 0 auto;
     padding: 0rem 6rem 0rem 6rem;
-    margin-top: 15rem;
+    margin-top: 10rem;
     @include respond(phoneSmallSize) {
       padding: 0rem 3rem 0rem 8rem;
     }
@@ -75,6 +74,20 @@
       width: 100%;
       flex: 0 1 100%;
     }
+    input.input-active {
+      border: 1px solid #f19225;
+      outline-color: #f19225;
+    }
+    .text-error-message {
+      display: none;
+      font-size: 1.4rem;
+      color: #f19225;
+      margin-top: 5px;
+      transition: all 0.3s;
+    }
+  }
+  #addBtn.cart__buy {
+    margin-top: 0rem;
   }
   &__switchSite {
     margin-top: 1.5rem;
@@ -92,7 +105,7 @@
   top: 5.6rem;
   cursor: pointer;
 
-  &::after {
+  .straightLine {
     display: inline-block;
     content: "";
     position: absolute;

@@ -29,7 +29,7 @@ let createUser = (data, image) => {
         messageAlert.errCode = 1
         messageAlert.errMessage = "The email have been already existed !!!"
       } else {
-        let UserPassword = await hashUserPassword(data.userPassword);
+        let UserPassword = await hashUserPassword(data.userPasswordConfirm);
         let user = await db.Users.create({
           userName: data.userName,
           userPassword: UserPassword,
@@ -47,10 +47,28 @@ let createUser = (data, image) => {
   })
 }
 
-let readAllUsers = () => {
+let readAllUsers = (pageNum) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let users = await seqeuelize.query("SELECT users.id, users.userName, users.userPassword, users.email, users.userImage, roles.roleName, users.createdAt FROM users, roles WHERE users.roleId = roles.id", { type: QueryTypes.SELECT })
+      users = {}
+      let usersTotalRecord = await seqeuelize.query(`SELECT users.id, users.userName, users.userPassword, users.email, users.userImage, roles.roleName, users.createdAt FROM users, roles WHERE users.roleId = roles.id`, { type: QueryTypes.SELECT })
+      const resultPerPage = 5;
+      const numOfResult = usersTotalRecord.length;
+      const numberOfPages = Math.ceil(numOfResult / resultPerPage);
+      if (pageNum < 1 || pageNum == undefined) {
+        pageNum = 1
+      }
+      const iteratorLink = (pageNum - 5) < 1 ? 1 : pageNum - 5;
+      const endingLink = (iteratorLink + 9) <= numberOfPages ? (iteratorLink + 9) : pageNum + (numberOfPages - pageNum);
+      const startIndex = (pageNum - 1) * resultPerPage;
+      let userQuery = await seqeuelize.query(`SELECT users.id, users.userName, users.userPassword, users.email, users.userImage, roles.roleName, users.createdAt FROM users, roles WHERE users.roleId = roles.id LIMIT ${startIndex}, ${resultPerPage}`, { type: QueryTypes.SELECT })
+      users = {
+        pageNum,
+        userQuery,
+        iteratorLink,
+        endingLink,
+        numberOfPages
+      }
       resolve(users);
     } catch (e) {
       reject(e);
@@ -128,6 +146,8 @@ let deleteUser = (userId) => {
     }
   })
 }
+
+
 module.exports = {
   createUser,
   readAllUsers,

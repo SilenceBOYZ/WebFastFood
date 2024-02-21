@@ -22,16 +22,20 @@
       <div class="col-12">
         <label for="productname" class="form-label label-title">Tên danh mục</label>
         <input type="text" class="form-control input-title input-edited" value="<%= catergorySelected.catergoryName %>" id="productname" name="catergoryName">
+        <span class="text-error-message"></span>
       </div>
       <div class="col-12">
         <label for="productdesc" class="form-label label-title">Mô tả danh mục</label>
         <textarea class="form-control input-title desc-field input-edited" id="productdesc" name="catergoryDesc"><%= catergorySelected.catergoryDesc %></textarea>
+        <span class="text-error-message"></span>
       </div>
       <div class="col-12 edit-form-btn-wrap">
         <a class="btn btn-Submit" href="../admin?page=catergoryPage">Quay về</a>
-        <button type="submit" class="btn btn-Submit">Sửa</button>
+        <button type="submit" id="addBtn" class="btn btn-Submit">Sửa</button>
       </div>
     </form>
   </div>
 </body>
 </html>
+<script src="../js/validateform.js"></script>
+

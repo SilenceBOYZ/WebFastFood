@@ -6,11 +6,16 @@
       <%- include('partials/navbar'); %>
       <% if(pageValue === "itemPage") { %>
         <%- include("pages/itemPage", {data: dataValue, Catergories}); %>
+        <script src="../js/validateform.js"></script>
         <script src="../js/previewImage.js"></script>
       <% } else if(pageValue === "catergoryPage") { %>  
         <%- include("pages/catergoryPage", { dataCatergories }); %>
+        <script src="../js/validateform.js"></script>
+        <script src="../js/previewImage.js"></script>
       <% } else if(pageValue === "userPage") { %>  
         <%- include("pages/userPage", { userData, roleSelected }); %>
+        <script src="../js/auth/validateAdminPage.js"></script>
+        <script src="../js/admin/displayPassword.js"></script>
         <script src="../js/previewImage.js"></script>
       <% } else { %>
         <div class="index-page">

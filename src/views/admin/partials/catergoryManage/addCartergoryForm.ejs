@@ -3,13 +3,15 @@
     <div class="col-12">
       <label for="catergoryName" class="form-label label-title">Tên Danh Mục</label>
       <input type="text" class="form-control input-title" id="catergoryName" name="catergoryName" placeholder="Tên sản phẩm">
+      <span class="text-error-message"></span>
     </div>
     <div class="col-12">
       <label for="catergoryDesc" class="form-label label-title">Nhập mô tả</label>
       <textarea class="form-control input-title desc-field" id="catergoryDesc" placeholder="Nhập mô tả về món ăn" name="catergoryDesc"></textarea>
+      <span class="text-error-message"></span>
     </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-Submit">Thêm</button>
+      <button type="submit" id="addBtn" class="btn btn-Submit">Thêm</button>
     </div>
   </form>
   <div id="remove"><i class="fas fa-times"></i></div>

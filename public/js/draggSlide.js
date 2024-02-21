@@ -4,7 +4,6 @@ const firstDivWidth = carousel.querySelectorAll(".daily-menu__details")[0];
 const slideLength = carousel.querySelectorAll(".daily-menu__details");
 let count = 0;
 
-console.log(slideLength.length);
 const scrollDistance = firstDivWidth.clientWidth + 20;
 
 carouselButton.forEach(icon =>{

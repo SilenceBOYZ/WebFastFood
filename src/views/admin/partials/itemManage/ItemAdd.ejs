@@ -3,27 +3,32 @@
     <div class="col-md-6">
       <label for="productname" class="form-label label-title">Tên sản phẩm</label>
       <input type="text" class="form-control input-title" id="productname" name="productName" placeholder="Tên sản phẩm">
+      <span class="text-error-message"></span>
     </div>
     <div class="col-md-6">
       <label for="productprice" class="form-label label-title">Giá sản phẩm</label>
       <input type="text" placeholder="Giá sản phẩm" class="form-control input-title" id="productprice" name="productPrice" onkeypress="return isNumberKey(event)">
+      <span class="text-error-message"></span>
     </div>
     <div class="col-12">
       <label for="productdesc" class="form-label label-title">Nhập mô tả</label>
       <textarea class="form-control input-title desc-field" id="productdesc" placeholder="Nhập mô tả về món ăn" name="productDesc"></textarea>
+      <span class="text-error-message"></span>
     </div>
     <div class="col-6 mb-3">
       <label for="productimage" class="form-label label-title">Upload hình ảnh</label>
-      <input type="file" accept="" class="form-control input-title mb-2" id="productimage" name="productImage" placeholder="upload hình">
+      <input type="file" accept=".png, .jpg, .jpeg" class="form-control input-title mb-2" id="productimage" name="productImage" placeholder="upload hình">
+      <span class="text-error-message"></span>
     </div>
     <div class="col-md-6">
       <label for="selectcatergories" class="form-label label-title">Chọn loại món ăn</label>
       <select id="selectcatergories" class="form-select input-title" name="productCatergory">
-        <option value="0">Chọn dạnh mục</option>
+        <option value=""> Chọn dạnh mục </option>
         <% for(let i = 0; i < Catergories.length; i++) { %>
         <option value="<%= Catergories[i].id %>"><%= Catergories[i].catergoryName %></option>
         <% } %>
       </select>
+      <span class="text-error-message"></span>
     </div>
     <div class="col-12 mb-3">
       <div class="image-holder">
@@ -33,7 +38,7 @@
       </div>
     </div>
     <div class="col-12">
-      <button type="submit" class="btn btn-Submit">Thêm</button>
+      <button type="submit" id="addBtn" class="btn btn-Submit">Thêm</button>
     </div>
   </form>
   <div id="remove"><i class="fas fa-times"></i></div>

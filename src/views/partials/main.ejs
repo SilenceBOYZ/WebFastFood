@@ -194,6 +194,12 @@
       </span>
     </div>
 
+    <%
+      function formatCurrentcy (number) {
+        return new Intl.NumberFormat('vi', { maximumSignificantDigits: 10 }).format(Number.parseInt(number));
+      }
+    %>
+
     <div class="container card-orders">
       <% for(let i = 1; i <= 6; i++) { %>
           <% if(i == 1) { %>
@@ -203,17 +209,16 @@
                 alt=""
                 class="card-order__image"
               />
-              <h3 class="card-order__title">Pizza</h3>
+              <h3 class="card-order__title"><%= itemDatas[i].foodName %></h3>
               <p class="card-order__description">
-                Lorem ipsum dolor sit amet <br />
-                consectetur
+                <%= itemDatas[i].foodDesc %>
               </p>
               <i class="card-order__price"
-                >150.000 <span class="card-order__money-unit">vnđ</span></i
+                ><%= formatCurrentcy(itemDatas[i].foodPrice) %> <span class="card-order__money-unit">vnđ</span></i
               >
-              <a href="" class="btn-link card-order__btn">Order now</a>
+              <a href="product-detail?id=<%= itemDatas[i].id %>" class="btn-link card-order__btn">Order now</a>
             </div>
-          <%  } %> 
+          <%  continue; } %> 
           <% if(i == 2) { %>
             <div class="card-order active_card">
               <img
@@ -221,17 +226,16 @@
                 alt=""
                 class="card-order__image"
               />
-              <h3 class="card-order__title">Pizza</h3>
+              <h3 class="card-order__title"><%= itemDatas[i].foodName %></h3>
               <p class="card-order__description">
-                Lorem ipsum dolor sit amet <br />
-                consectetur
+                <%= itemDatas[i].foodDesc %>
               </p>
               <i class="card-order__price"
-                >150.000 <span class="card-order__money-unit">vnđ</span></i
+                ><%= formatCurrentcy(itemDatas[i].foodPrice)  %> <span class="card-order__money-unit">vnđ</span></i
               >
-              <a href="" class="btn-link card-order__btn">Order now</a>
+              <a href="product-detail?id=<%= itemDatas[i].id %>" class="btn-link card-order__btn">Order now</a>
             </div>
-          <%  } %> 
+          <%  continue; } %> 
           <% if(i >= 3 && i <=6) { %>
             <div class="card-order card-order--<%= i %>">
               <img
@@ -239,17 +243,16 @@
                 alt=""
                 class="card-order__image"
               />
-              <h3 class="card-order__title">Pizza</h3>
+              <h3 class="card-order__title"><%= itemDatas[i].foodName %></h3>
               <p class="card-order__description">
-                Lorem ipsum dolor sit amet <br />
-                consectetur
+                <%= itemDatas[i].foodDesc %>
               </p>
               <i class="card-order__price"
-                >150.000 <span class="card-order__money-unit">vnđ</span></i
+                ><%= formatCurrentcy(itemDatas[i].foodPrice) %><span class="card-order__money-unit">vnđ</span></i
               >
-              <a href="" class="btn-link card-order__btn">Order now</a>
-            </div>
-          <%  } %>
+              <a href="product-detail?id=<%= itemDatas[i].id %>" class="btn-link card-order__btn">Order now</a>
+            </div> 
+          <%  continue; } %>
       <% } %>
     </div>
   </div>
@@ -309,9 +312,9 @@
           <div class="daily-menu__box-prices">
             <div class="daily-menu__prices">
               <h4 class="daily-menu__food-name"><%= itemDatas[i].foodName %></h4>
-              <i class="daily-menu__price"><%= itemDatas[i].foodPrice %></i>
+              <i class="daily-menu__price"><%= formatCurrentcy(itemDatas[i].foodPrice) %></i>
             </div>
-            <a href="#" class="daily-menu__cart">
+            <a href="product-detail?id=<%= itemDatas[i].id %>" class="daily-menu__cart">
               <img
                 src="img/svg/shopping_cart.svg"
                 alt=""
@@ -321,7 +324,7 @@
             </a>
           </div>
           </div>
-        <% } %>
+        <% continue; } %>
         <div
         class="daily-menu__details daily-menu__mobiles"
       >
@@ -342,9 +345,9 @@
         <div class="daily-menu__box-prices">
           <div class="daily-menu__prices">
             <h4 class="daily-menu__food-name"><%= itemDatas[i].foodName %></h4>
-            <i class="daily-menu__price"><%= itemDatas[i].foodPrice %></i>
+            <i class="daily-menu__price"><%= formatCurrentcy(itemDatas[i].foodPrice) %></i>
           </div>
-          <a href="#" class="daily-menu__cart">
+          <a href="product-detail?id=<%= itemDatas[i].id %>" class="daily-menu__cart">
             <img
               src="img/svg/shopping_cart.svg"
               alt=""

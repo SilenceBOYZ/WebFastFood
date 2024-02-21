@@ -1,0 +1,157 @@
+<div class="login-site">
+  <div class="login-site__wrapper login-site__wrapper--1">
+    <form action="user-authentical/login" method="post" id="loginSite" class="login-site__form">
+      <h4 class="login-site__title">Chào mừng bạn đến với TriBu Pizza</h4>
+      <div
+        class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+      >
+        <label for="account-name">Email</label>
+        <input
+          class="form-contact__input checkout__input"
+          type="email"
+          class=""
+          name="accountName"
+          id="account-name"
+          placeholder="vui lòng điền thông tin email của bạn"
+        />
+        <span class="text-error-message"></span>
+      </div>
+      <div
+        class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+      >
+        <label for="account-password">Mật khẩu</label>
+        <input
+          class="form-contact__input checkout__input"
+          type="password"
+          name="password"
+          id="account-password"
+          placeholder="Mật khẩu"
+        />
+        <span class="text-error-message"></span>
+
+        <div class="passwordHidden" id="acc-password-icon">
+          <img
+            src="img/svg/evil.svg"
+            class="icon-svg"
+            sizes=""
+            alt=""
+            srcset=""
+          />
+          <div class="straightLine"></div>
+        </div>
+        <span class="text-error-message"></span>
+      </div>
+      <button
+        type="submit"
+        class="btn-link card-order__btn checkout__buy cart__buy u-margin-bottom-small"
+      >
+        Đăng nhập
+      </button>
+      <p class="login-site__switchSite">
+        Đăng ký
+        <a href="" class="btn-changeSite" id="login-form">tại đây</a>
+      </p>
+    </form>
+    <button class="login-site__button">X</button>
+  </div>
+
+  <div class="login-site__wrapper login-site__wrapper--2">
+    <form
+      action="user-authentical/regist-user"
+      method="post"
+      class="login-site__form"
+      id="sign-up-form"
+    >
+      <h4 class="login-site__title">Trang đăng ký</h4>
+      <div
+        class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+      >
+        <label for="account-name-register">Email</label>
+        <input
+          class="form-contact__input checkout__input"
+          type="text"
+          name="emailNameRegister"
+          id="email-name-register"
+          placeholder="Hãy nhập Email của bạn"
+        />
+        <span class="text-error-message"></span>
+      </div>
+
+      <div
+        class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+      >
+        <label for="account-name-register">Tên đăng nhập</label>
+        <input
+          class="form-contact__input checkout__input"
+          type="text"
+          name="accountNameRegister"
+          id="account-name-register"
+          placeholder="Hãy nhập Tên của bạn"
+        />
+        <span class="text-error-message"></span>
+      </div>
+
+      <div
+        class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+      >
+        <label for="account-password-register">Mật khẩu</label>
+        <input
+          class="form-contact__input checkout__input"
+          type="password"
+          name="passwordRegister"
+          id="account-password-register"
+          placeholder="Mật khẩu"
+        />
+        <span class="text-error-message"></span>
+        <div class="passwordHidden" id="acc-password-icon-regist">
+          <img
+            src="img/svg/evil.svg"
+            class="icon-svg"
+            sizes=""
+            alt=""
+            srcset=""
+          />
+          <div class="straightLine"></div>
+        </div>
+      </div>
+
+      <div
+        class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+      >
+        <label for="confirm-password-register">Xác nhận lại mật khẩu</label>
+        <input
+          class="form-contact__input checkout__input"
+          type="password"
+          name="passwordConfirmRegister"
+          id="confirm-password-register"
+          placeholder="Xác nhận lại mật khẩu của bạn"
+        />
+        <div class="passwordHidden" id="acc-password-icon-regist-confirm">
+          <img
+            src="img/svg/evil.svg"
+            class="icon-svg"
+            sizes=""
+            alt=""
+            srcset=""
+          />
+          <div class="straightLine"></div>
+        </div>
+        <span class="text-error-message"></span>
+      </div>
+      <button
+        type="submit"
+        class="btn-link card-order__btn checkout__buy cart__buy u-margin-bottom-small"
+      >
+        Đăng ký
+      </button>
+      <p class="login-site__switchSite">
+        Đăng nhập
+        <a href="" class="btn-changeSite" id="register-form">tại đây</a> nếu bạn
+        đã có <br />
+        tài khoản
+      </p>
+    </form>
+    <button class="login-site__button">X</button>
+  </div>
+</div>
+

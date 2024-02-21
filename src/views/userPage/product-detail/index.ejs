@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../../img/Pizza.png"
+      alt="Logo cafe Misa"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <title>Burger Street Food - Always make you happy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+  </head>
+  <!-- Nếu bị lỗi thì chỗ header thì thêm header__shopStyle -->
+  <body>
+    <%- include("../partials/header") %>
+    <%- include("../partials/banner/banner") %>
+    <%
+      function formatCurrentcy(number) {
+        return new Intl.NumberFormat('vi', { maximumSignificantDigits: 10 }).format(Number.parseInt(number));
+      }
+    %>
+    <main class="main main-shopDetail">
+      <form class="item-Details" action="cart" method="post">
+        <div class="container item-Details__wrapper">
+          <div class="item-Details__imageBox">
+            <div class="item-Details__imageContent">
+              <img
+                src="../img/uploads/itemImages/<%= singleItem[0].foodImage %>"
+                alt=""
+                srcset=""
+                class="item-Details__image"
+              />
+            </div>
+          </div>
+          <div class="item-Details__content">
+            <div class="shop-menu__foodTitle item-Details__title">
+              <i class="shop-menu__statusIcon "></i>
+              <h5 class="shop-menu__foodItemName"><%= singleItem[0].catergoryName %></h5>
+            </div>
+
+            <h2 class="item-Details__foodTitle"><%= singleItem[0].foodName %></h2>
+
+            <p class="item-Details__description">
+              <%= singleItem[0].foodDesc %>
+            </p>
+
+            <div class="item-Details__information">
+              <div class="item-Details__informationBox">
+                <h4
+                  class="shop-menu__title u-text-medium-weight u-margin-bottom-small"
+                >
+                  Giá
+                </h4>
+                <p class="item-Details__price u-text-medium-weight">
+                  <%= formatCurrentcy(singleItem[0].foodPrice); %><span> vnđ</span>
+                </p>
+              </div>
+
+              <div class="item-Details__informationBox">
+                <h4
+                  class="shop-menu__title u-text-medium-weight u-margin-bottom-small"
+                >
+                  Số lượng
+                </h4>
+                <div class="form" action="cart" method="post">
+                  <button
+                    id="left"
+                    class="item-Details__button item-Details__button--left"
+                  >
+                    <i>-</i>
+                  </button>
+                  <input
+                    type="text"
+                    value="1"
+                    name="quality"
+                    class="item-Details__input"
+                    onkeypress="return isNumberKey(event)"
+                    maxlength="2"
+                  />
+                  <button
+                    id="right"
+                    class="item-Details__button item-Details__button--right"
+                  >
+                    <i>+</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <i class="item-Details__addOn">Add On</i>
+
+            <div class="item-Details__foodAdditional">
+              <div class="item-Details__itemAddition">
+                <div class="item-Details__itemImageBox">
+                  <img
+                    class="item-Details__itemImage"
+                    src="../img/itemAdditional/itemadd1.jpg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <label for="item1" class="item-Details__titleAddition"
+                  >French Fries</label
+                >
+                <input
+                  id="item1"
+                  class="item-Details__itemCheck"
+                  type="checkbox"
+                  name=""
+                  id=""
+                  value=""
+                />
+              </div>
+
+              <div class="item-Details__itemAddition">
+                <div class="item-Details__itemImageBox">
+                  <img
+                    class="item-Details__itemImage"
+                    src="../img/itemAdditional/itemadd2.jpg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <label for="item2" class="item-Details__titleAddition"
+                  >French Fries</label
+                >
+                <input
+                  id="item2"
+                  class="item-Details__itemCheck"
+                  type="checkbox"
+                  name=""
+                  id=""
+                />
+              </div>
+
+              <div class="item-Details__itemAddition">
+                <div class="item-Details__itemImageBox">
+                  <img
+                    class="item-Details__itemImage"
+                    src="../img/itemAdditional/itemadd3.jpg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <label for="item3" class="item-Details__titleAddition"
+                  >French Fries</label
+                >
+                <input
+                  id="item3"
+                  class="item-Details__itemCheck"
+                  type="checkbox"
+                  name=""
+                  id=""
+                />
+              </div>
+
+              <div class="item-Details__itemAddition">
+                <div class="item-Details__itemImageBox">
+                  <img
+                    class="item-Details__itemImage"
+                    src="../img/itemAdditional/itemadd4.jpg"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+                <label for="item4" class="item-Details__titleAddition"
+                  >French Fries</label
+                >
+                <input
+                  id="item4"
+                  class="item-Details__itemCheck"
+                  type="checkbox"
+                  name=""
+                  id=""
+                />
+              </div>
+            </div>
+
+            <div class="item-Details__purchase">
+              <button href="cart" class="item-Details__purchase--addToCart" type="submit"
+                >Thêm vào giỏ hàng
+                <span
+                  ><img
+                    src="../img/svg/shopping_cart.svg"
+                    alt=""
+                    srcset="" /></span
+              ></button>
+              <a href="http://" class="item-Details__purchase--buyNow"
+                >Mua ngay
+                <span
+                  ><img
+                    src="../img/svg/shopping_cart.svg"
+                    alt=""
+                    srcset="" /></span
+              ></a>
+              <div class="item-Details__customerImageBox">
+                <img
+                  class="item-Details__customerImg"
+                  src="../img/customerImage/customer1.jpg"
+                  alt=""
+                />
+                <img
+                  class="item-Details__customerImg"
+                  src="../img/customerImage/customer2.jpg"
+                  alt=""
+                />
+                <img
+                  class="item-Details__customerImg"
+                  src="../img/customerImage/customer3.png"
+                  alt=""
+                />
+                <img
+                  class="item-Details__customerImg"
+                  src="../img/customerImage/customer4.png"
+                  alt=""
+                />
+                <img
+                  class="item-Details__customerImg"
+                  src="../img/customerImage/customer5.png"
+                  alt=""
+                />
+                <img
+                  class="item-Details__customerImg"
+                  src="../img/customerImage/customer6.png"
+                  alt=""
+                />
+                <p class="item-Details__customerImg u-color-background-primary">
+                  150+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <section class="item-information">
+        <div class="container item-information__wrapper">
+          <div class="tab-panel__box">
+            <button class="tab-panel__item tab-panel__item--active" id="tab-content">
+              <img
+                class="tab-panel__icon"
+                src="../img/svg/calendar.svg"
+                alt=""
+                srcset=""
+              />
+              <span>Mô tả món ăn</span>
+            </button>
+            <button class="tab-panel__item" id="tab-graphic">
+              <img
+                class="tab-panel__icon"
+                src="../img/svg/heart.svg"
+                alt=""
+                srcset=""
+              />
+              <span>Nguyên liệu</span>
+            </button>
+            <button class="tab-panel__item" id="tab-comment">
+              <img
+                class="tab-panel__icon"
+                src="../img/svg/search.svg"
+                alt=""
+                srcset=""
+              />
+              <span>Bình luận của khách hàng</span>
+            </button>
+          </div>
+          <div class="tab-content">
+            <p class="tab-content__describe">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Reiciendis, qui ab nesciunt, sapiente veniam beatae perferendis
+              voluptate sit ut accusamus nam id perspiciatis laboriosam cumque
+              dolor eius architecto facilis possimus. Lorem ipsum dolor sit
+              amet, consectetur adipisicing elit. Doloremque laborum itaque
+              dolorem veniam reiciendis, fugit tenetur ducimus magnam odio
+              molestias aspernatur assumenda laudantium repellat dignissimos
+              molestiae, excepturi optio, ipsum rerum!
+            </p>
+
+            <ul class="tab-content__list">
+              <li class="tab-content__evaluate">
+                <img src="../img/svg/checkmark.svg" alt="" srcset="" />
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit, quasi itaque. Ipsum ab voluptatibus, placeat id quam
+                  doloremque reiciendis illum amet illo commodi, eius expedita,
+                  veritatis optio consequuntur vel saepe!
+                </p>
+              </li>
+
+              <li class="tab-content__evaluate">
+                <img src="../img/svg/checkmark.svg" alt="" srcset="" />
+                <p>
+                  Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                  Suscipit, quasi itaque. Ipsum ab voluptatibus, placeat id quam
+                  doloremque reiciendis illum amet illo commodi, eius expedita,
+                  veritatis optio consequuntur vel saepe!
+                </p>
+              </li>
+            </ul>
+          </div>
+
+          <div class="tab-graphic" style="display: none">
+            <table class="tab-graphic__table">
+              <tr>
+                <th>Nguyên liệu chính</th>
+                <td>Bột mì, lúa mạch</td>
+              </tr>
+              <tr>
+                <th>Topping</th>
+                <td>Cà chua, phô mai, hành tây</td>
+              </tr>
+              <tr>
+                <th>Chất lượng</th>
+                <td>
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                </td>
+              </tr>
+              <tr>
+                <th>Phí giao hàng</th>
+                <td>Miễn phí</td>
+              </tr>
+              <tr>
+                <th>Thời gian giao hàng</th>
+                <td>32 phút</td>
+              </tr>
+            </table>
+          </div>
+
+          <div class="tab-comment" style="display: none">
+            <ul class="tab-comment__list">
+              <li class="tab-comment__items">
+                <div class="tab-comment__customerImage">
+                  <img src="../img/customerImage/customer1.jpg" alt="" srcset="" />
+                </div>
+
+                <div class="tab-comment__customerCommentBox">
+                  <h4 class="tab-comment__customerName">Thanh Trí</h4>
+                  <div class="tab-comment__customerRating">
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <p class="tab-comment__customerComment">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Iusto at ex odio maxime eaque sit qui, similique
+                    voluptatibus? Officiis labore vero dolorum commodi natus
+                    cumque nobis eaque accusantium laborum aliquam!
+                  </p>
+                </div>
+              </li>
+
+              <li class="tab-comment__items">
+                <div class="tab-comment__customerImage">
+                  <img src="../img/customerImage/customer1.jpg" alt="" srcset="" />
+                </div>
+
+                <div class="tab-comment__customerCommentBox">
+                  <h4 class="tab-comment__customerName">Thanh Trí</h4>
+                  <div class="tab-comment__customerRating">
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <p class="tab-comment__customerComment">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Iusto at ex odio maxime eaque sit qui, similique
+                    voluptatibus? Officiis labore vero dolorum commodi natus
+                    cumque nobis eaque accusantium laborum aliquam!
+                  </p>
+                </div>
+              </li>
+
+              <li class="tab-comment__items">
+                <div class="tab-comment__customerImage">
+                  <img src="../img/customerImage/customer1.jpg" alt="" srcset="" />
+                </div>
+
+                <div class="tab-comment__customerCommentBox">
+                  <h4 class="tab-comment__customerName">Thanh Trí</h4>
+                  <div class="tab-comment__customerRating">
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                    <img
+                      class=""
+                      src="../img/svg/star-stroke-svgrepo-com.svg"
+                      sizes="10"
+                      alt=""
+                      srcset=""
+                    />
+                  </div>
+                  <p class="tab-comment__customerComment">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Iusto at ex odio maxime eaque sit qui, similique
+                    voluptatibus? Officiis labore vero dolorum commodi natus
+                    cumque nobis eaque accusantium laborum aliquam!
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <form class="form-contact" method="post">
+              <div class="shop-menu__titleBox">
+                <h4 class="heading--4 shop-menu__title">
+                  Hãy góp ý cho chúng mình nhé
+                </h4>
+                <div class="divider-style-1">
+                  <span class="divider-style-1__point"></span>
+                  <span class="divider-style-1__line"></span>
+                </div>
+              </div>
+
+              <div
+                class="form-contact__inputBox u-margin-bottom-medium tab-comment__inputBox"
+              >
+                <input
+                  class="form-contact__input tab-comment__input"
+                  type="text"
+                  name=""
+                  id=""
+                  placeholder="Tên của bạn"
+                />
+                <input
+                  class="form-contact__input tab-comment__input"
+                  type="email"
+                  name=""
+                  id=""
+                  placeholder="Email"
+                />
+              </div>
+
+              <div class="form-contact__rating">
+                <h5>Bình luận của bạn</h5>
+                <div class="form-contact__iconBox">
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                  <img
+                    class="tab-graphic__icon"
+                    src="../img/svg/star-stroke-svgrepo-com.svg"
+                    sizes="10"
+                    alt=""
+                    srcset=""
+                  />
+                </div>
+              </div>
+
+              <textarea
+                name=""
+                id=""
+                class="form-contact__textArea"
+                maxlength=""
+                placeholder="Để lại bình luận của bạn"
+              ></textarea>
+
+              <button class="form-contact__button" type="submit">
+                <span>Submit</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <%- include("../partials/footer") %>
+    <script src="../js/itemDetailsAdd.js"></script>
+    <script src="../js/scrollbar.js"></script>
+    <script src="../js/itemAddtion.js"></script>
+    <script src="../js/productDetailTabEffect.js"></script>
+    <script src="../js/validateNumber.js"></script>
+
+  </body>
+</html>

@@ -22,18 +22,22 @@
       <div class="col-12">
         <label for="Useremail" class="form-label label-title">Email</label>
         <input type="text" class="form-control input-title" id="Useremail" name="userEmail" value="<%= userData[0].email %>">
+        <span class="text-error-message"></span>
       </div>
       <div class="col-12">
         <label for="Userpassword" class="form-label label-title">Mật khẩu</label>
         <input type="password" class="form-control input-title" id="Userpassword" name="userPassword" value="<%= userData[0].userPassword %>">
+        <span class="text-error-message"></span>
       </div>
       <div class="col-12">
         <label for="Username" class="form-label label-title">Tên người dùng</label>
         <input type="text" class="form-control input-title" id="Username" name="userName" value="<%= userData[0].userName %>">
+        <span class="text-error-message"></span>
       </div>
-      <div class="col-6 ">
+      <div class="col-6" id="editforminput">
         <label for="productimage" class="form-label label-title">Upload hình ảnh</label>
         <input type="file" accept="" class="form-control input-title mb-2" id="productimage" name="userImage">
+        <span class="text-error-message"></span>
       </div>
       <div class="col-6">
         <label for="UserRole" class="form-label label-title">RoleId</label>
@@ -45,6 +49,7 @@
             <option value="<%= roleSelected[i].id %>"><%= roleSelected[i].roleName %></option>
           <% } } %>
         </select>
+        <span class="text-error-message"></span>
       </div>  
   
       <div class="col-12 mb-3">
@@ -58,10 +63,11 @@
      
       <div class="col-12 mt-5 mb-3 edit-form-btn-wrap">
         <a class="btn btn-Submit" href="../admin?page=userPage">Quay về</a>
-        <button type="submit" class="btn btn-Submit btn-admin-page">Thay đổi thông tin</button>
+        <button type="submit" id="addBtn" class="btn btn-Submit btn-admin-page">Thay đổi thông tin</button>
       </div>
     </form>
   </div>
+  <script src="../js/previewImage.js"></script>
+  <script src="../js/validateform.js"></script>
 </body>
 </html>
-<script src="../js/previewImage.js"></script>

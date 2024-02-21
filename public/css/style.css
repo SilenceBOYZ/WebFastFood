@@ -645,7 +645,7 @@
   .login-site__form {
     margin: 0 auto;
     padding: 0rem 6rem 0rem 6rem;
-    margin-top: 15rem; }
+    margin-top: 10rem; }
     @media only screen and (max-width: 25em) {
       .login-site__form {
         padding: 0rem 3rem 0rem 8rem; } }
@@ -682,6 +682,17 @@
       box-sizing: border-box;
       width: 100%;
       flex: 0 1 100%; }
+    .login-site__inputBox input.input-active {
+      border: 1px solid #f19225;
+      outline-color: #f19225; }
+    .login-site__inputBox .text-error-message {
+      display: none;
+      font-size: 1.4rem;
+      color: #f19225;
+      margin-top: 5px;
+      transition: all 0.3s; }
+  .login-site #addBtn.cart__buy {
+    margin-top: 0rem; }
   .login-site__switchSite {
     margin-top: 1.5rem;
     font-size: 1.8rem;
@@ -694,7 +705,7 @@
   right: 2rem;
   top: 5.6rem;
   cursor: pointer; }
-  .passwordHidden::after {
+  .passwordHidden .straightLine {
     display: inline-block;
     content: "";
     position: absolute;
@@ -1092,6 +1103,11 @@ html {
 .navbar-top__icons--accountBox {
   position: relative;
   margin-left: 3rem; }
+
+.navbar-top__icons--accountBoxUserLogin {
+  position: relative;
+  margin-left: 3rem;
+  border-radius: 50%; }
 
 .navbar-top__item--1 .navbar-top__dropdown-menu-small,
 .navbar-top__item--2 .navbar-top__dropdown-menu-small,
@@ -1688,7 +1704,8 @@ html {
     font-family: "Roboto", sans-serif;
     color: #474747;
     font-weight: 500;
-    margin-bottom: 1.6rem; }
+    margin-bottom: 1.6rem;
+    width: 19.5rem; }
     @media only screen and (max-width: 56.25em) {
       .card-order__description {
         font-size: 1.9rem; } }
@@ -2791,6 +2808,48 @@ html {
         width: 2.5rem;
         height: 2.5rem;
         filter: invert(59%) sepia(20%) saturate(1138%) hue-rotate(42deg) brightness(98%) contrast(86%); }
+    .item-Details__purchase--addToCart, .item-Details__purchase--buyNow {
+      color: #fff;
+      text-decoration: none;
+      display: flex;
+      gap: 1rem;
+      font-size: 1.6rem;
+      font-weight: 600;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem 2rem;
+      background-color: #fa4252;
+      border: 1px solid #fa4252;
+      border-radius: 8px;
+      transition: all 0.3s; }
+      .item-Details__purchase--addToCart span img, .item-Details__purchase--buyNow span img {
+        width: 2.5rem;
+        height: 2.5rem;
+        filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg) brightness(109%) contrast(100%); }
+    .item-Details__purchase--addToCart:hover, .item-Details__purchase--buyNow:active {
+      cursor: pointer;
+      background-color: #fff;
+      border: 1px solid #fa4252;
+      color: #fa4252; }
+      .item-Details__purchase--addToCart:hover span img, .item-Details__purchase--buyNow:active span img {
+        filter: invert(50%) sepia(21%) saturate(4541%) hue-rotate(321deg) brightness(103%) contrast(104%); }
+    .item-Details__purchase--buyNow {
+      color: #FFC222;
+      text-decoration: none;
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      justify-content: center;
+      padding: 1.2rem 2rem;
+      background-color: white;
+      border: 1px solid #7DA640;
+      color: #7DA640;
+      border-radius: 8px;
+      transition: all 0.3s; }
+      .item-Details__purchase--buyNow span img {
+        width: 2.5rem;
+        height: 2.5rem;
+        filter: invert(59%) sepia(20%) saturate(1138%) hue-rotate(42deg) brightness(98%) contrast(86%); }
     @media only screen and (max-width: 56.25em) {
       .item-Details__purchase {
         flex-wrap: wrap; } }
@@ -3432,6 +3491,56 @@ html {
     justify-content: center;
     align-items: center;
     background-color: #F33F4D; }
+
+.account-userLogin {
+  border-radius: 50% !important;
+  padding: .5rem !important;
+  overflow: hidden !important; }
+
+.image-userLogin {
+  border-radius: 50% !important;
+  width: 100% !important; }
+
+div.form button {
+  display: flex;
+  position: absolute;
+  font-size: 2.8rem;
+  font-weight: 300;
+  background-color: #fff;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center; }
+  div.form button#left {
+    left: 0.4rem;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%); }
+    div.form button#left i {
+      padding-bottom: 0.4rem;
+      font-size: 2.8rem; }
+  div.form button#right {
+    right: 0.4rem;
+    top: 50%;
+    z-index: 5;
+    transform: translateY(-50%); }
+
+div.form input {
+  width: 100%;
+  position: relative;
+  border-radius: 4px;
+  border: none;
+  background-color: #eaeaea; }
+  div.form input[type="text"] {
+    font-size: 1.6rem;
+    width: 10rem;
+    height: 2.8rem;
+    text-align: center;
+    font-weight: 400;
+    padding: 0.5rem; }
 
 .admin__header {
   width: 100%;

@@ -19,7 +19,6 @@ let readAllCatergories = (pageNum) => {
       const iteratorLink = (pageNum - 5) < 1 ? 1 : pageNum - 5;
       // Hiển thị ra những đường link có trong trang
       const endingLink = (iteratorLink + 9) <= numberOfPages ? (iteratorLink + 9) : pageNum + (numberOfPages - pageNum);
-      console.log(endingLink);
       allCatergories = {
         pageNum,
         catergoryQuery,
