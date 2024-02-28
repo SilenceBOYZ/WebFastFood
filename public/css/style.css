@@ -3569,7 +3569,7 @@ div.form input {
   font-weight: bold; }
 
 .u-align-text-center {
-  text-align: center; }
+  text-align: center !important; }
 
 .u-align-text-left {
   text-align: left; }

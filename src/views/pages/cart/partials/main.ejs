@@ -1,0 +1,218 @@
+<main class="shopStyle-main">
+  <section class="shop-menu cart">
+    <div class="container shop-menu__wrapper">
+      <div class="shop-menu__menuItem cart__list">
+        <div class="shop-menu__titleBox">
+          <h4 class="heading--4 shop-menu__title clearFix">
+            Còn nhiều món ngon lắm nè....
+          </h4>
+        </div>
+        <ul class="shop-menu__listOfFood">
+          <% for(let i = 0; i < 5; i++) { %>
+            <li class="shop-menu__foodItem">
+              <div class="shop-menu__imageBox">
+                <img
+                  src="img/foodItem/fooditem1.jpg"
+                  alt=""
+                  srcset=""
+                  class="shop-menu__image"
+                />
+              </div>
+              <a href="../user-page/product-detail?id=8" class="shop-menu__foodItemContainer">
+                <div class="shop-menu__foodTitle">
+                  <i
+                    class="shop-menu__statusIcon"
+                  ></i>
+                  <h5 class="shop-menu__foodItemName">Hamburger</h5>
+                  <i class="shop-menu__rate">
+                    <img
+                      src="img/svg/star.svg"
+                      alt="icon"
+                      srcset=""
+                      class="shop-menu__icon"
+                    />
+                    <span class="shop-menu__ratePoint">4.5</span>
+                  </i>
+                </div>
+  
+                <div class="shop-menu__foodStatus">
+                  <div class="shop-menu__foodStatus-box--left">
+                    <p class="shop-menu__foodStatus-content">
+                      By<strong>ThanhTrí</strong>
+                    </p>
+                    <div class="shop-menu__foodStatus-content">
+                      <img
+                        src="img/svg/fast-food-delivery-bike-12992.svg"
+                        class="shop-menu__icon--2"
+                        alt=""
+                        srcset=""
+                      /><i>30 phút</i>
+                    </div>
+                  </div>
+                  <div class="shop-menu__foodStatus-box--right">
+                    <i class="shop-menu__prices">100,000 vnđ</i>
+                    <i class="shop-menu__foodStatus-box--right-item">1 cái</i>
+                  </div>
+                </div>
+              </a>
+            </li>  
+          <% } %>  
+        </ul>
+      </div>
+
+      <%
+        function formatCurrency(number) {
+          return new Intl.NumberFormat('ja-JP', { maximumSignificantDigits: 10, currency:'JPY' }).format(Number.parseFloat(number));
+        }
+      %>
+
+      <div class="cart__container">
+        <div class="shop-menu__titleBox">
+          <% if(userCart) { %>
+            <h4 class="heading--4 shop-menu__title cart__title">
+              Giỏ hàng của bạn <span class="cart__itemSum">(<%= userCart.length %>)</span>
+            </h4>
+          <% } else { %>
+            <h4 class="heading--4 shop-menu__title cart__title">
+              Giỏ hàng của bạn <span class="cart__itemSum">(0)</span>
+            </h4>
+          <% } %>  
+          <div class="divider-style-1">
+            <span class="divider-style-1__point"></span>
+            <span class="divider-style-1__line"></span>
+          </div>
+        </div>
+
+        <div class="cart__listItem">
+          <% if(userCart) { %>
+            <% if(userCart.length < 1) { %>
+              <div class="cart__item">
+                <h1 class="u-align-text-center">Hãy chọn món ăn bạn yêu thích</h1>
+              </div>
+            <% } else { %>  
+              <% for(let i = 0; i < userCart.length; i++) { %>  
+                <div class="cart__item">
+                  <div class="cart__imageBox">
+                    <img class="cart__image" src="img/uploads/itemImages/<%= userCart[i].foodImage %>" alt="" srcset="" />
+                  </div>
+                  <div class="cart__title">
+                    <h5 class="shop-menu__foodItemName u-margin-bottom-small">
+                      <%= userCart[i].foodName %>
+                    </h5>
+                    <div class="item-Details__information u-delete-margin-bottom">
+                      <div
+                        class="item-Details__informationBox u-delete-margin-left"
+                      >
+                        <form action="" method="post">
+                          <button type="button"
+                            class="item-Details__button item-Details__button--left"
+                          >
+                            <i>-</i>
+                          </button>
+                          <input
+                            type="text"
+                            value="<%= userCart[i].quantity %>"
+                            name=""
+                            class="item-Details__input"
+                          />
+                          <button type="button"
+                            class="item-Details__button item-Details__button--right"
+                          >
+                            <i>+</i>
+                          </button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cart__closeTag">
+                    <button>X</button>
+                    <i class="shop-menu__prices cart__price product__price"><%= formatCurrency(userCart[i].foodPrice * userCart[i].quantity) %></i>
+                  </div>
+                </div>
+              <% }  %>
+            <% } %>  
+          <% } else { %>
+            <div class="cart__item">
+              <div class="cart__imageBox">
+                <img class="cart__image" src="img/uploads/itemImages/1704553329544-fooditem1.png" alt="" srcset="" />
+              </div>
+              <div class="cart__title">
+                <h5 class="shop-menu__foodItemName u-margin-bottom-small">
+                  Hamburger
+                </h5>
+                <div class="item-Details__information u-delete-margin-bottom">
+                  <div
+                    class="item-Details__informationBox u-delete-margin-left"
+                  >
+                    <form action="" method="post">
+                      <button type="button"
+                        class="item-Details__button item-Details__button--left"
+                      >
+                        <i>-</i>
+                      </button>
+                      <input
+                        type="text"
+                        value="1"
+                        name=""
+                        class="item-Details__input"
+                      />
+                      <button type="button"
+                        class="item-Details__button item-Details__button--right"
+                      >
+                        <i>+</i>
+                      </button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="cart__closeTag">
+                <button>X</button>
+                <i class="shop-menu__prices cart__price product__price">100.123</i>
+              </div>
+            </div>
+          <% } %>  
+        </div>
+
+        <div class="cart__information u-margin-top-small">
+          <h5 class="shop-menu__foodItemName cart__informationTitle">
+            Hóa đơn chi tiết
+          </h5>
+
+          <div class="cart__bill">
+             <p>Hóa đơn</p>
+             <i id="totalPrice" class="shop-menu__prices cart__price"><% userCart ? "" : 0 %></i>
+          </div>
+          
+          <div class="cart__bill">
+             <p>Phí giao hàng</p>
+             <i class="shop-menu__prices cart__price">Miễn Phí</i>
+          </div>
+
+          <div class="cart__bill">
+             <p>Mã giảm giá</p>
+             <i class="shop-menu__prices cart__price">10%</i>
+          </div>
+
+          <div class="cart__bill">
+             <p>Tổng hóa đơn</p>
+             <i class="shop-menu__prices cart__price">12,600,000</i>
+          </div>
+
+          <button type="submit" class="btn-link card-order__btn checkout__buy cart__buy">Thanh toán</button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<script>
+  function formatCurrentcy(number) {
+    return new Intl.NumberFormat('vi', { maximumSignificantDigits: 10, currency:"VND", style: "currency" }).format(Number.parseFloat(number));
+  }
+  const totalPrice = document.getElementById("totalPrice");
+  const productPrice = document.querySelectorAll(".product__price");
+  let pricing = 0;
+  productPrice.forEach(el => pricing += Number.parseFloat(el.textContent));
+  totalPrice.textContent = pricing + " VND"
+</script>

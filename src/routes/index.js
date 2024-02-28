@@ -7,6 +7,7 @@ const CatergoryRoute = require("./CatergoryRoute");
 const UserRoute = require("./UserRoute");
 const UserAuth = require("./auth/AuthRoute");
 const UserApi = require("./api/UserApiRoute");
+const Cart = require("./Cart");
 
 let route = (app) => {
   app.use("/shop", ShopRoute);
@@ -17,6 +18,7 @@ let route = (app) => {
   app.use("/user-authentical", UserAuth);
   app.use("/admin", AdminRoute);
   app.use("/user-page", UserAuth);
+  app.use("/cart", Cart);
   app.use("/", HomeRoute);
 }
 

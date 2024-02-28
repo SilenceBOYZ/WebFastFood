@@ -29,7 +29,7 @@
       }
     %>
     <main class="main main-shopDetail">
-      <form class="item-Details" action="cart" method="post">
+      <form class="item-Details" action="../cart/add-to-cart" method="post">
         <div class="container item-Details__wrapper">
           <div class="item-Details__imageBox">
             <div class="item-Details__imageContent">
@@ -81,7 +81,7 @@
                   <input
                     type="text"
                     value="1"
-                    name="quality"
+                    name="<%= singleItem[0].id %>"
                     class="item-Details__input"
                     onkeypress="return isNumberKey(event)"
                     maxlength="2"
@@ -186,7 +186,7 @@
             </div>
 
             <div class="item-Details__purchase">
-              <button href="cart" class="item-Details__purchase--addToCart" type="submit"
+              <button href="../cart" class="item-Details__purchase--addToCart" type="submit"
                 >Thêm vào giỏ hàng
                 <span
                   ><img

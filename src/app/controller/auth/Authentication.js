@@ -14,7 +14,7 @@ let checkUserExits = (req, res, next) => {
   } catch (error) {
     return res.render("pages/alert/alert.ejs", {message: "Bạn cần phải đăng nhập"})
   }
-}
+} 
 
 let showUserPage = async (req, res, next) => {
   let token = req.session.userId;
@@ -31,16 +31,20 @@ let showUserPage = async (req, res, next) => {
 let showEmployeeHomePage = async (req, res, next) => {
   let token = req.session.userId;
   let userId = jwt.verify(token, process.env.SECRET);
+
   let userData = await userService.getUser(parseInt(userId.id));
   let itemData = await items.readAllItems();
+
   res.render('userPage/index', { itemDatas: itemData, user: userData});
 }
 
 let showSingleProduct = async (req, res, next) => { 
   let token = req.session.userId;
   let userId = jwt.verify(token, process.env.SECRET);
+  
   let userData = await userService.getUser(parseInt(userId.id));
   let itemId = await itemService.getSingleItem(parseInt(req.query.id));
+
   res.render('userPage/product-detail/index', {singleItem: itemId, user: userData});
 }
 

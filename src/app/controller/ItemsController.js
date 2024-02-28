@@ -7,7 +7,6 @@ const { readAllCatergoriesForItems } = require("../../services/itemServices")
 
 const fs = require("fs");
 
-
 let createANewItem = async (req, res) => {
   let data = await req.body;
   let imageName = await req.file.filename;

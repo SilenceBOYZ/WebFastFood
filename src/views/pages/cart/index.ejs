@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../../partials/head'); %>
+  </head>
+  <body>
+    <% if(!userData) { %>
+    <header><%- include('../../partials/header'); %></header>
+    <% } else { %>
+      <header><%- include('partials/header', {user: userData}); %></header>
+    <% } %>
+    <main class="shopStyle-main">
+      <%- include('../../partials/banner/banner.ejs'); %> 
+      <%- include('partials/main', {userCart: userCart}); %>
+    </main>
+
+    <footer><%- include('../../partials/footer'); %></footer>
+
+    <%- include('../../partials/loginSite/loginSite') %>
+
+    <% if(!userData) { %>
+      <script src="../js/loginSite.js"></script>
+    <% } %>
+
+    <script src="../js/validateNumber.js"></script>
+    <script src="../js/scrollbar.js"></script>
+  </body>
+</html>

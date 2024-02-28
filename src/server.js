@@ -8,24 +8,46 @@ const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const session = require("express-session");
+require('dotenv').config();
 
-const Redis = require("ioredis");
-const RedisStore = require("connect-redis").default;
-const clientRedis = new Redis(); //defaul localhost
+const RedisStore = require("connect-redis").default; // default localhost
+const { createClient } = require("redis");
+
+// Initialize client.
+let redisClient = createClient()
+redisClient.connect().then(
+  console.log("Connect to redis success")
+).catch(console.error)
+
+let redisStore = new RedisStore({
+  client: redisClient,  
+})
 
 app.use(session({
   secret: 'keyboard cat',
-  store: new RedisStore({client: clientRedis}),
+  store: redisStore,
   resave: false,
   saveUninitialized: true,
-  cookie: { 
+  cookie: {
     secure: false,
     httpOnly: true,
     maxAge: 5 * 60 * 1000
   }
 }))
 
-require('dotenv').config();
+// redisClient.hSet('cartId', {
+//   id: 1,
+//   userId: 2,
+//   orderId: 1,
+//   totalAmount: 30000,
+// })
+
+// const value = redisClient.hGetAll('cartId')
+// .then((res) => res)
+// .catch((err) => console.log(err))
+
+// value.then(data => console.log(data))
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
 app.set('views', path.join(__dirname, 'views'));
