@@ -8,4 +8,4 @@ router.get("/get-user", UserController.getAUser);
 router.put("/edit-user", uploadUserImage.single("userImage"),UserController.editUser);
 router.delete("/delete-user", UserController.deleteUser);
 
-module.exports = router;
+module.exports = router;  

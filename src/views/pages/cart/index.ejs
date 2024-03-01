@@ -7,22 +7,75 @@
     <% if(!userData) { %>
     <header><%- include('../../partials/header'); %></header>
     <% } else { %>
-      <header><%- include('partials/header', {user: userData}); %></header>
+    <header>
+      <%- include('partials/header', {user: userData, userCartSelected,
+      totalCart}); %>
+    </header>
     <% } %>
     <main class="shopStyle-main">
-      <%- include('../../partials/banner/banner.ejs'); %> 
-      <%- include('partials/main', {userCart: userCart}); %>
+      <%- include('../../partials/banner/banner.ejs'); %> <%-
+      include('partials/main', {userCart: userCart}); %>
     </main>
 
     <footer><%- include('../../partials/footer'); %></footer>
 
-    <%- include('../../partials/loginSite/loginSite') %>
-
-    <% if(!userData) { %>
-      <script src="../js/loginSite.js"></script>
+    <%- include('../../partials/loginSite/loginSite') %> <% if(!userData) { %>
+    <script src="../js/loginSite.js"></script>
     <% } %>
-
     <script src="../js/validateNumber.js"></script>
     <script src="../js/scrollbar.js"></script>
+    <script src="../../js/currencyTransport/formatCurrency.js"></script>
+
+    <script>
+      const totalPrice = document.getElementById("totalPrice");
+      const productPrice = document.querySelectorAll(".product__price");
+      const headerTotal = document.getElementById("HeaderTotalCartResult");
+      const inputValue = document.querySelectorAll(".item-Details__input");
+      let totalArray = [];
+      let pricing = 0;
+
+      function getPrice(input) {
+        let price = input.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(".cart__closeTag .product__price");
+        price.textContent = formatCurrency(Number.parseInt(price.textContent.split('.').join("")) * Number.parseInt(input.value));
+      }
+
+      totalArray = Array.from(productPrice).map((el) => el);
+      totalArray.forEach((el) => (pricing += Number.parseInt(el.textContent)));
+
+      totalPrice.textContent = formatCurrency(pricing);
+      headerTotal.textContent = formatCurrency(pricing);
+
+      productPrice.forEach((el) => el.textContent = formatCurrency(el.textContent))
+
+      inputValue.forEach((input) => {
+        let plusBtn = input.parentElement.querySelector(
+          ".item-Details__button--right"
+        );
+        let minusBtn = input.parentElement.querySelector(
+          ".item-Details__button--left"
+        );
+        plusBtn.addEventListener("click", () => {
+          input.value = Number.parseInt(input.value) + 1;
+          input.setAttribute("value", input.value);
+        });
+
+        minusBtn.addEventListener("click", () => {
+          if (input.value <= 1) return;
+          input.value = Number.parseInt(input.value) - 1;
+          input.setAttribute("value", input.value);
+        });
+
+        input.onchange = (e) => {
+          if (Number.parseInt(e.target.value) === 0) {
+            input.setAttribute("value", 1);
+            input.value = 1;
+            getPrice(input);
+            return;
+          }
+          getPrice(input);
+          input.setAttribute("value", e.target.value);
+        };
+      });
+    </script>
   </body>
 </html>

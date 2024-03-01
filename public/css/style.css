@@ -3593,3 +3593,9 @@ div.form input {
   content: "";
   display: inline-block;
   clear: both; }
+
+.float-position__right {
+  float: right !important; }
+
+.float-position__left {
+  float: left !important; }

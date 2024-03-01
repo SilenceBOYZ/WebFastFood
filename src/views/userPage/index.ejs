@@ -10,5 +10,12 @@
 
     <footer><%- include('partials/footer'); %></footer>
     <%- include('partials/feature') %>
-  </body>
+  </body> 
+ 
+  <script src="../../js/currencyTransport/formatCurrency.js"> </script>
+
+  <script>
+    const totalPrice = document.getElementById("totalPrice");
+    totalPrice.textContent = formatCurrency(totalPrice.textContent);
+  </script>
 </html>

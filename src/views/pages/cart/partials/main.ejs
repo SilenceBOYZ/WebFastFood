@@ -59,13 +59,6 @@
           <% } %>  
         </ul>
       </div>
-
-      <%
-        function formatCurrency(number) {
-          return new Intl.NumberFormat('ja-JP', { maximumSignificantDigits: 10, currency:'JPY' }).format(Number.parseFloat(number));
-        }
-      %>
-
       <div class="cart__container">
         <div class="shop-menu__titleBox">
           <% if(userCart) { %>
@@ -83,7 +76,7 @@
           </div>
         </div>
 
-        <div class="cart__listItem">
+        <form class="cart__listItem u-margin-bottom-medium clearFix" method="POST" action="cart/update-cart-items">
           <% if(userCart) { %>
             <% if(userCart.length < 1) { %>
               <div class="cart__item">
@@ -103,7 +96,7 @@
                       <div
                         class="item-Details__informationBox u-delete-margin-left"
                       >
-                        <form action="" method="post">
+                        <div class="form" action="" method="post">
                           <button type="button"
                             class="item-Details__button item-Details__button--left"
                           >
@@ -112,25 +105,26 @@
                           <input
                             type="text"
                             value="<%= userCart[i].quantity %>"
-                            name=""
+                            name="<%= userCart[i].foodId %>"
                             class="item-Details__input"
                           />
-                          <button type="button"
+                          <button type="button" 
                             class="item-Details__button item-Details__button--right"
                           >
                             <i>+</i>
                           </button>
-                        </form>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="cart__closeTag">
                     <button>X</button>
-                    <i class="shop-menu__prices cart__price product__price"><%= formatCurrency(userCart[i].foodPrice * userCart[i].quantity) %></i>
+                    <i class="shop-menu__prices cart__price product__price"><%= userCart[i].foodPrice * userCart[i].quantity %></i>
                   </div>
                 </div>
               <% }  %>
             <% } %>  
+            <button class="input-search__btn float-position__right" type="submit">Cập nhật</button>
           <% } else { %>
             <div class="cart__item">
               <div class="cart__imageBox">
@@ -167,11 +161,11 @@
               </div>
               <div class="cart__closeTag">
                 <button>X</button>
-                <i class="shop-menu__prices cart__price product__price">100.123</i>
+                <i class="shop-menu__prices cart__price product__price">100000</i>
               </div>
             </div>
           <% } %>  
-        </div>
+        </form>
 
         <div class="cart__information u-margin-top-small">
           <h5 class="shop-menu__foodItemName cart__informationTitle">
@@ -206,13 +200,3 @@
 </main>
 
 
-<script>
-  function formatCurrentcy(number) {
-    return new Intl.NumberFormat('vi', { maximumSignificantDigits: 10, currency:"VND", style: "currency" }).format(Number.parseFloat(number));
-  }
-  const totalPrice = document.getElementById("totalPrice");
-  const productPrice = document.querySelectorAll(".product__price");
-  let pricing = 0;
-  productPrice.forEach(el => pricing += Number.parseFloat(el.textContent));
-  totalPrice.textContent = pricing + " VND"
-</script>

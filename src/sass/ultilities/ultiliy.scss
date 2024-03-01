@@ -40,4 +40,12 @@
   clear: both;
 }
 
+.float-position {
+  &__right {
+    float: right !important;
+  }
+  &__left {
+    float: left !important;
+  }
+}
 

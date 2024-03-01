@@ -624,6 +624,11 @@
     <script src="../js/itemAddtion.js"></script>
     <script src="../js/productDetailTabEffect.js"></script>
     <script src="../js/validateNumber.js"></script>
+    <script src="../../js/currencyTransport/formatCurrency.js"> </script>
 
+    <script>
+      const totalPrice = document.getElementById("totalPrice");
+      totalPrice.textContent = formatCurrency(totalPrice.textContent);
+    </script>
   </body>
 </html>

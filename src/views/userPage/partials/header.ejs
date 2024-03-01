@@ -2,7 +2,11 @@
   <div class="wrapping-header container">
     <nav class="navbar-top">
       <a href="http://" class="navbar-top__logo-link"
-        ><img src="../../img/logo.png" alt="" srcset="" class="navbar-top__logo"
+        ><img
+          src="../../img/logo.png"
+          alt=""
+          srcset=""
+          class="navbar-top__logo"
       /></a>
       <div class="navbar-top__right">
         <ul class="navbar-top__list">
@@ -80,9 +84,7 @@
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shop"
-                      >Món ăn</a
-                    >
+                    <a class="dropdown-menu__link" href="shop">Món ăn</a>
                   </li>
                   <li class="dropdown-menu__items">
                     <a class="dropdown-menu__link" href="shopStyle.html"
@@ -107,10 +109,15 @@
           </a>
           <div class="navbar-top__icons--accountBox">
             <button
-              class="navbar-top__link navbar-top__icons navbar-top__icons--account  account-userLogin"
+              class="navbar-top__link navbar-top__icons navbar-top__icons--account account-userLogin"
             >
               <div class="navbar-top">
-                <img class="special-foods__icon-svg image-userLogin" src="../../img/uploads/userImages/<%= user[0].userImage %>" alt="" srcset="">
+                <img
+                  class="special-foods__icon-svg image-userLogin"
+                  src="../../img/uploads/userImages/<%= user[0].userImage %>"
+                  alt=""
+                  srcset=""
+                />
               </div>
             </button>
             <div class="navbar-top__dropdown-menu-small dropdown-menu">
@@ -131,7 +138,8 @@
                       id="register"
                       class="dropdown-menu__link u-bold-text login-action"
                       href="<%= user[0].roleId === 0 ? '../../admin' : user[0].roleId === 3 ? '../../admin' : '#'%>"
-                      ><%= user[0].roleId === 0 ? '../../admin' : user[0].roleId === 3 ? 'Trang admin' : 'Cài đặt'%></a
+                      ><%= user[0].roleId === 0 ? '../../admin' : user[0].roleId
+                      === 3 ? 'Trang admin' : 'Cài đặt'%></a
                     >
                   </li>
                 </ul>
@@ -140,7 +148,8 @@
           </div>
 
           <div
-            class="navbar-top__link navbar-top__icons navbar-top__icons--cart" id="cartSide-cta"
+            class="navbar-top__link navbar-top__icons navbar-top__icons--cart"
+            id="cartSide-cta"
           >
             <svg class="navbar-top__iconBox">
               <use xlink:href="#lnr-cart"></use>
@@ -148,11 +157,12 @@
 
             <div class="customerOrderCart">
               <div class="cart__listItem">
+                <% for(let i=0; i < userCartSelected.length; i++) { %>
                 <div class="cart__item customerOrderCart__item">
                   <div class="cart__imageBox">
                     <img
                       class="cart__image"
-                      src="../../img/foodItem/fooditem1.jpg"
+                      src="../../img/uploads/itemImages/<%= userCartSelected[i].foodImage %>"
                       alt=""
                       srcset=""
                     />
@@ -161,7 +171,7 @@
                     <h5
                       class="shop-menu__foodItemName customerOrderCart__title"
                     >
-                      Hamburger
+                      <%= userCartSelected[i].foodName %>
                     </h5>
                     <div
                       class="item-Details__information u-delete-margin-bottom"
@@ -171,46 +181,12 @@
                       ></div>
                       <i
                         class="shop-menu__prices cart__price customerOrderCart__price"
-                        >100,000</i
+                        >Số lượng: <%= userCartSelected [i].quantity %></i
                       >
                     </div>
                   </div>
-                  <div class="cart__closeTag customerOrderCart__closeTag">
-                    <button>X</button>
-                  </div>
                 </div>
-
-                <div class="cart__item customerOrderCart__item">
-                  <div class="cart__imageBox">
-                    <img
-                      class="cart__image"
-                      src="../../img/foodItem/fooditem1.jpg"
-                      alt=""
-                      srcset=""
-                    />
-                  </div>
-                  <div class="cart__title">
-                    <h5
-                      class="shop-menu__foodItemName customerOrderCart__title"
-                    >
-                      Hamburger
-                    </h5>
-                    <div
-                      class="item-Details__information u-delete-margin-bottom"
-                    >
-                      <div
-                        class="item-Details__informationBox u-delete-margin-left"
-                      ></div>
-                      <i
-                        class="shop-menu__prices cart__price customerOrderCart__price"
-                        >100,000</i
-                      >
-                    </div>
-                  </div>
-                  <div class="cart__closeTag customerOrderCart__closeTag">
-                    <button>X</button>
-                  </div>
-                </div>
+                <% } %>
               </div>
 
               <div class="shop-menu__titleBox customerOrderCart__titleBox">
@@ -219,18 +195,18 @@
                 >
                   Tổng cộng<span
                     class="shop-menu__result customerOrderCart__result"
-                    >150,000</span
-                  >
+                    id="totalPrice"
+                    ><%= totalCart[0].totalPrice %></span>
                 </h4>
               </div>
 
               <div class="customerOrderCart__orderButton">
-                <a href="" class="btn-link card-order__btn">Giỏ hàng</a>
+                <a href="../../cart" class="btn-link card-order__btn">Giỏ hàng</a>
                 <a href="" class="btn-link card-order__btn">Xem Menu</a>
               </div>
             </div>
 
-            <div class="navbar-top__countItem" id="itemCount">0</div>
+            <div class="navbar-top__countItem" id="itemCount"><%= totalCart[0].totalQuantity %></div>
           </div>
         </div>
 
