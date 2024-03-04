@@ -4,8 +4,11 @@
     <%- include('../partials/head'); %>
   </head>
   <body>
-    <header><%- include('../partials/header'); %></header>
-
+    <% if(!userData) { %>
+      <%- include('../partials/header'); %>
+    <% } else { %>
+      <%- include('cart/partials/header', {user: userData, userCartSelected, totalCart}); %>
+    <% } %>
     <main class="shopStyle-main">
       <%- include('../partials/shoppingCart'); %>
     </main>
@@ -16,8 +19,15 @@
     <script src="js/catergoriesAuto.js"></script>
     <script src="js/scrollbar.js"></script>
     <script src="js/todaymenuEffect.js"></script>
-    <script src="js/loginSite.js"></script>
     <script src="js/auth/validateSignUp.js"></script>
     <script type="module" src="js/auth/validateLogin.js"></script>
+    <% if(!userData) { %>
+      <script src="../js/loginSite.js"></script>
+    <% } %>
+    <script src="../js/currencyTransport/formatCurrency.js"></script>
+    <script >
+      const headerTotal = document.getElementById("HeaderTotalCartResult");
+      headerTotal.textContent = formatCurrency(headerTotal.textContent);
+    </script>
   </body>
 </html>

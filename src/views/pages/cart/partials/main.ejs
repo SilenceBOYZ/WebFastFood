@@ -8,22 +8,26 @@
           </h4>
         </div>
         <ul class="shop-menu__listOfFood">
-          <% for(let i = 0; i < 5; i++) { %>
+          <% for(let i = 0; i < itemsProduct.length; i++) { %>
             <li class="shop-menu__foodItem">
               <div class="shop-menu__imageBox">
                 <img
-                  src="img/foodItem/fooditem1.jpg"
+                  src="img/uploads/itemImages/<%= itemsProduct[i].foodImage %>"
                   alt=""
                   srcset=""
                   class="shop-menu__image"
                 />
               </div>
-              <a href="../user-page/product-detail?id=8" class="shop-menu__foodItemContainer">
+              <% if(userCart) { %>
+                <a href="../user-page/product-detail?id=<%= itemsProduct[i].id %>" class="shop-menu__foodItemContainer">
+              <% } else { %>
+                <a href="../product-detail?id=<%= itemsProduct[i].id %>" class="shop-menu__foodItemContainer">
+              <% } %>
                 <div class="shop-menu__foodTitle">
                   <i
                     class="shop-menu__statusIcon"
                   ></i>
-                  <h5 class="shop-menu__foodItemName">Hamburger</h5>
+                  <h5 class="shop-menu__foodItemName"><%= itemsProduct[i].foodName %></h5>
                   <i class="shop-menu__rate">
                     <img
                       src="img/svg/star.svg"
@@ -50,7 +54,7 @@
                     </div>
                   </div>
                   <div class="shop-menu__foodStatus-box--right">
-                    <i class="shop-menu__prices">100,000 vnđ</i>
+                    <i class="shop-menu__prices catergories__price"><%= itemsProduct[i].foodPrice %> vnđ</i>
                     <i class="shop-menu__foodStatus-box--right-item">1 cái</i>
                   </div>
                 </div>
@@ -118,13 +122,15 @@
                     </div>
                   </div>
                   <div class="cart__closeTag">
-                    <button>X</button>
+                    <button id="<%= userCart[i].foodId %>&userId=<%= userData[0].id %>" type="button" class="btn-call-action-delete btnSubmit">X</button>
                     <i class="shop-menu__prices cart__price product__price"><%= userCart[i].foodPrice * userCart[i].quantity %></i>
                   </div>
                 </div>
               <% }  %>
             <% } %>  
-            <button class="input-search__btn float-position__right" type="submit">Cập nhật</button>
+            <% if(userCart.length >= 1) { %>
+            <button class="input-search__btn btnSubmitUpdate float-position__left" type="submit">Cập nhật</button>
+            <% } %>
           <% } else { %>
             <div class="cart__item">
               <div class="cart__imageBox">
@@ -138,7 +144,7 @@
                   <div
                     class="item-Details__informationBox u-delete-margin-left"
                   >
-                    <form action="" method="post">
+                    <div class="form" action="" method="post">
                       <button type="button"
                         class="item-Details__button item-Details__button--left"
                       >
@@ -155,7 +161,7 @@
                       >
                         <i>+</i>
                       </button>
-                    </form>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -166,7 +172,7 @@
             </div>
           <% } %>  
         </form>
-
+        <% if(userCart === null || userCart.length >= 1 ) { %>
         <div class="cart__information u-margin-top-small">
           <h5 class="shop-menu__foodItemName cart__informationTitle">
             Hóa đơn chi tiết
@@ -184,16 +190,17 @@
 
           <div class="cart__bill">
              <p>Mã giảm giá</p>
-             <i class="shop-menu__prices cart__price">10%</i>
+             <i class="shop-menu__prices cart__price">Không</i>
           </div>
 
           <div class="cart__bill">
              <p>Tổng hóa đơn</p>
-             <i class="shop-menu__prices cart__price">12,600,000</i>
+             <i id="cartTotalPrice" class="shop-menu__prices cart__price"></i>
           </div>
 
           <button type="submit" class="btn-link card-order__btn checkout__buy cart__buy">Thanh toán</button>
         </div>
+        <% } %>
       </div>
     </div>
   </section>

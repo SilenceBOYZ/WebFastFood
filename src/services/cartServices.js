@@ -39,22 +39,6 @@ let getTotalItemInCart = (userId) => {
   })
 }
 
-// let checkItemExists = (id) => {
-//   return new Promise(async (resolve, reject) => {
-//     try {
-//       let result;
-//       let isItemExist = await db.Carts.findOne({where: {itemId: id}});
-//       if(isItemExist) {
-//         result = true;
-//       } else {
-//         result = false;
-//       }
-//       resolve(result);
-//     } catch (error) {
-//       reject(error);
-//     }
-//   })
-// }
 
 let getItemCart = (itemId, userId) => {
   let queryString = "SELECT DISTINCT  items.foodName, items.foodPrice, items.foodImage, carts.quantity FROM `items`, `carts`, `users` WHERE items.id = carts.itemId AND carts.userId = users.id AND users.id = " + userId + " AND carts.itemId = " + itemId;
@@ -133,11 +117,24 @@ let getItemsInCart = (itemIds, userId) => {
   })
 }
 
+let deleteItemInCart = (itemId, userId) => {
+  let queryString = "DELETE FROM Carts Where itemId = "+itemId+" AND " + "userId = " +userId;
+  return new Promise(async (resolve, reject) => {
+    try {
+      await seqeuelize.query(queryString, { type: QueryTypes.DELETE })
+      resolve();
+    } catch (error) {
+      reject(error);
+    }
+  })
+}
+
 
 module.exports = {
   addToCart,
   getUserCart,
   getTotalItemInCart,
   getItemsInCart,
-  updateItemsInCart
+  updateItemsInCart,
+  deleteItemInCart
 }

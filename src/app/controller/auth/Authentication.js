@@ -21,7 +21,7 @@ let showUserPage = async (req, res, next) => {
   let token = req.session.userId;
   let userId = jwt.verify(token, process.env.SECRET);
   let userData = await userService.getUser(parseInt(userId.id));
-  let itemData = await items.readAllItems();
+  let itemData = await items.readAllItems(8);
   if(userData[0].roleId === 0 || userData[0].roleId === 3) {
     res.redirect("../../admin");
   } else {
@@ -36,7 +36,7 @@ let showEmployeeHomePage = async (req, res, next) => {
   let userId = jwt.verify(token, process.env.SECRET);
 
   let userData = await userService.getUser(parseInt(userId.id));
-  let itemData = await items.readAllItems();
+  let itemData = await items.readAllItems(8);
   let userCartSelected = await cartServices.getUserCart(parseInt(userId.id));
   let totalCart = await cartServices.getTotalItemInCart(parseInt(userId.id));
 

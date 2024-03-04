@@ -7,7 +7,7 @@
       <div class="navbar-top__right">
         <ul class="navbar-top__list">
           <li class="navbar-top__item navbar-top__item--2">
-            <a href="http://" class="navbar-top__link">
+            <a href="../" class="navbar-top__link">
               Trang chủ
               <svg class="navbar-top__icon">
                 <use xlink:href="#lnr-chevron-down"></use>
@@ -16,43 +16,17 @@
             </a>
           </li>
           <li class="navbar-top__item navbar-top__item--1">
-            <a href="http://" class="navbar-top__link">
+            <a href="/shop" class="navbar-top__link" target="_blank">
               Thực đơn
               <svg class="navbar-top__icon">
                 <use xlink:href="#lnr-chevron-down"></use>
               </svg>
               <div class="navbar-top__before"></div>
             </a>
-            <div class="navbar-top__dropdown-menu-small dropdown-menu">
-              <div
-                class="dropdown-menu__catergories dropdown-menu__catergories--blog"
-              >
-                <ul class="dropdown-menu__list">
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Hamburger</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Pizza</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Drink</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Pasta</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Snack</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Other</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </li>
 
           <li class="navbar-top__item navbar-top__item--3">
-            <a href="http://" class="navbar-top__link">
+            <a href="#" class="navbar-top__link">
               page
               <svg class="navbar-top__icon">
                 <use xlink:href="#lnr-chevron-down"></use>
@@ -65,27 +39,27 @@
               >
                 <ul class="dropdown-menu__list">
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopCart.html"
+                    <a class="dropdown-menu__link" href="/cart" target="_blank"
                       >Giỏ hàng</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopWishlist.html"
+                    <a class="dropdown-menu__link" href="/wish-list" target="_blank"
                       >Danh sách yêu thích</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopCheckout.html"
+                    <a class="dropdown-menu__link" href="/check-out" target="_blank"
                       >Thanh toán</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shop"
+                    <a class="dropdown-menu__link" href="/shop" target="_blank"
                       >Món ăn</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopStyle.html"
+                    <a class="dropdown-menu__link" href="/shop-search" target="_blank"
                       >Tìm kiếm sản phẩm</a
                     >
                   </li>
@@ -173,7 +147,7 @@
                         ></div>
                         <i
                           class="shop-menu__prices cart__price customerOrderCart__price"
-                          >Số Lượng: <%= userCartSelected [i].quantity%></i
+                          >Số Lượng: <%= userCartSelected[i].quantity %></i
                         >
                       </div>
                     </div>
@@ -189,18 +163,18 @@
                   Tổng cộng<span
                     class="shop-menu__result customerOrderCart__result"
                     id="HeaderTotalCartResult"
-                    ></span
+                    ><%= totalCart[0].totalPrice %></span
                   >
                 </h4>
               </div>
 
               <div class="customerOrderCart__orderButton">
-                <a href="" class="btn-link card-order__btn">Giỏ hàng</a>
-                <a href="" class="btn-link card-order__btn">Xem Menu</a>
+                <a href="/cart" class="btn-link card-order__btn">Giỏ hàng</a>
+                <a href="/shop" class="btn-link card-order__btn">Xem Menu</a>
               </div>
             </div>
 
-            <div class="navbar-top__countItem" id="itemCount"><%= totalCart[0].totalQuantity %></div>
+            <div class="navbar-top__countItem" id="itemCount"><%= userCartSelected.length < 1 ? "0" : totalCart[0].totalQuantity %></div>
           </div>
         </div>
 

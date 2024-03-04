@@ -1,5 +1,6 @@
 const userServices = require("../../services/userServices");
 const cartServices = require("../../services/cartServices");
+const itemServices = require("../../services/indexPage/itemQuery")
 
 const jwt = require("jsonwebtoken");
 
@@ -12,11 +13,13 @@ let cartRender = async (req, res) => {
     let userCart = await cartServices.getUserCart(parseInt(userId.id));
     let userCartSelected = await cartServices.getUserCart(parseInt(userId.id));
     let totalCart = await cartServices.getTotalItemInCart(parseInt(userId.id));
-    res.render("pages/cart/index.ejs", { userData: userData, userCart, userCartSelected, totalCart });
+    let itemsProduct = await itemServices.readAllItems(5);
+    res.render("pages/cart/index.ejs", { userData: userData, userCart, userCartSelected, totalCart, itemsProduct });
   } else {
     let userData = null;
     let userCart = null;
-    res.render("pages/cart/index.ejs", { userData, userCart });
+    let itemsProduct = await itemServices.readAllItems(5);
+    res.render("pages/cart/index.ejs", { userData, userCart, itemsProduct });
   }
 }
 
@@ -47,7 +50,7 @@ let udpateCartItems = async (req, res) => {
     let token = req.session.userId;
     let user = jwt.verify(token, process.env.SECRET);
     let product = Object.entries(req.body);
-    if (product.length < 0) return;
+    if (product.length < 1) return res.redirect("../cart");
     let cart = [];
     // Create a empty array cart 
     // Use forEach to loop array and push a object have id, quantity of the item into cart
@@ -55,7 +58,6 @@ let udpateCartItems = async (req, res) => {
       itemId: Number.parseInt(el[0]),
       quantity: Number.parseInt(el[1]),
     })))
-    console.log(cart);
     // let StringQuery = "";
     // for (let i = 0; i < cart.length; i++) {
     //   if (i === cart.length - 1) {
@@ -72,8 +74,20 @@ let udpateCartItems = async (req, res) => {
   res.render("pages/alert/alert.ejs", { message: "Bạn cần phải đăng nhập" })
 }
 
+let deleteItemInCart = async (req, res) => {
+  if (req.session.userId) {
+    console.log(req.body); 
+    let userId = Number.parseInt(req.query.userId);
+    let itemId = Number.parseInt(req.query.id);
+    await cartServices.deleteItemInCart(itemId, userId);
+    res.redirect("../cart");
+  }
+  res.render("pages/alert/alert.ejs", { message: "Bạn cần phải đăng nhập" })
+}
+
 module.exports = {
   cartRender,
   cartRenderPost,
-  udpateCartItems
+  udpateCartItems,
+  deleteItemInCart
 }

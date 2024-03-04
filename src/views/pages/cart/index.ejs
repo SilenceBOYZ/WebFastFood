@@ -5,47 +5,45 @@
   </head>
   <body>
     <% if(!userData) { %>
-    <header><%- include('../../partials/header'); %></header>
+      <%- include('../../partials/header'); %>
     <% } else { %>
-    <header>
-      <%- include('partials/header', {user: userData, userCartSelected,
-      totalCart}); %>
-    </header>
+      <%- include('partials/header', {user: userData, userCartSelected, totalCart}); %>
     <% } %>
     <main class="shopStyle-main">
-      <%- include('../../partials/banner/banner.ejs'); %> <%-
-      include('partials/main', {userCart: userCart}); %>
+      <%- include('../../partials/banner/banner.ejs'); %> 
+      <%- include('partials/main', {userCart: userCart, itemsProduct, userData}); %>
     </main>
 
     <footer><%- include('../../partials/footer'); %></footer>
 
-    <%- include('../../partials/loginSite/loginSite') %> <% if(!userData) { %>
+    <%- include('../../partials/loginSite/loginSite') %> 
+    <% if(!userData) { %>
     <script src="../js/loginSite.js"></script>
     <% } %>
     <script src="../js/validateNumber.js"></script>
     <script src="../js/scrollbar.js"></script>
     <script src="../../js/currencyTransport/formatCurrency.js"></script>
-
     <script>
       const totalPrice = document.getElementById("totalPrice");
       const productPrice = document.querySelectorAll(".product__price");
       const headerTotal = document.getElementById("HeaderTotalCartResult");
       const inputValue = document.querySelectorAll(".item-Details__input");
+      const catergoriesPrice = document.querySelectorAll(".catergories__price");
+      const cartTotalPrice = document.getElementById("cartTotalPrice");
       let totalArray = [];
       let pricing = 0;
 
-      function getPrice(input) {
-        let price = input.parentElement.parentElement.parentElement.parentElement.parentElement.querySelector(".cart__closeTag .product__price");
-        price.textContent = formatCurrency(Number.parseInt(price.textContent.split('.').join("")) * Number.parseInt(input.value));
-      }
-
       totalArray = Array.from(productPrice).map((el) => el);
-      totalArray.forEach((el) => (pricing += Number.parseInt(el.textContent)));
+      totalArray.length < 1 ? pricing+=totalArray[0] : totalArray.forEach((el) => (pricing += Number.parseInt(el.textContent)));
 
       totalPrice.textContent = formatCurrency(pricing);
-      headerTotal.textContent = formatCurrency(pricing);
+      headerTotal.textContent = formatCurrency(headerTotal.textContent);
+      cartTotalPrice.textContent = formatCurrency(pricing);
+      
 
       productPrice.forEach((el) => el.textContent = formatCurrency(el.textContent))
+      catergoriesPrice.forEach((el) => el.textContent = formatCurrency(el.textContent))
+
 
       inputValue.forEach((input) => {
         let plusBtn = input.parentElement.querySelector(
@@ -76,6 +74,43 @@
           input.setAttribute("value", e.target.value);
         };
       });
+    </script>
+    <div class="modal-pop-up">
+      <div class="modal-pop-up__header">
+        <h4 class="modal-pop-up__title">Xóa sản phẩm</h4>
+        <button class="modal-pop-up__icon btnSubmit" id="removeModal">
+          X
+        </button>
+      </div>
+      <p class="modal-pop-up__paragraph">
+        Bạn chắc chắn muốn xóa sản phẩm này chứ
+      </p>
+      <form class="modal-pop-upBtn" id="formDelete" action="" method="POST">
+        <button class="btn-click-action" id="cancel-action" href="#">Hủy</button>
+        <button class="btn-click-action" id="delete-action" type="submit">Xóa</button>
+      </form>
+    </div>
+    <script type="module">
+      const btnDelete = document.querySelectorAll(".btn-call-action-delete");
+      const dialog = document.querySelector(".modal-pop-up");
+      const removeModal = document.getElementById("removeModal");
+      const cancelActionDelete = document.getElementById("cancel-action");
+      const deleteAction = document.getElementById("delete-action");
+      const formDelete = document.getElementById("formDelete");
+    
+      btnDelete.forEach((btn) => {
+        btn.onclick = () => {
+          dialog.classList.add("modal-pop-up-active");
+          formDelete.setAttribute("action", `cart/delete-item?_method=DELETE&id=${btn.id}`); 
+        };
+        cancelActionDelete.onclick = (e) => {
+          e.preventDefault();
+          dialog.classList.remove("modal-pop-up-active");
+        };
+      });
+      removeModal.onclick = () => {
+        dialog.classList.remove("modal-pop-up-active");
+      };
     </script>
   </body>
 </html>

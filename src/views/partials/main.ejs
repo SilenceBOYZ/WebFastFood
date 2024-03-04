@@ -6,7 +6,7 @@
         Chỉ duy nhất trong <br />
         tuần này
       </p>
-      <a href="#" class="content-banner__btn">
+      <a href="/shop" class="content-banner__btn">
         <span class="content-banner__btn content-banner__btn--cta1"
           >Đặt hàng ngay</span
         >
@@ -46,7 +46,7 @@
           <i class="banner-food__description"
             >Nguyên liệu từ người Việt</i
           >
-          <a class="btn-link banner-food__btn" href="#">Order now</a>
+          <a class="btn-link banner-food__btn" href="/shop" target="_blank">Order now</a>
         </div>
       </figure>
     </div>
@@ -67,7 +67,7 @@
           <i class="banner-food__description"
             >Nguyên liệu từ người Việt</i
           >
-          <a class="btn-link banner-food__btn" href="#">Order now</a>
+          <a class="btn-link banner-food__btn" href="/shop" target="_blank">Order now</a>
         </div>
       </figure>
     </div>
@@ -86,7 +86,7 @@
           <i class="banner-food__description"
             >Nguyên liệu từ người Việt</i
           >
-          <a class="btn-link banner-food__btn" href="#">Order now</a>
+          <a class="btn-link banner-food__btn" href="/shop" target="_blank">Order now</a>
         </div>
       </figure>
     </div>
@@ -107,7 +107,7 @@
           >
           <a
             class="btn-link banner-food__btn banner-food__btn--4"
-            href="#"
+            href="/shop" target="_blank"
             >Order now</a
           >
         </div>
@@ -201,7 +201,7 @@
     %>
 
     <div class="container card-orders">
-      <% for(let i = 1; i <= 6; i++) { %>
+      <% for(let i = 1; i <= itemDatas.length; i++) { %>
           <% if(i == 1) { %>
             <div class="card-order">
               <img
@@ -236,7 +236,7 @@
               <a href="product-detail?id=<%= itemDatas[i].id %>" class="btn-link card-order__btn">Order now</a>
             </div>
           <%  continue; } %> 
-          <% if(i >= 3 && i <=6) { %>
+          <% if(i >= 3 && i <= 6) { %>
             <div class="card-order card-order--<%= i %>">
               <img
                 src="img/uploads/itemImages/<%= itemDatas[i].foodImage %>"

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="img/Pizza.png"
+      alt="Logo cafe Misa"
+      type="image/x-icon"
+    />
+    <title>Select your - favourite food ❤️</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Coiny&family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="shopStyle-body">
+
+    <% if(!userData) { %>
+      <%- include("../../partials/header"); %> 
+    <% } else { %>
+      <%- include('../cart/partials/header', {user: userData, userCartSelected, totalCart}); %>
+    <% } %>
+    <%- include("../../partials/banner/banner"); %>
+    <%- include("partials/main"); %>
+    <%- include("../../partials/footer"); %>
+    <%- include("../../partials/loginSite/loginSite") %>
+    <script src="../js/scrollbar.js"></script>
+    <% if(!userData) { %>
+    <script src="../js/loginSite.js"></script>
+    <script src="js/auth/validateSignUp.js"></script>
+    <script type="module" src="js/auth/validateLogin.js"></script>
+    <% } %>
+    <script src="../js/currencyTransport/formatCurrency.js"></script>
+    <script >
+      const headerTotal = document.getElementById("HeaderTotalCartResult");
+      headerTotal.textContent = formatCurrency(headerTotal.textContent);
+    </script>
+  </body>
+</html>

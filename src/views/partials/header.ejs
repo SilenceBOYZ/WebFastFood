@@ -16,43 +16,17 @@
             </a>
           </li>
           <li class="navbar-top__item navbar-top__item--1">
-            <a href="http://" class="navbar-top__link">
+            <a href="/shop-search" class="navbar-top__link">
               Thực đơn
               <svg class="navbar-top__icon">
                 <use xlink:href="#lnr-chevron-down"></use>
               </svg>
               <div class="navbar-top__before"></div>
             </a>
-            <div class="navbar-top__dropdown-menu-small dropdown-menu">
-              <div
-                class="dropdown-menu__catergories dropdown-menu__catergories--blog"
-              >
-                <ul class="dropdown-menu__list">
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Hamburger</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Pizza</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Drink</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Pasta</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Snack</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="http://">Other</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
           </li>
 
           <li class="navbar-top__item navbar-top__item--3">
-            <a href="http://" class="navbar-top__link">
+            <a href="#" class="navbar-top__link">
               page
               <svg class="navbar-top__icon">
                 <use xlink:href="#lnr-chevron-down"></use>
@@ -65,27 +39,25 @@
               >
                 <ul class="dropdown-menu__list">
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopCart.html"
+                    <a class="dropdown-menu__link" href="/cart" target="_blank" 
                       >Giỏ hàng</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopWishlist.html"
+                    <a class="dropdown-menu__link" href="/wish-list" target="_blank"
                       >Danh sách yêu thích</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopCheckout.html"
+                    <a class="dropdown-menu__link" href="/check-out" target="_blank"
                       >Thanh toán</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shop"
-                      >Món ăn</a
-                    >
+                    <a class="dropdown-menu__link" href="/shop" target="_blank">Món ăn</a>
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="shopStyle.html"
+                    <a class="dropdown-menu__link" href="/shop-search" target="_blank"
                       >Tìm kiếm sản phẩm</a
                     >
                   </li>
@@ -97,7 +69,7 @@
 
         <div class="navbar-top__box">
           <a
-            href="http://"
+            href="/shop" target="_blank"
             class="navbar-top__link navbar-top__icons navbar-top__icons--order"
           >
             Đặt hàng
@@ -140,7 +112,8 @@
           </div>
 
           <div
-            class="navbar-top__link navbar-top__icons navbar-top__icons--cart" id="cartSide-cta"
+            class="navbar-top__link navbar-top__icons navbar-top__icons--cart"
+            id="cartSide-cta"
           >
             <svg class="navbar-top__iconBox">
               <use xlink:href="#lnr-cart"></use>
@@ -218,6 +191,7 @@
                   class="heading--4 shop-menu__title customerOrderCart__total clearFix"
                 >
                   Tổng cộng<span
+                    id="HeaderTotalCartResult"
                     class="shop-menu__result customerOrderCart__result"
                     >150,000</span
                   >
