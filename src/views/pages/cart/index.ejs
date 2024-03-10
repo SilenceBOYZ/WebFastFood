@@ -10,36 +10,36 @@
       <%- include('partials/header', {user: userData, userCartSelected, totalCart}); %>
     <% } %>
     <main class="shopStyle-main">
-      <%- include('../../partials/banner/banner.ejs'); %> 
+      <%- include('../../partials/banner/banner.ejs', {title: "Cart"}); %> 
       <%- include('partials/main', {userCart: userCart, itemsProduct, userData}); %>
     </main>
 
     <footer><%- include('../../partials/footer'); %></footer>
 
     <%- include('../../partials/loginSite/loginSite') %> 
-    <% if(!userData) { %>
     <script src="../js/loginSite.js"></script>
-    <% } %>
     <script src="../js/validateNumber.js"></script>
     <script src="../js/scrollbar.js"></script>
     <script src="../../js/currencyTransport/formatCurrency.js"></script>
+
     <script>
-      const totalPrice = document.getElementById("totalPrice");
+      const totalPrice = document?.getElementById("totalPrice");
       const productPrice = document.querySelectorAll(".product__price");
       const headerTotal = document.getElementById("HeaderTotalCartResult");
       const inputValue = document.querySelectorAll(".item-Details__input");
       const catergoriesPrice = document.querySelectorAll(".catergories__price");
-      const cartTotalPrice = document.getElementById("cartTotalPrice");
+      const cartTotalPrice = document?.getElementById("cartTotalPrice");
       let totalArray = [];
       let pricing = 0;
 
       totalArray = Array.from(productPrice).map((el) => el);
       totalArray.length < 1 ? pricing+=totalArray[0] : totalArray.forEach((el) => (pricing += Number.parseInt(el.textContent)));
 
-      totalPrice.textContent = formatCurrency(pricing);
       headerTotal.textContent = formatCurrency(headerTotal.textContent);
-      cartTotalPrice.textContent = formatCurrency(pricing);
-      
+      if(totalPrice !== null && cartTotalPrice !== null) {
+        totalPrice.textContent =  formatCurrency(pricing);
+        cartTotalPrice.textContent = formatCurrency(pricing);
+      }
 
       productPrice.forEach((el) => el.textContent = formatCurrency(el.textContent))
       catergoriesPrice.forEach((el) => el.textContent = formatCurrency(el.textContent))
@@ -64,13 +64,11 @@
         });
 
         input.onchange = (e) => {
-          if (Number.parseInt(e.target.value) === 0) {
+          if (Number.parseInt(e.target.value) < 1 || (e.target.value).length === 0) {
             input.setAttribute("value", 1);
             input.value = 1;
-            getPrice(input);
             return;
           }
-          getPrice(input);
           input.setAttribute("value", e.target.value);
         };
       });
@@ -112,5 +110,18 @@
         dialog.classList.remove("modal-pop-up-active");
       };
     </script>
+
+    <script>
+      const btnPay = document?.getElementById("paying");
+      const formSubmit = document.getElementById("paymentSubmit");
+      if(btnPay) {
+        btnPay.onclick = (e) => {
+          let checkUpdate = confirm("Xác nếu đã cập nhật giỏ hàng của bạn");
+          if(!checkUpdate) {
+            e.preventDefault();
+          }
+        }
+      }
+    </script> 
   </body>
 </html>

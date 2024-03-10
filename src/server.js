@@ -6,18 +6,18 @@ const route = require('./routes');
 const db = require("./config");
 const bodyParser = require('body-parser');
 const methodOverride = require('method-override');
-const cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');  
 const session = require("express-session");
 require('dotenv').config();
 
-const RedisStore = require("connect-redis").default; // default localhost
+const RedisStore = require("connect-redis").default; // default lo  calhost
 const { createClient } = require("redis");
 
 // Initialize client.
 let redisClient = createClient()
 redisClient.connect().then(
   console.log("Connect to redis success")
-).catch(console.error)
+).catch(console.error)  
 
 let redisStore = new RedisStore({
   client: redisClient,  

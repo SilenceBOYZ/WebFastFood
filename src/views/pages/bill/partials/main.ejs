@@ -1,0 +1,66 @@
+<% 
+  function formatCurrency(number) {
+    return new Intl.NumberFormat("vi", {
+      maximumSignificantDigits: 3,
+      currency: "VND",
+      style: "currency",
+    }).format(Number.parseFloat(number));
+  } 
+%>
+
+
+<section class="shop-menu cart">
+  <div class="order-bill">
+    <div class="order-bill__imgBox">
+      <img
+        class="order-bill__images"
+        src="../img/checkmark.png"
+        alt=""
+        srcset=""
+      />
+    </div>
+    <h4 class="order-bill__status"><%= orderItems[0].status %></h4>
+    <p id="date" class="order-bill__date"><%= orderItems[0].createdAt %></p>
+    <p class="order-bill__name">Họ tên: <span><%= orderItems[0].userName %></span></p>
+    <p class="order-bill__phoneNumber">SĐT: <span><%= orderItems[0].phoneNumber %></span></p>
+    <p class="order-bill__address">Đ/c: <span><%= orderItems[0].address %></span> </p>
+    <div class="order-bill__itemBox">
+      <% for(let i = 0; i < orderItems.length; i++) { %>
+      <div class="order-bill__item">
+        <img
+          src="../img/uploads/itemImages/<%= orderItems[i].foodImage %>"
+          alt=""
+          class="order-bill__item--image"
+        />
+        <div class="order-bill__itemContent">
+          <h5><%= orderItems[i].foodName %></h5>
+          <p>Số lượng: <span><%= orderItems[i].quantity %></span></p>
+        </div>
+        <i class="order-bill__item--price"><%= formatCurrency(orderItems[i].quantity * orderItems[i].unitPrice) %></i>
+      </div>
+      <% } %>
+    </div>
+    <div class="order-bill__totalAmount">
+      <p>Tổng thành tiền</p>
+      <span><%= formatCurrency(orderItems[0].totalAmount) %></span>
+    </div>
+    <a href="../" class="order-bill__link">Trang chủ</a>
+  </div>
+</section>
+
+<script>
+  function getDate(DateString) {
+    let newString;
+    let dateObj = new Date(DateString);
+    let day = dateObj.getDate();
+    let month = dateObj.getMonth() + 1; 
+    let year = dateObj.getFullYear();
+
+    newString = `${day}/${month}/${year}`
+    return newString;
+  }
+
+  let dateString = document.getElementById("date");
+  let newDate = getDate(dateString.innerText);
+  dateString.innerText = newDate;
+</script>

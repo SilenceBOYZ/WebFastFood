@@ -1,0 +1,85 @@
+<% 
+function formatCurrency(number) {
+  return new Intl.NumberFormat("vi", {
+    maximumSignificantDigits: 3,
+    currency: "VND",
+    style: "currency",
+  }).format(Number.parseFloat(number));
+}
+%>
+
+<main class="main shopWishlist-main">
+  <section class="whistlist">
+    <div class="container whistlist__wrapper">
+      <form class="whistlist__form" action="" method="post">
+        <table class="whistlist__list">
+          <thead class="whistlist__heading">
+            <tr>
+              <th class="whistlist__title">STT</th>
+              <th class="whistlist__title">Khách Hàng</th>
+              <th class="whistlist__title">Thành tiền</th>
+              <th class="whistlist__title">Ngày Tạo</th>
+              <th class="whistlist__title">Đ/c</th>
+              <th class="whistlist__title">SĐT</th>
+              <th class="whistlist__title">Thanh Toán</th>
+              <th class="whistlist__title">Trạng thái</th>
+              <th class="whistlist__title">Chi tiết</th>
+            </tr>
+          </thead>
+
+          <tbody class="whistlist__body">
+            <% for(let i = 0; i < userOrders.length; i++) { %>
+            <tr>  
+              <td data-cell="STT">
+                <h4 class="whistlist__foodName"><%= userOrders[i].id %></h4>
+              </td>
+              <td data-cell="Khách hàng:">
+                <h4 class="whistlist__foodName"><%= userOrders[i].userName %></h4>
+              </td>
+              <td data-cell="Thành tiền:">
+                <i class="whistlist__price"><%= formatCurrency(userOrders[i].totalAmount) %></i>
+              </td>
+              <td data-cell="Ngày tạo:">
+                <i class="whistlist__price dates"><%= userOrders[i].createdAt %></i>
+              </td>
+              <td data-cell="Địa chỉ:">
+                <i class="whistlist__price"><%= userOrders[i].address %></i>
+              </td>
+              <td data-cell="SĐT:">
+                <i class="whistlist__price"><%= userOrders[i].phoneNumber %></</i>
+              </td>
+              <td data-cell="Thanh Toán:">
+                <i class="whistlist__price"><%= userOrders[i].paymentMethod %></</i>
+              </td>
+              <td data-cell="Trạng thái:">
+                <i class="whistlist__price"><%= userOrders[i].status %></</i>
+              </td>
+              <td data-cell="Trạng thái:">
+                <i class="bi bi-eye icon_size" ></i>
+              </td>
+            </tr> 
+            <% } %>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </section>
+</main>
+
+<script>
+  function getDate(DateString) {
+    let newString;
+    let dateObj = new Date(DateString);
+    let day = dateObj.getDate();
+    let month = dateObj.getMonth() + 1; 
+    let year = dateObj.getFullYear();
+
+    newString = `${day}/${month}/${year}`
+    return newString;
+  }
+  const addresses = document.querySelectorAll(".dates");
+  addresses.forEach(address => {
+    let newDate = getDate(address.innerText);
+    address.innerText = newDate;
+  })
+</script>

@@ -8,9 +8,9 @@
     />
   </div>
   <div class="shopStyle-banner__content">
-    <figcaption class="shopStyle-banner__title">Menu food</figcaption>
+    <figcaption class="shopStyle-banner__title"><%= title %></figcaption>
     <h3 class="shopStyle-banner__breadcrumb">
-      <strong>Home</strong><span>></span> <strong>Menu</strong>
+      <strong>Home</strong><span>></span> <strong><%= title %></strong>
     </h3>
   </div>
 
@@ -43,30 +43,24 @@
         <img src="img/svg/chevron-thin-left.svg" alt="" srcset="" />
       </button>
       <div class="order-menu__titleContain">
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pizzas</a
+        <a
+          href="/shop?pageNumber=<%= data.pageNum %>&caterName=All"
+          id=""
+          class="order-menu__itemAction"
         >
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Burgers</a
+          <img class="order-menu__imageIcon" src="img/Pizza.png" />
+          <span class="fixed">Tất cả</span>
+        </a>
+        <% for(let i = 0; i < catergoryItems.length; i++) { %>
+        <a
+          href="/shop?pageNumber=<%= data.pageNum %>&caterName=<%= catergoryItems[i].id %>"
+          id="<%= catergoryItems[i].id %>"
+          class="order-menu__itemAction"
         >
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastas</a
-        >
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
-        >
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
-        >
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
-        >
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
-        >
-        <a href="#" class="order-menu__itemAction"
-          ><img class="order-menu__imageIcon" src="img/Pizza.png" />Pastries</a
-        >
+          <img class="order-menu__imageIcon" src="img/Pizza.png" />
+          <span class="fixed"><%= catergoryItems[i].catergoryName %></span>
+        </a>
+        <% } %>
       </div>
       <button
         class="order-menu__btnMoveSlide order-menu__btnMoveSlide--right"
@@ -76,22 +70,107 @@
       </button>
     </div>
 
-    <div class="order-menu__cartList" id="cartShop"></div>
+    <div class="order-menu__cartList">
+      <% for(let i = 0; i < data.items.length; i++) { %>
+      <div class="order-menu__cartItem">
+        <div class="order-menu__icon" id="<%= data.items[i].id %>">
+          <img src="img/svg/heart.svg" alt="" srcset="" />
+        </div>
+        <div class="order-menu__item">
+          <div class="order-menu__imageBox">
+            <img
+              class="order-menu__image"
+              src="img/uploads/itemImages/<%= data.items[i].foodImage %>"
+              alt=""
+              srcset=""
+            />
+          </div>
+          <h3 class="order-menu__title"><%= data.items[i].foodName %></h3>
+          <p class="order-menu__desc"><%= data.items[i].foodDesc %></p>
+          <div class="order-menu__prices">
+            <p class="order-menu__price">
+              <span class="order-menu__moneyUnit"
+                ><%= data.items[i].foodPrice %></span
+              >
+            </p>
+            <% if(!userData) { %>
+            <form action="" method="POST">
+              <button class="order-menu__addToCart" type="button">
+                <img width="25px" src="img/svg/plus.svg" alt="" srcset="" />
+                <input type="hidden" value="1" name="" />
+              </button>
+            </form>
+            <% } else { %>
+            <form action="../cart/add-to-cart" method="POST">
+              <input
+                type="text"
+                value="1"
+                name="<%= data.items[i].id %>"
+                class="addToCartShop"
+                maxlength="2"
+                onkeypress="return isNumberKey(event)"
+              />
+              <button class="order-menu__addToCart" type="submit">
+                <img
+                  width="25px"
+                  src="img/svg/shopping_cart.svg"
+                  alt=""
+                  srcset=""
+                />
+              </button>
+            </form>
+            <% } %>
+          </div>
+        </div>
+      </div>
+      <% } %>
+    </div>
   </div>
 </section>
 
-<section class="shoppingCart-side" id="cartShoppingSide">
-  <button class="shoppingCart-side__btn" id="removeCartSide">
-    <span>X</span>
-  </button>
-  <h3 class="shoppingCart-side__title">GIỎ HÀNG CỦA BẠN</h3>
-  <div class="shoppingCart-side__containerItem" id="your-cart-side"></div>
-  <div class="cart__bill">
-    <p>Tổng hóa đơn</p>
-    <i class="shop-menu__prices cart__price" id="total-prices">0</i>
-  </div>
-  <div class="customerOrderCart__orderButton">
-    <a href="" class="btn-link card-order__btn">Xem giỏ hàng</a>
-    <a href="" class="btn-link card-order__btn">Thanh toán</a>
-  </div>
-</section>
+<div class="pagination-page">
+  <% if(data.pageNum > 1) { %>
+  <a
+    class="selectedLink"
+    href="/shop?pageNumber=<%= data.pageNum - 1 %>&caterName=<%= data.caterName %>"
+  >
+    <
+  </a>
+  <% } %> <% for(let i = data.startLink; i < data.endLink; i++) { %> <% if (i ==
+  data.pageNum) { %>
+  <a
+    class="selectedLink"
+    href="/shop?pageNumber=<%= i %>&caterName=<%= data.caterName %>"
+  >
+    <%= i %>
+  </a>
+  <% continue; } %>
+  <a
+    class="selectedLink"
+    href="/shop?pageNumber=<%= i %>&caterName=<%= data.caterName %>"
+  >
+    <%= i %>
+  </a>
+  <% } %> <% if(data.pageNum < data.totalPages) { %>
+  <a
+    class="selectedLink"
+    href="/shop?pageNumber=<%= data.pageNum + 1 %>&caterName=<%= data.caterName %>"
+  >
+    >
+  </a>
+  <% } %>
+</div>
+
+<script>
+  const inputField = document.querySelectorAll(".addToCartShop");
+  inputField.forEach((input) => {
+    input.onchange = (e) => {
+      if (Number.parseInt(e.target.value) < 1 || e.target.value.length === 0) {
+        input.setAttribute("value", 1);
+        input.value = 1;
+        return;
+      }
+      input.setAttribute("value", e.target.value);
+    };
+  });
+</script>

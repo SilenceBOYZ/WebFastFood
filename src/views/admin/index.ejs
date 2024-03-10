@@ -27,5 +27,13 @@
     </div>
     <script src="../js/validateNumber.js"></script>
     <script src="../js/popUp.js"></script>
+    <script>
+      const settingBtn = document.getElementById("setting");
+      const navBar = document.getElementById("admin-bar");
+
+      settingBtn.addEventListener("click", () => {
+        navBar.classList.toggle("active-navBar");
+      })
+    </script>
   </body>
 </html>

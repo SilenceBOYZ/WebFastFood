@@ -1,0 +1,18 @@
+.pagination-page {
+  display: flex;
+  margin-bottom: 5rem;
+  gap: 1rem;
+  justify-content: center;
+  .selectedLink {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #04aa6d;
+    font-size: 1.6rem;
+    text-decoration: none;
+  }
+}

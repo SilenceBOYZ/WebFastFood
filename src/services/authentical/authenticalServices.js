@@ -37,7 +37,9 @@ let registUserToSystem = (data) => {
           userPassword: UserPassword,
           email: data.emailNameRegister,
           roleId: 2,
-          userImage: "CustomerImage.png"
+          userImage: "CustomerImage.png",
+          address: "",
+          phoneNumber: "",
         });
         messageAlert.errCode = 0
         messageAlert.errMessage = "Bạn đã tạo user thành công"

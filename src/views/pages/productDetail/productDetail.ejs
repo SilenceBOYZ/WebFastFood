@@ -22,7 +22,7 @@
   <!-- Nếu bị lỗi thì chỗ header thì thêm header__shopStyle -->
   <body>
     <%- include("../../partials/header") %>
-    <%- include("../../partials/banner/banner") %>
+    <%- include("../../partials/banner/banner", {title: "Product Detail"}) %>
     <%
       function formatCurrentcy(number) {
         return new Intl.NumberFormat('vi', { maximumSignificantDigits: 10 }).format(Number.parseInt(number));

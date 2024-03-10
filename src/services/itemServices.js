@@ -36,6 +36,7 @@ let readAllItems = (pageNum) => {
       let itemQuery = await seqeuelize.query(`SELECT items.id, items.foodName, items.foodPrice, items.foodDesc, items.foodImage, catergories.catergoryName FROM items, catergories WHERE items.catergoryId = catergories.id LIMIT ${startIndex}, ${resultPerPage}`, { type: QueryTypes.SELECT })
       const iteratorLink = (pageNum - 5) < 1 ? 1 : pageNum - 5;
       // Hiển thị ra những đường link có trong trang
+      console.log(iteratorLink);
       const endingLink = (iteratorLink + 9) <= numberOfPages ? (iteratorLink + 9) : pageNum + (numberOfPages - pageNum);
       console.log(endingLink);
       items = {

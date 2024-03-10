@@ -1,4 +1,7 @@
-const buttons = document.querySelector(".item-Details__purchase").querySelectorAll("a");
+let buttons = document?.querySelector(".item-Details__purchase")?.querySelectorAll("a");
+if(!buttons) {
+  buttons = document.querySelectorAll(".order-menu__addToCart")
+}
  
 buttons.forEach(btn => {
   btn.addEventListener("click", (e) => {

@@ -9,7 +9,7 @@
       alt="Logo cafe Misa"
       type="image/x-icon"
     />
-    <title>Put item into to your cart - ❤️</title>
+    <title>Check your item - before payment 😊</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,26 +19,17 @@
     <script src="https://cdn.linearicons.com/free/1.0.0/svgembedder.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
   </head>
-  <body>
+  <body >
     <% if(!userData) { %>
       <%- include("../../partials/header"); %> 
     <% } else { %>
       <%- include('../cart/partials/header', {user: userData, userCartSelected, totalCart}); %>
     <% } %>
-    <%- include("../../partials/banner/banner"); %>
-    <%- include("partials/main"); %>
+    <%- include("../../partials/banner/banner", {title: "Bill"}); %>
+    <%- include("partials/main", { orderItems }); %>
     <%- include("../../partials/footer"); %>
     <%- include("../../partials/loginSite/loginSite") %>
     <script src="../js/scrollbar.js"></script>
-    <% if(!userData) { %>
     <script src="../js/loginSite.js"></script>
-    <script src="js/auth/validateSignUp.js"></script>
-    <script type="module" src="js/auth/validateLogin.js"></script>
-    <% } %>
-    <script src="../js/currencyTransport/formatCurrency.js"></script>
-    <script >
-      const headerTotal = document.getElementById("HeaderTotalCartResult");
-      headerTotal.textContent = formatCurrency(headerTotal.textContent);
-    </script>
   </body>
 </html>

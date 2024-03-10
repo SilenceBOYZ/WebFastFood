@@ -43,6 +43,7 @@
     user-select: none;
     &:link,
     &:visited {
+      width: 15rem;
       color: $color-primary;
       font-size: 1.8rem;
       text-decoration: none;
@@ -183,13 +184,14 @@
   &__addToCart {
     border: none;
     background: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.3rem;
     background-color: $color-tertiary-dark-1;
     cursor: pointer;
     border-radius: 8px;
     & img {
-      width: 1.5rem;
-      height: 1.5rem;
+      user-select: none;
+      width: 2rem;
+      height: 2rem;
       filter: $icon-color-white;
     }
   }
@@ -225,4 +227,23 @@
   color: $color-text-light !important;
   cursor: pointer;
   margin-top: -1rem;
+}
+
+.order-menu__prices form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  & input{
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 1.6rem;
+    border: 2px solid $color-primary-light-1;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4d4d4d;
+    outline: none;
+  }
 }

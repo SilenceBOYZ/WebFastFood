@@ -16,7 +16,7 @@
             </a>
           </li>
           <li class="navbar-top__item navbar-top__item--1">
-            <a href="/shop-search" class="navbar-top__link">
+            <a href="/shop-search?pageNumber=1&caterId=all&caterName=All" class="navbar-top__link">
               Thực đơn
               <svg class="navbar-top__icon">
                 <use xlink:href="#lnr-chevron-down"></use>
@@ -39,25 +39,15 @@
               >
                 <ul class="dropdown-menu__list">
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="/cart" target="_blank" 
+                    <a class="dropdown-menu__link" href="/cart"
                       >Giỏ hàng</a
                     >
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="/wish-list" target="_blank"
-                      >Danh sách yêu thích</a
-                    >
+                    <a class="dropdown-menu__link" href="/shop?pageNumber=1&caterName=All" >Món ăn</a>
                   </li>
                   <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="/check-out" target="_blank"
-                      >Thanh toán</a
-                    >
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="/shop" target="_blank">Món ăn</a>
-                  </li>
-                  <li class="dropdown-menu__items">
-                    <a class="dropdown-menu__link" href="/shop-search" target="_blank"
+                    <a class="dropdown-menu__link" href="/shop-search?pageNumber=1&caterId=all&caterName=All" 
                       >Tìm kiếm sản phẩm</a
                     >
                   </li>
@@ -121,7 +111,7 @@
 
             <div class="customerOrderCart">
               <div class="cart__listItem">
-                <div class="cart__item customerOrderCart__item">
+                <!-- <div class="cart__item customerOrderCart__item">
                   <div class="cart__imageBox">
                     <img
                       class="cart__image"
@@ -151,39 +141,7 @@
                   <div class="cart__closeTag customerOrderCart__closeTag">
                     <button>X</button>
                   </div>
-                </div>
-
-                <div class="cart__item customerOrderCart__item">
-                  <div class="cart__imageBox">
-                    <img
-                      class="cart__image"
-                      src="img/foodItem/fooditem1.jpg"
-                      alt=""
-                      srcset=""
-                    />
-                  </div>
-                  <div class="cart__title">
-                    <h5
-                      class="shop-menu__foodItemName customerOrderCart__title"
-                    >
-                      Hamburger
-                    </h5>
-                    <div
-                      class="item-Details__information u-delete-margin-bottom"
-                    >
-                      <div
-                        class="item-Details__informationBox u-delete-margin-left"
-                      ></div>
-                      <i
-                        class="shop-menu__prices cart__price customerOrderCart__price"
-                        >100,000</i
-                      >
-                    </div>
-                  </div>
-                  <div class="cart__closeTag customerOrderCart__closeTag">
-                    <button>X</button>
-                  </div>
-                </div>
+                </div> -->
               </div>
 
               <div class="shop-menu__titleBox customerOrderCart__titleBox">
@@ -193,14 +151,14 @@
                   Tổng cộng<span
                     id="HeaderTotalCartResult"
                     class="shop-menu__result customerOrderCart__result"
-                    >150,000</span
+                    >0</span
                   >
                 </h4>
               </div>
 
               <div class="customerOrderCart__orderButton">
-                <a href="" class="btn-link card-order__btn">Giỏ hàng</a>
-                <a href="" class="btn-link card-order__btn">Xem Menu</a>
+                <a href="/cart" class="btn-link card-order__btn">Giỏ hàng</a>
+                <a href="/shop?pageNumber=1&caterName=All" class="btn-link card-order__btn">Xem Menu</a>
               </div>
             </div>
 
@@ -227,7 +185,7 @@
           </figure>
           <ul class="navbar-mobile__list">
             <li>
-              <a href="index.html" class="navbar-mobile__link"
+              <a href="../" class="navbar-mobile__link"
                 ><span>Trang chủ</span
                 ><button>
                   <img
@@ -238,19 +196,8 @@
               ></a>
             </li>
             <li>
-              <a href="shopOrder.html" class="navbar-mobile__link"
+              <a href="/shop" class="navbar-mobile__link"
                 ><span>Menu</span
-                ><button>
-                  <img
-                    src="img/svg/chevron-thin-right.svg"
-                    alt=""
-                    srcset=""
-                  /></button
-              ></a>
-            </li>
-            <li>
-              <a href="shopWishlist.html" class="navbar-mobile__link"
-                ><span>Yêu thích</span
                 ><button>
                   <img
                     src="img/svg/chevron-thin-right.svg"
@@ -289,8 +236,26 @@
             </li>
 
             <li>
-              <a href="shopCheckout.html" class="navbar-mobile__link"
-                ><span>Thanh Toán</span
+              <a
+                href="/shop-search?pageNumber=1&caterId=all&caterName=All"
+                class="navbar-mobile__link open-sideLog"
+                id="btn-mobileCreate"
+                ><span>Tìm kiếm</span
+                ><button>
+                  <img
+                    src="img/svg/chevron-thin-right.svg"
+                    alt=""
+                    srcset=""
+                  /></button
+              ></a>
+            </li>
+
+            <li>
+              <a
+                href="/cart"
+                class="navbar-mobile__link open-sideLog"
+                id="btn-mobileCreate"
+                ><span>Giỏ hàng</span
                 ><button>
                   <img
                     src="img/svg/chevron-thin-right.svg"

@@ -6,7 +6,7 @@ router.get("/", HomeController.HomeRender);
 router.get("/product-detail", HomeController.productDetail);
 router.get("/shop-search", HomeController.renderSearchPage);
 router.get("/check-out", HomeController.renderCheckoutPage);
-router.get("/wish-list", HomeController.renderWishlistPage);
+router.get("/orders-list", HomeController.renderWishlistPage);
 
 module.exports = router;
 

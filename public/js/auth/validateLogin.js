@@ -29,7 +29,7 @@ let checkInputEmptyError = (listInput) => {
       isEmptyError = true;
       showError(input, "Trường này không được để trống");
     } else {
-      showSuccess(input);
+      showSucceed(input);
     }
   });
 
@@ -45,11 +45,11 @@ let checkEmailErr = (input) => {
 
   // Phần show hiển thị lên giao diện cho người dùng
   if (input.value < 1) {
-    showError(input, "Trường này không được để trống");
+    showMessageError(input, "Trường này không được để trống");
   } else if (regexEmail.test(input.value)) {
-    showSuccess(input);
+    showSucceed(input);
   } else {
-    showError(input, "Email Không hợp lệ");
+    showMessageError(input, "Email Không hợp lệ");
   }
   return isEmailError;
 }
@@ -59,34 +59,34 @@ let checkLengthPasswordErr = (input) => {
   input.value = input.value.trim();
 
   if (input.value.length < 1) {
-    showError(input, `Trường này không được để trống`);
+    showMessageError(input, `Trường này không được để trống`);
     return true;
   } else if (!input.value.match(regexPasswordError)) {
-    showError(input, `Mật khẩu phải tối đa từ 8 đến 15 ký tự, 1 chữ viết hoa, 1 chữ viết thường, 1 ký tự đặc biệt`);
+    showMessageError(input, `Mật khẩu phải tối đa từ 8 đến 15 ký tự, 1 chữ viết hoa, 1 chữ viết thường, 1 ký tự đặc biệt`);
     return true;
   }
 
-  showSuccess(input);
+  showSucceed(input);
   return false;
 }
 
-let sendHttpRequest = (method, url, data) => {
-  return fetch(url, {
-    // Config HTTP Request
-    method: method,
-    body: JSON.stringify(data),
-    headers: data ? { 'Content-Type': 'application/json' } : {}
-  }).then(response => {
-    if (response.status >= 400) {
-      return response.json().then(errResData => {
-        const error = new Error("Something when wrong! ")
-        error.data = errResData;
-        throw error;
-      });
-    }
-    return response.json();
-  });
-}
+// let sendHttpRequest = (method, url, data) => {
+//   return fetch(url, {
+//     // Config HTTP Request
+//     method: method,
+//     body: JSON.stringify(data),
+//     headers: data ? { 'Content-Type': 'application/json' } : {}
+//   }).then(response => {
+//     if (response.status >= 400) {
+//       return response.json().then(errResData => {
+//         const error = new Error("Something when wrong! ")
+//         error.data = errResData;
+//         throw error;
+//       });
+//     }
+//     return response.json();
+//   });
+// }
 
 
 // sendHttpRequest("POST", "http://localhost:8080/api/get-all-user/compare-password", {

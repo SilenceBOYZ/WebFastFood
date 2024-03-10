@@ -80,7 +80,7 @@
           </div>
         </div>
 
-        <form class="cart__listItem u-margin-bottom-medium clearFix" method="POST" action="cart/update-cart-items">
+        <form class="cart__listItem u-margin-bottom-medium clearFix" method="POST" action="cart/update-cart-items?_method=PUT">
           <% if(userCart) { %>
             <% if(userCart.length < 1) { %>
               <div class="cart__item">
@@ -133,46 +133,11 @@
             <% } %>
           <% } else { %>
             <div class="cart__item">
-              <div class="cart__imageBox">
-                <img class="cart__image" src="img/uploads/itemImages/1704553329544-fooditem1.png" alt="" srcset="" />
-              </div>
-              <div class="cart__title">
-                <h5 class="shop-menu__foodItemName u-margin-bottom-small">
-                  Hamburger
-                </h5>
-                <div class="item-Details__information u-delete-margin-bottom">
-                  <div
-                    class="item-Details__informationBox u-delete-margin-left"
-                  >
-                    <div class="form" action="" method="post">
-                      <button type="button"
-                        class="item-Details__button item-Details__button--left"
-                      >
-                        <i>-</i>
-                      </button>
-                      <input
-                        type="text"
-                        value="1"
-                        name=""
-                        class="item-Details__input"
-                      />
-                      <button type="button"
-                        class="item-Details__button item-Details__button--right"
-                      >
-                        <i>+</i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="cart__closeTag">
-                <button>X</button>
-                <i class="shop-menu__prices cart__price product__price">100000</i>
-              </div>
+              <h1 class="u-align-text-center">Hãy chọn món ăn bạn yêu thích</h1>
             </div>
           <% } %>  
         </form>
-        <% if(userCart === null || userCart.length >= 1 ) { %>
+        <% if(userCart !== null && userCart.length > 0) { %>
         <div class="cart__information u-margin-top-small">
           <h5 class="shop-menu__foodItemName cart__informationTitle">
             Hóa đơn chi tiết
@@ -197,13 +162,14 @@
              <p>Tổng hóa đơn</p>
              <i id="cartTotalPrice" class="shop-menu__prices cart__price"></i>
           </div>
-
-          <button type="submit" class="btn-link card-order__btn checkout__buy cart__buy">Thanh toán</button>
+          <form id="paymentSubmit" action="../check-out" method="get">
+            <button type="submit" id="paying" class="btn-link card-order__btn checkout__buy cart__buy">Thanh toán</button>
+          </form>
         </div>
-        <% } %>
+        <% } else { %>
+          <%= null %>
+        <% } %>  
       </div>
     </div>
   </section>
 </main>
-
-

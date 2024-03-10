@@ -35,7 +35,9 @@ let createUser = (data, image) => {
           userPassword: UserPassword,
           email: data.userEmail,
           roleId: data.userRole,
-          userImage: image
+          userImage: image,
+          address: "",
+          phoneNumber: "",
         });
         messageAlert.errCode = 0
         messageAlert.errMessage = "A new user have been created !!!"
@@ -79,7 +81,7 @@ let readAllUsers = (pageNum) => {
 let getUser = (userId) => {
   return new Promise(async (resolve, reject) => {
     try {
-      let user = await seqeuelize.query(`SELECT users.id, users.userName, users.userPassword, users.email, users.userImage, roles.roleName, users.roleId FROM users, roles WHERE users.roleId = roles.id AND users.id=${userId}`,
+      let user = await seqeuelize.query(`SELECT users.id, users.userName, users.userPassword, users.email, users.userImage, users.address, users.phoneNumber, roles.roleName, users.roleId FROM users, roles WHERE users.roleId = roles.id AND users.id=${userId}`,
       { type: QueryTypes.SELECT })
       resolve(user);
     } catch (e) {

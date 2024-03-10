@@ -4,10 +4,11 @@ let btns = document.querySelectorAll(".order-menu__btnMoveSlide");
 let container = document.querySelector(".order-menu__slideWrapper");
 
 let previousXPosition = 0;
-let positionToMove = -145;
+let positionToMove = -items[0].scrollWidth - 20;
 const mobileWidth = 550;
 let CountItem = 0;
-let lengthToReset = 5;
+let lengthToReset = 4;
+
 
 function slideMoving() {
   if (CountItem > items.length - lengthToReset) {
@@ -23,7 +24,7 @@ function slideMoving() {
   CountItem++;
   containSlide.style.transform = `translate3d(${(previousXPosition +=
     positionToMove)}px, 0px, 0px)`;
-  positionToMove = -145;
+  positionToMove = -items[0].scrollWidth - 20;
 }
 
 let timeToSlide = () => {
@@ -67,7 +68,7 @@ let examWindowWidth = () => {
           if (previousXPosition === 0) return;
           if (CountItem < 0) return;
           CountItem--;
-          positionToMove = 145;
+          positionToMove = -items[0].scrollWidth - 20;
           slideMoving();
         } else if (btn.id === "movingRight") {
           slideMoving();

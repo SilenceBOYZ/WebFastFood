@@ -1,5 +1,8 @@
 const toggleBtn = document.querySelector(".toggle");
 const navBarMobile = document.querySelector(".navbar-mobile");
+const clearErrorInput = document.querySelectorAll(".login-site__form input")
+const clearErrorMess = document.querySelectorAll(".login-site__form span.text-error-message")
+
 
 toggleBtn.onclick = () => {
   toggleBtn.classList.toggle("toggle__active");
@@ -35,6 +38,12 @@ closeBtn.forEach(btn => {
   btn.onclick = (e) => {
     loginSite.style.opacity = "0";
     loginSite.style.visibility = "hidden";
+    clearErrorInput.forEach(input => {
+      input.classList.remove("input-active");
+    })
+    clearErrorMess.forEach(message => {
+      message.style.display = "none";
+    })
   }
 });
 

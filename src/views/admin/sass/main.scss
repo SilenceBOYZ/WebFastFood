@@ -34,6 +34,62 @@ $icon-color-white: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg)
   brightness(109%) contrast(100%);
 // Font Family
 
+@mixin respond($media-query) {
+  @if $media-query == phoneSmallSize {
+    @media only screen and (max-width: 25em) {
+      @content;
+    }
+  }
+
+  @if $media-query == phoneUnder5xx {
+    @media only screen and (max-width: 31.25em) {
+      @content;
+    }
+  }
+
+  @if $media-query == phone {
+    @media only screen and (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  @if $media-query == phoneMediumsize {
+    @media only screen and (max-width: 43.75em) {
+      @content;
+    }
+    // 700 widths
+  }
+
+  @if $media-query == tab-port {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $media-query == tab-land {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $media-query == medium-desktop {
+    @media only screen and (max-width: 87.5em) {
+      @content;
+    }
+  }
+  @if $media-query == mac-book {
+    @media only screen and (max-width: 100em) {
+      @content;
+    }
+  }
+
+  @if $media-query == big-desktop {
+    @media only screen and (min-width: 112.5em) {
+      @content;
+    }
+  }
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700");
 * {
   margin: 0;
@@ -47,6 +103,9 @@ $icon-color-white: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg)
 body {
   position: relative;
   overflow: hidden;
+  @include respond(tab-port) {
+    overflow-y: scroll;
+  }
 }
 
 #backgroundColor {
@@ -56,6 +115,15 @@ body {
 
 html {
   font-size: 62.5%;
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(phoneMediumsize) {
+    font-size: 46.25%;
+  }
 }
 .container-admin {
   display: flex;
@@ -71,6 +139,20 @@ html {
     left: 0;
     background: #fff;
     box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+    &.admin-bar {
+      @include respond(tab-port) {
+        position: fixed;
+        height: 100%;
+        z-index: 999999;
+        transform: translateX(-100%);
+        transition: all .4s;
+      }
+    }
+    &.admin-bar.active-navBar {
+      @include respond(tab-port) {
+        transform: translateX(0%);
+      }
+    }
   }
   .nav-title {
     margin-left: 0 !important;
@@ -257,6 +339,9 @@ html {
         padding: 8px;
         text-align: center;
       }
+      tr {
+        background: #fff;
+      }
       tr:first-child {
         border-radius: 8px;
       }
@@ -289,7 +374,7 @@ html {
           display: flex;
           gap: 4rem;
           justify-content: center;
-        } 
+        }
         a {
           padding: 0 !important;
         }
@@ -298,7 +383,7 @@ html {
       .date-Crea-Updat {
         width: 30rem !important;
       }
-      
+
       .th-stt {
         width: 4rem !important;
         padding-left: 2rem;
@@ -370,7 +455,8 @@ html {
   .label-title {
     font-size: 1.8rem;
   }
-  .input-title, .input-value {
+  .input-title,
+  .input-value {
     font-size: 1.6rem;
     padding: 1rem 1rem 1rem 1.5rem;
     box-shadow: none !important;
@@ -438,7 +524,7 @@ html {
     font-size: 1.4rem;
     color: $color-primary-dark-2;
     margin-top: 5px;
-    transition: all .3s;
+    transition: all 0.3s;
   }
 }
 
@@ -501,7 +587,7 @@ html {
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
-  transition: all .4s;
+  transition: all 0.4s;
   &__header {
     display: flex;
     align-items: center;
@@ -562,7 +648,8 @@ html {
   float: right;
   justify-content: end;
   gap: 1rem;
-  button, a {
+  button,
+  a {
     float: none !important;
   }
   button.btn-Submit {
@@ -577,7 +664,6 @@ html {
 .justify-item-center {
   justify-content: center;
 }
-
 
 .pagination-page {
   display: flex;
@@ -595,4 +681,90 @@ html {
     background-color: #04aa6d;
   }
 }
+.toggle {
+  width: 5rem;
+  height: 5rem;
+  background-color: $color-primary-light-1;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all .3s;
+  @include respond(tab-port) {
+    display: flex;
+    position: relative;
+    z-index: 9999999;
+  }
+  @include respond(phoneSmallSize) {
+    width: 7rem;
+    height: 7rem;
+  }
 
+  @include respond(phone) {
+    width: 6rem;
+    height: 6rem;
+  }
+  
+
+  &__shape {
+    width: 30px;
+    height: 2px;
+    background-color: #fff;
+    transition: all .3s;
+
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+
+  
+  }
+
+  &__active &__shape{
+    transition: all .3s;
+    &--2 {
+      display: none;
+    }
+
+    &--1 {
+      transform: rotate(45deg) translate(3px, 3px);
+    }
+
+    &--3 {
+      transform: rotate(-45deg) translate(4px, -3px);
+    }
+  }
+}
+
+@keyframes cirlceWheel {
+  0%{
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon-box {
+  display: none;
+  @include respond(tab-port) {
+    display: block;
+  }
+  @include respond(phoneMediumsize) {
+    display: block;
+  }
+  & i{
+    display: block;
+    font-size: 3.2rem;
+    color: #000;
+    transform: rotate(135deg);  
+    animation: cirlceWheel 3s steps(2) .2s infinite;
+    -webkit-animation: cirlceWheel 3s linear infinite;
+  }
+  margin-left: auto;
+  padding-right: 1rem;
+  cursor: pointer;
+}

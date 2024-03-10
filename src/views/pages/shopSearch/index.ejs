@@ -20,14 +20,13 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body class="shopStyle-body">
-
     <% if(!userData) { %>
       <%- include("../../partials/header"); %> 
     <% } else { %>
       <%- include('../cart/partials/header', {user: userData, userCartSelected, totalCart}); %>
     <% } %>
-    <%- include("../../partials/banner/banner"); %>
-    <%- include("partials/main"); %>
+    <%- include("../../partials/banner/banner", {title: "Search Page"}); %>
+    <%- include("partials/main", { catergoriesData, userData } ); %>
     <%- include("../../partials/footer"); %>
     <%- include("../../partials/loginSite/loginSite") %>
     <script src="../js/scrollbar.js"></script>
@@ -37,7 +36,7 @@
     <script type="module" src="js/auth/validateLogin.js"></script>
     <% } %>
     <script src="../js/currencyTransport/formatCurrency.js"></script>
-    <script >
+    <script>
       const headerTotal = document.getElementById("HeaderTotalCartResult");
       headerTotal.textContent = formatCurrency(headerTotal.textContent);
     </script>

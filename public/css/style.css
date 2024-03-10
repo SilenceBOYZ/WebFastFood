@@ -618,6 +618,46 @@
     background-color: #B0D9B1;
     color: #333; }
 
+.checkout__message--container {
+  margin: 0 auto;
+  max-width: 114rem; }
+  .checkout__message--container .message-box {
+    max-width: 45rem;
+    height: 25rem;
+    margin: 5rem auto;
+    margin-bottom: 2rem;
+    padding: 4rem;
+    border: 4px solid #fc5260;
+    border-radius: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+  .checkout__message--container .image-alert {
+    width: 20rem;
+    height: 20rem;
+    display: block; }
+  .checkout__message--container .message-alert {
+    margin-top: 1rem;
+    font-family: "Coiny", cursive, sans-serif;
+    font-size: 1.8rem;
+    text-align: center; }
+  .checkout__message--container .box-btn {
+    display: flex;
+    justify-content: center; }
+  .checkout__message--container .btn {
+    font-family: "Coiny", cursive, sans-serif;
+    display: inline-block;
+    font-weight: 300;
+    padding: .8rem;
+    color: white;
+    background-color: #fc5260;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.6rem;
+    border-radius: 2px; }
+
 .login-site {
   opacity: 0;
   visibility: hidden;
@@ -627,7 +667,7 @@
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 99999;
+  z-index: 9999999999;
   transition: all 500ms; }
   .login-site__wrapper {
     position: absolute;
@@ -678,11 +718,15 @@
     .login-site__inputBox label {
       font-size: 1.8rem; }
     .login-site__inputBox label,
-    .login-site__inputBox input {
+    .login-site__inputBox input,
+    .login-site__inputBox select {
       box-sizing: border-box;
       width: 100%;
       flex: 0 1 100%; }
     .login-site__inputBox input.input-active {
+      border: 1px solid #f19225;
+      outline-color: #f19225; }
+    .login-site__inputBox select.input-active {
       border: 1px solid #f19225;
       outline-color: #f19225; }
     .login-site__inputBox .text-error-message {
@@ -830,6 +874,9 @@ html {
       flex: 1 1 50%;
       box-sizing: border-box;
       padding: 0 1.5rem; } }
+  @media only screen and (max-width: 43.75em) {
+    .cart__container {
+      order: -1; } }
 
 .cart__itemSum {
   color: #F33F4D; }
@@ -2586,6 +2633,10 @@ html {
     @media only screen and (max-width: 75em) {
       .shop-menu__prices {
         font-size: 2.2rem; } }
+  .shop-menu__warning {
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 2rem 0; }
 
 .divider-style-1 {
   display: flex; }
@@ -3205,6 +3256,10 @@ html {
       height: 1.5rem;
       filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg) brightness(109%) contrast(100%); }
 
+.icon_size {
+  font-size: 2.4rem;
+  cursor: pointer; }
+
 .toggle {
   width: 5rem;
   height: 5rem;
@@ -3285,6 +3340,7 @@ html {
     gap: 1rem;
     user-select: none; }
     .order-menu__itemAction:link, .order-menu__itemAction:visited {
+      width: 15rem;
       color: #EE2737;
       font-size: 1.8rem;
       text-decoration: none;
@@ -3403,13 +3459,14 @@ html {
   .order-menu__addToCart {
     border: none;
     background: none;
-    padding: 0.8rem 1.5rem;
+    padding: 0.6rem 1.3rem;
     background-color: #7DA640;
     cursor: pointer;
     border-radius: 8px; }
     .order-menu__addToCart img {
-      width: 1.5rem;
-      height: 1.5rem;
+      user-select: none;
+      width: 2rem;
+      height: 2rem;
       filter: invert(100%) sepia(61%) saturate(0%) hue-rotate(27deg) brightness(109%) contrast(100%); }
   .order-menu__btnMoveSlide {
     position: absolute;
@@ -3437,6 +3494,23 @@ html {
   color: #fff !important;
   cursor: pointer;
   margin-top: -1rem; }
+
+.order-menu__prices form {
+  display: flex;
+  gap: 1rem;
+  align-items: center; }
+  .order-menu__prices form input {
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    font-size: 1.6rem;
+    border: 2px solid #F33F4D;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4d4d4d;
+    outline: none; }
 
 .shoppingCart-side {
   position: fixed;
@@ -3615,6 +3689,99 @@ button.btnSubmitUpdate {
     opacity: 1;
     visibility: visible; }
 
+.pagination-page {
+  display: flex;
+  margin-bottom: 5rem;
+  gap: 1rem;
+  justify-content: center; }
+  .pagination-page .selectedLink {
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #04aa6d;
+    font-size: 1.6rem;
+    text-decoration: none; }
+
+.order-bill {
+  font-family: "Coiny", cursive, sans-serif;
+  margin: 0 auto;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 2rem 2rem rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  padding: 2rem; }
+  @media only screen and (max-width: 43.75em) {
+    .order-bill {
+      width: 50rem; } }
+  @media only screen and (max-width: 31.25em) {
+    .order-bill {
+      width: 40rem; } }
+  .order-bill__imgBox {
+    width: 12rem;
+    height: 12rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    margin-left: .5rem;
+    border: 4px; }
+  .order-bill__images {
+    width: 100%; }
+  .order-bill__status {
+    font-size: 2.4rem;
+    color: #0cc70c;
+    letter-spacing: 1px; }
+  .order-bill__date {
+    margin-bottom: 1rem; }
+  .order-bill__date, .order-bill__address, .order-bill__phoneNumber, .order-bill__name {
+    font-size: 1.8rem;
+    color: #464545; }
+  .order-bill__itemBox {
+    width: 50rem;
+    border: 1px solid #8a8888;
+    border-radius: 0.8rem;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    margin-bottom: 2rem; }
+    @media only screen and (max-width: 43.75em) {
+      .order-bill__itemBox {
+        width: 40rem; } }
+    @media only screen and (max-width: 31.25em) {
+      .order-bill__itemBox {
+        width: 32rem; } }
+  .order-bill__item {
+    display: flex;
+    align-items: center;
+    color: #464545; }
+    .order-bill__item:not(:last-child) {
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #afafaf; }
+    .order-bill__item--image {
+      width: 8rem;
+      height: 8rem; }
+    .order-bill__item--price {
+      margin-left: auto;
+      font-size: 1.8rem;
+      padding-right: 2rem; }
+  .order-bill__itemContent h5 {
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem; }
+  .order-bill__itemContent p {
+    font-size: 1.4rem; }
+  .order-bill__totalAmount {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #464545; }
+  .order-bill__link {
+    color: #ff0000;
+    font-size: 1.8rem;
+    cursor: pointer; }
+
 .admin__header {
   width: 100%;
   height: 10px;
@@ -3629,6 +3796,9 @@ button.btnSubmitUpdate {
 .u-margin-bottom-small {
   margin-bottom: 2rem; }
 
+.u-margin-top-large {
+  margin-top: 4rem; }
+
 .u-margin-top-small {
   margin-bottom: 2rem; }
 
@@ -3639,7 +3809,10 @@ button.btnSubmitUpdate {
   margin-bottom: 0 !important; }
 
 .u-bold-text {
-  font-weight: bold; }
+  font-weight: bold !important; }
+
+.u-displayBox {
+  display: none !important; }
 
 .u-align-text-center {
   text-align: center !important; }

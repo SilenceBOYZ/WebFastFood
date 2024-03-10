@@ -60,6 +60,7 @@ let checkUserLogin = (userEmail, passwordRef) => {
           data.errCode = 0;
           data.errMessage = "Bạn đã đăng nhập thành công";
           data.user = jwt.sign(userData, process.env.SECRET);
+          console.log(data);
         } else {
           data.errCode = 2;
           data.errMessage = "Mật khẩu không chính xác";

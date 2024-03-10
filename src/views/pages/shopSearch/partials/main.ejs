@@ -35,47 +35,40 @@
 
         <ul class="shop-menu__list">
           <li class="shop-menu__item">
-            <input type="radio" name="foodFine" checked="true" id="pizzaItem" /><label
-              for="pizzaItem"
-              >Pizza</label
-            >
+            <input
+              type="radio"
+              name="foodFine"
+              id="all"
+              checked="true"
+            /><label for="all">Tất cả</label>
           </li>
+          <% for(let i = 0; i < catergoriesData.length; i++) { %>
           <li class="shop-menu__item">
-            <input type="radio" name="foodFine" id="pasta" /><label for="pasta"
-              >Pasta</label
-            >
+            <input
+              type="radio"
+              name="foodFine"
+              id="<%= catergoriesData[i].id %>"
+            /><label for="<%= catergoriesData[i].id %>"><%= catergoriesData[i].catergoryName %></label>
           </li>
-          <li class="shop-menu__item">
-            <input type="radio" name="foodFine" id="burger" /><label for="burger"
-              >Burger</label
-            >
-          </li>
-          <li class="shop-menu__item">
-            <input type="radio" name="foodFine" id="drink" /><label for="drink"
-              >Drink</label
-            >
-          </li>
-          <li class="shop-menu__item">
-            <input type="radio" name="foodFine" id="pastry" /><label for="pastry"
-              >Pastry</label
-            >
-          </li>
+          <% } %>
         </ul>
 
-        <button class="shop-menu__buttonMobile" id="catergories__removeBtn"><span>X</span></button>
+        <button class="shop-menu__buttonMobile" id="catergories__removeBtn">
+          <span>X</span>
+        </button>
       </div>
       <div class="shop-menu__menuItem">
-          <div class="shop-menu__titleBox shop-menu__titleBoxMobile">
-            <h4 class="heading--4 shop-menu__title clearFix">
-              Kết quả<span class="shop-menu__result">30 Món ăn</span>
-            </h4>
-            <button class="shopStyle-searchBtn" id="btnFindMenuSearch">
-              <img src="img/svg/search.svg" alt="icon-svg">
-            </button>
-          </div>
+        <div class="shop-menu__titleBox shop-menu__titleBoxMobile">
+          <h4 class="heading--4 shop-menu__title clearFix">
+            Kết quả<span class="shop-menu__result">30 Món ăn</span>
+          </h4>
+          <button class="shopStyle-searchBtn" id="btnFindMenuSearch">
+            <img src="img/svg/search.svg" alt="icon-svg" />
+          </button>
+        </div>
 
-        <ul class="shop-menu__listOfFood">
-          <li class="shop-menu__foodItem">
+        <ul class="shop-menu__listOfFood" id="listItem">
+          <!-- <li class="shop-menu__foodItem">
             <div class="shop-menu__imageBox">
               <img
                 src="img/foodItem/fooditem1.jpg"
@@ -122,10 +115,136 @@
                 </div>
               </div>
             </a>
-          </li>
-          
+          </li> -->
         </ul>
+
+        <div class="pagination-page u-margin-top-large">
+          
+        </div>
       </div>
     </div>
-  </section>  
+  </section>
 </main>
+
+<script>
+  function formatCurrency(number) {
+    return new Intl.NumberFormat("vi", {
+      maximumSignificantDigits: 3,
+      currency: "VND",
+      style: "currency",
+    }).format(Number.parseFloat(number));
+  }
+  
+  const listItem = document.getElementById("listItem");
+  const searchParams = new URLSearchParams(window.location.search);
+  const input = document.querySelector(".input-search__inputTag");
+  const radioInput = document.querySelectorAll(".shop-menu__item input");
+  const pagination = document.querySelector(".pagination-page");
+
+  let pageNumber = searchParams.get("pageNumber");
+  let caterid = searchParams.get("caterId");
+  let caterName = searchParams.get("caterName");
+
+  radioInput.forEach(input => {
+    input.onchange = (e) => {
+      if(e.target.checked === true) {
+        caterid = e.target.id;
+        pageNumber = 1;
+        renderItem(pageNumber, caterid, caterName);
+      }
+    }
+  })
+
+  function renderItem (pageNumber, caterid, caterName) {
+    if(!pageNumber) {
+      pageNumber=1
+    }
+    if(!caterid) {
+      caterid="all"
+    }
+    if(!caterName) {
+      caterName="all"
+    }
+    const items = fetch(`http://localhost:8080/api/item/get-items?pageNumber=${pageNumber}&caterId=${caterid}&caterName=${caterName}`).then((res) => res.json())
+    items.then(function (data) {
+      console.log(data);
+    (listItem.innerHTML = data.items.length < 1 ? listItem.innerHTML = "<h3 class='shop-menu__warning'>Không có sản phẩm nào...</h3>" :
+      data.items.map(({id, foodName, foodPrice, foodDesc, foodImage, catergoryName}) => 
+        `<li class="shop-menu__foodItem">
+        <div class="shop-menu__imageBox">
+          <img
+            src="img/uploads/itemImages/${foodImage}"
+            alt=""
+            srcset=""
+            class="shop-menu__image"
+          />
+        </div>
+        <% if(!userData) { %>
+          <a href="../product-detail?id=${id}" class="shop-menu__foodItemContainer">
+        <% } else { %>
+          <a href="../user-page/product-detail?id=${id}" class="shop-menu__foodItemContainer">
+        <% } %>  
+          <div class="shop-menu__foodTitle">
+            <i
+              class="shop-menu__statusIcon shop-menu__statusIcon-active"
+            ></i>
+            <h5 class="shop-menu__foodItemName">${foodName}</h5>
+            <i class="shop-menu__rate">
+              <img
+                src="img/svg/star.svg"
+                alt="icon"
+                srcset=""
+                class="shop-menu__icon"
+              />
+              <span class="shop-menu__ratePoint">4.5</span>
+            </i>
+          </div>
+
+          <div class="shop-menu__foodStatus">
+            <div class="shop-menu__foodStatus-box--left">
+              <p class="shop-menu__foodStatus-content">
+                By<strong>ThanhTrí</strong>
+              </p>
+              <div class="shop-menu__foodStatus-content">
+                <img
+                  src="img/svg/fast-food-delivery-bike-12992.svg"
+                  class="shop-menu__icon--2"
+                  alt=""
+                  srcset=""
+                /><i>30 phút</i>
+              </div>
+            </div>
+            <div class="shop-menu__foodStatus-box--right">
+              <p class="shop-menu__prices">${formatCurrency(foodPrice)} </p>
+              <i class="shop-menu__foodStatus-box--right-item">1 cái</i>
+              <button class="shop-menu__btnCta"><img src="img/svg/arrow-right2.svg" alt="" srcset=""></button>
+            </div>
+          </div>
+        </a>
+      </li>`).join("")
+    )
+      let link = []
+      for(let i = data.startLink; i < data.endLink; i++) {
+        if(i == data.pageNum) {
+          link.push(`<a class="selectedLink" href="/shop-search?pageNumber=${i}&caterId=${caterid}&caterName=${data.caterName}"> ${i} </a>`)
+          continue;
+        }
+        link.push(`<a class="selectedLink" href="/shop-search?pageNumber=${i}&caterId=${caterid}&caterName=${data.caterName}"> ${i} </a>`)
+      }
+      // console.log(link);
+      pagination.innerHTML = `
+        ${data.pageNum > 1 ? `<a class="selectedLink" href="/shop-search?pageNumber=${data.pageNum - 1}&caterId=${caterid}&caterName=${data.caterName}"> < </a>` : ' '}
+        ${link.join("")}
+        ${data.pageNum < data.totalPages ? `<a class="selectedLink" href="/shop-search?pageNumber=${data.pageNum + 1}&caterId=${caterid}&caterName=${data.caterName}"> > </a>` : ""}
+      `;
+    })
+  .catch(e => console.log(e))  
+  }
+  renderItem(pageNumber, caterid, caterName); 
+
+  input.oninput = (e) => {
+    caterName = (e.target.value).trim().toLowerCase();
+    renderItem(pageNumber, caterid, caterName); 
+  }
+
+</script>

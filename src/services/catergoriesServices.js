@@ -33,6 +33,17 @@ let readAllCatergories = (pageNum) => {
   })
 }
 
+let getAllCatergories = () => {
+  return new Promise(async (resolve, reject) => {
+    try {
+      let Catergories = await seqeuelize.query("SELECT * FROM Catergories", { type: QueryTypes.SELECT })
+      resolve(Catergories);
+    } catch (e) {
+      reject(e);
+    }
+  })
+}
+
 // findAll({
 //   raw: true,
 //   order: [
@@ -86,8 +97,8 @@ let updateCatergoryData = (idFound, data) => {
           id: idFound
         }
       })
-      console.log(aItem);
-      console.log(data);
+      // console.log(aItem);
+      // console.log(data);
       if (aItem) {
         let catergoryItem = await db.Catergories.update({
           catergoryName: data.catergoryName,
@@ -139,4 +150,4 @@ let deleteCatergoryData = async (idFound) => {
 }
 
 
-module.exports = { readAllCatergories, createCatergory, getCatergoryData, updateCatergoryData, deleteCatergoryData }
+module.exports = { readAllCatergories, createCatergory, getCatergoryData, updateCatergoryData, deleteCatergoryData, getAllCatergories }

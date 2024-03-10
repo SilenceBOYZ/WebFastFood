@@ -10,12 +10,13 @@
       <%- include('cart/partials/header', {user: userData, userCartSelected, totalCart}); %>
     <% } %>
     <main class="shopStyle-main">
-      <%- include('../partials/shoppingCart'); %>
+      <%- include('../partials/shoppingCart', {data, catergoryItems, userData, title: "Shop Menu"}); %>
     </main>
 
     <footer><%- include('../partials/footer'); %></footer>
     <%- include('../partials/loginSite/loginSite') %>
     <script src="js/cartRender.js"></script>
+    <script src="js/validateNumber.js"></script>
     <script src="js/catergoriesAuto.js"></script>
     <script src="js/scrollbar.js"></script>
     <script src="js/todaymenuEffect.js"></script>
@@ -23,11 +24,14 @@
     <script type="module" src="js/auth/validateLogin.js"></script>
     <% if(!userData) { %>
       <script src="../js/loginSite.js"></script>
+      <script src="../js/productDetail/requestLoggin.js"></script>
     <% } %>
     <script src="../js/currencyTransport/formatCurrency.js"></script>
     <script >
       const headerTotal = document.getElementById("HeaderTotalCartResult");
+      let cartItemPrices = document.querySelectorAll(".order-menu__moneyUnit");
       headerTotal.textContent = formatCurrency(headerTotal.textContent);
+      cartItemPrices.forEach(el => el.textContent = formatCurrency(el.textContent));
     </script>
   </body>
 </html>

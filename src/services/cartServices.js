@@ -129,6 +129,18 @@ let deleteItemInCart = (itemId, userId) => {
   })
 }
 
+let deletItemsInCart = (itemId, userId) => {
+  let queryString = "DELETE FROM Carts Where itemId IN ("+itemId+") AND userId = " +userId; 
+  return new Promise(async (resolve, reject) => {
+    try {
+      await seqeuelize.query(queryString, { type: QueryTypes.DELETE })
+      resolve();
+    } catch (error) {
+      reject(error);
+    }
+  })
+}
+
 
 module.exports = {
   addToCart,
@@ -136,5 +148,6 @@ module.exports = {
   getTotalItemInCart,
   getItemsInCart,
   updateItemsInCart,
-  deleteItemInCart
+  deleteItemInCart,
+  deletItemsInCart
 }

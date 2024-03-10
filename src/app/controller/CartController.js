@@ -7,8 +7,8 @@ const jwt = require("jsonwebtoken");
 
 let cartRender = async (req, res) => {
   if (req.session.userId) {
-    let token = req.session.userId;
-    let userId = jwt.verify(token, process.env.SECRET);
+    let token = await req.session.userId;
+    let userId = await jwt.verify(token, process.env.SECRET);
     let userData = await userServices.getUser(parseInt(userId.id));
     let userCart = await cartServices.getUserCart(parseInt(userId.id));
     let userCartSelected = await cartServices.getUserCart(parseInt(userId.id));
@@ -28,6 +28,7 @@ let cartRenderPost = async (req, res) => {
   let itemSelected = req.body;
   // Get the id and the quantity of the Object
   // Using Object.keys and Object.values to get itemId and Quantity
+  
   let singleItem = {
     itemId: Number.parseInt(Object.keys(itemSelected)[0]),
     quantity: Number.parseInt(Object.values(itemSelected)[0]),
@@ -47,7 +48,7 @@ let cartRenderPost = async (req, res) => {
 let udpateCartItems = async (req, res) => {
   // Change Object to array [ [key, value], ... ]
   if (req.session.userId) {
-    let token = req.session.userId;
+    let token = await req.session.userId;
     let user = jwt.verify(token, process.env.SECRET);
     let product = Object.entries(req.body);
     if (product.length < 1) return res.redirect("../cart");
@@ -58,16 +59,6 @@ let udpateCartItems = async (req, res) => {
       itemId: Number.parseInt(el[0]),
       quantity: Number.parseInt(el[1]),
     })))
-    // let StringQuery = "";
-    // for (let i = 0; i < cart.length; i++) {
-    //   if (i === cart.length - 1) {
-    //     StringQuery += cart[i].itemId
-    //   } else {
-    //     StringQuery += `${cart[i].itemId}, `
-    //   }
-    // }
-    // Nối các id thành một chuỗi
-    // console.log(StringQuery);
     await cartServices.updateItemsInCart(cart, Number.parseInt(user.id));
     res.redirect("../cart")
   }
@@ -76,8 +67,7 @@ let udpateCartItems = async (req, res) => {
 
 let deleteItemInCart = async (req, res) => {
   if (req.session.userId) {
-    console.log(req.body); 
-    let userId = Number.parseInt(req.query.userId);
+    let userId =  Number.parseInt(req.query.userId);
     let itemId = Number.parseInt(req.query.id);
     await cartServices.deleteItemInCart(itemId, userId);
     res.redirect("../cart");

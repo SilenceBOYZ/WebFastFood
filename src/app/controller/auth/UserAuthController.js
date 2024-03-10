@@ -29,7 +29,6 @@ let LoginAuth = async (req, res) => {
 
       // Tạo một Session
       req.session.userId = data.user;
-      
       if (!req.session.cart) {
         req.session.cart = {
           idUser: req.session.userId,

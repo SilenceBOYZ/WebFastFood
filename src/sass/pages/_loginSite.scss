@@ -7,7 +7,7 @@
   left: 0;
   top: 0;
   background-color: rgba(#000, 0.8);
-  z-index: 99999;
+  z-index: 9999999999;
   transition: all 500ms;
 
   &__wrapper {
@@ -69,12 +69,17 @@
       font-size: 1.8rem;
     }
     & label,
-    & input {
+    & input,
+    & select {
       box-sizing: border-box;
       width: 100%;
       flex: 0 1 100%;
     }
     input.input-active {
+      border: 1px solid #f19225;
+      outline-color: #f19225;
+    }
+    select.input-active {
       border: 1px solid #f19225;
       outline-color: #f19225;
     }

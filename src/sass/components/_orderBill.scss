@@ -1,0 +1,99 @@
+.order-bill {
+  font-family: "Coiny", cursive, sans-serif;
+  margin: 0 auto;
+  width: 60rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 0 2rem 2rem rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  padding: 2rem;
+  @include respond(phoneMediumsize) {
+    width: 50rem;
+  }
+  @include respond(phoneUnder5xx) {
+    width: 40rem;
+  }
+  &__imgBox {
+    width: 12rem;
+    height: 12rem;
+    overflow: hidden;
+    margin-bottom: 2rem;
+    margin-left: .5rem;
+    border: 4px;
+  }
+  &__images {
+    width: 100%;
+  }
+  &__status {
+    font-size: 2.4rem;
+    color: rgb(12, 199, 12);
+    letter-spacing: 1px;
+  }
+  &__date {
+    margin-bottom: 1rem;
+  }
+  &__date,
+  &__address,
+  &__phoneNumber, 
+  &__name {
+    font-size: 1.8rem;
+    color: #464545;
+  }
+
+  &__itemBox {
+    width: 50rem;
+    @include respond(phoneMediumsize) {
+      width: 40rem;
+    }
+    @include respond(phoneUnder5xx) {
+      width: 32rem;
+    }
+    border: 1px solid #8a8888;
+    border-radius: 0.8rem;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    margin-bottom: 2rem;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    color: #464545;
+    &:not(:last-child) {
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid #afafaf;
+    }
+    &--image {
+      width: 8rem;
+      height: 8rem;
+    }
+    &--price {
+      margin-left: auto;
+      font-size: 1.8rem;
+      padding-right: 2rem;
+    }
+  }
+
+  &__itemContent {
+    & h5 {
+      font-size: 1.8rem;
+      margin-bottom: 0.2rem;
+    }
+    & p {
+      font-size: 1.4rem;
+    }
+  }
+  &__totalAmount {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #464545;
+    & span {
+    }
+  }
+  &__link {
+    color: #ff0000;
+    font-size: 1.8rem;
+    cursor: pointer;
+  }
+}

@@ -1,6 +1,19 @@
 <main class="main">
   <section class="checkout">
     <div class="container checkout__wrapper">
+      <% if(userCartSelected.length < 1) { %>
+        <div class="checkout__message--container">
+          <div
+            class="message-box"
+          >
+            <img class="image-alert" src="../../img/cart.png" />
+            <p class="message-alert">Bạn cần thêm sản phẩm để thanh toán</p>
+          </div>
+          <div class="row mb-3 box-btn">
+            <a class="btn" href="../cart">Quay về giỏ hàng</a>
+          </div>
+        </div>
+      <% } else { %>
       <div class="checkout__whistlist">
         <div class="shop-menu__titleBox">
           <h4 class="heading--4 shop-menu__title">Đơn hàng của bạn</h4>
@@ -10,7 +23,7 @@
           </div>
         </div>
 
-        <form class="whistlist__form" action="" method="post">
+        <form class="whistlist__form" action="" method="get">
           <table class="whistlist__list">
             <thead class="whistlist__heading">
               <tr>
@@ -22,90 +35,42 @@
               </tr>
             </thead>
 
+            <% function formatCurrency(number) { return new
+            Intl.NumberFormat("vi", { maximumSignificantDigits: 3, currency:
+            "VND", style: "currency", }).format(Number.parseFloat(number)); } %>
+
             <tbody class="whistlist__body">
+              <% for(let i=0; i < userCartSelected.length; i++) { %>
               <tr>
                 <td data-cell="hình ảnh: ">
                   <div class="whistlist__imageBox">
                     <img
                       class="whistlist__image"
-                      src="img/foodItem/fooditem1.jpg"
+                      src="img/uploads/itemImages/<%= userCartSelected[i].foodImage %>"
                       alt=""
                       srcset=""
                     />
                   </div>
                 </td>
                 <td data-cell="tên món ăn: ">
-                  <h4 class="whistlist__foodName">Cheese Pizza</h4>
+                  <h4 class="whistlist__foodName">
+                    <%= userCartSelected[i].foodName %>
+                  </h4>
                 </td>
                 <td data-cell="giá: ">
-                  <i class="whistlist__price">300,000</i>
+                  <i class="whistlist__price"
+                    ><%= formatCurrency(userCartSelected[i].foodPrice) %></i
+                  >
                 </td>
-                <td data-cell="số lượng" class="checkout__quality">12</td>
-                <td data-cell="tổng số tiền">3,600,000</td>
+                <td data-cell="số lượng" class="checkout__quality">
+                  <%= userCartSelected[i].quantity %>
+                </td>
+                <td data-cell="tổng số tiền">
+                  <%= formatCurrency(userCartSelected[i].quantity *
+                  userCartSelected[i].foodPrice) %>
+                </td>
               </tr>
-
-              <tr>
-                <td data-cell="hình ảnh: ">
-                  <div class="whistlist__imageBox">
-                    <img
-                      class="whistlist__image"
-                      src="img/foodItem/fooditem1.jpg"
-                      alt=""
-                      srcset=""
-                    />
-                  </div>
-                </td>
-                <td data-cell="tên món ăn: ">
-                  <h4 class="whistlist__foodName">Cheese Pizza</h4>
-                </td>
-                <td data-cell="giá: ">
-                  <i class="whistlist__price">300,000</i>
-                </td>
-                <td data-cell="số lượng" class="checkout__quality">12</td>
-                <td data-cell="tổng số tiền">3,600,000</td>
-              </tr>
-
-              <tr>
-                <td data-cell="hình ảnh: ">
-                  <div class="whistlist__imageBox">
-                    <img
-                      class="whistlist__image"
-                      src="img/foodItem/fooditem1.jpg"
-                      alt=""
-                      srcset=""
-                    />
-                  </div>
-                </td>
-                <td data-cell="tên món ăn: ">
-                  <h4 class="whistlist__foodName">Cheese Pizza</h4>
-                </td>
-                <td data-cell="giá: ">
-                  <i class="whistlist__price">300,000</i>
-                </td>
-                <td data-cell="số lượng" class="checkout__quality">12</td>
-                <td data-cell="tổng số tiền">3,600,000</td>
-              </tr>
-
-              <tr>
-                <td data-cell="hình ảnh: ">
-                  <div class="whistlist__imageBox">
-                    <img
-                      class="whistlist__image"
-                      src="img/foodItem/fooditem1.jpg"
-                      alt=""
-                      srcset=""
-                    />
-                  </div>
-                </td>
-                <td data-cell="tên món ăn: ">
-                  <h4 class="whistlist__foodName">Cheese Pizza</h4>
-                </td>
-                <td data-cell="giá: ">
-                  <i class="whistlist__price">300,000</i>
-                </td>
-                <td data-cell="số lượng" class="checkout__quality">12</td>
-                <td data-cell="tổng số tiền">3,600,000</td>
-              </tr>
+              <% } %>
             </tbody>
           </table>
         </form>
@@ -122,11 +87,11 @@
         <table class="tab-graphic__table u-margin-bottom-medium">
           <tr>
             <th>Hóa đơn</th>
-            <td>14,000,000 vnđ</td>
+            <td><%= formatCurrency(totalCart[0].totalPrice) %></td>
           </tr>
           <tr>
             <th>Mã giảm giá</th>
-            <td>10%</td>
+            <td>Không</td>
           </tr>
           <tr>
             <th>Phí giao hàng</th>
@@ -138,7 +103,7 @@
           </tr>
           <tr>
             <th>Thành tiền</th>
-            <td>12,600,000 vnđ</td>
+            <td><%= formatCurrency(totalCart[0].totalPrice) %></td>
           </tr>
         </table>
 
@@ -150,49 +115,67 @@
           </div>
         </div>
 
-        <form action="" class="form-contact" method="post">
-          <div class="form-contact__inputBox u-margin-bottom-small">
+        <form
+          action="../payment"
+          id="paymentForm"
+          class="form-contact"
+          method="post"
+        >
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
             <input
               class="form-contact__input checkout__input"
               type="text"
-              name=""
-              id=""
+              name="name"
+              value="<%= userData[0].userName %>"
+              id="name"
               placeholder="Tên của bạn"
             />
+            <span class="text-error-message u-bold-text"></span>
           </div>
-          <div class="form-contact__inputBox u-margin-bottom-small">
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
             <input
               class="form-contact__input checkout__input"
               type="text"
-              name=""
-              id=""
+              name="phone"
+              value="<%= userData[0].phoneNumber %>"
+              id="phone"
+              onkeypress="return isNumberKey(event)"
               placeholder="Số điện thoại"
             />
+            <span class="text-error-message u-bold-text"></span>
           </div>
-          <div class="form-contact__inputBox u-margin-bottom-small">
+          <div
+            class="form-contact__inputBox u-margin-bottom-small login-site__inputBox"
+          >
             <input
               class="form-contact__input checkout__input"
               type="text"
-              name=""
-              id=""
+              name="address"
+              value="<%= userData[0].address %>"
+              id="address"
               placeholder="Địa chỉ nhà"
             />
+            <span class="text-error-message u-bold-text"></span>
           </div>
-          <div class="form-contact__inputBox u-margin-bottom-medium">
+          <div
+            class="form-contact__inputBox u-margin-bottom-medium login-site__inputBox"
+          >
             <select
-              class="form-contact__input checkout__selection"
+              class="form-contact__input checkout__input checkout__selection"
               name="payment"
               id="payment"
             >
-              <option selected="selected">Hình thức thanh toán</option>
+              <option value="" selected="selected">Hình thức thanh toán</option>
               <option value="cash">Tiền mặt</option>
               <option value="transfer">Chuyển khoản</option>
             </select>
+            <span class="text-error-message u-bold-text"></span>
           </div>
-          <button
-            type="submit"
-            class="btn-link card-order__btn checkout__buy"
-          >
+          <button type="submit" class="btn-link card-order__btn checkout__buy">
             Thanh toán
           </button>
           <!-- <div class="checkout__vnpayQr">
@@ -200,6 +183,7 @@
         </div> -->
         </form>
       </div>
+      <% } %>
     </div>
   </section>
 </main>

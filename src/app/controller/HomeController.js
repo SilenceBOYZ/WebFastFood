@@ -2,9 +2,9 @@ const jwt = require("jsonwebtoken");
 const items = require("../../services/indexPage/itemQuery");
 const cartServices = require("../../services/cartServices");
 const userServices = require("../../services/userServices");
-
-
-require("dotenv").config()
+const catergories = require("../../services/catergoriesServices");
+const Orders = require("../../services/orderServices");
+require("dotenv").config();
 let HomeRender = async (req, res) => {
     let token = req.session.userId;
     if (token) {
@@ -29,11 +29,13 @@ let renderSearchPage = async (req, res) => {
         let userCart = await cartServices.getUserCart(parseInt(dataSucsessfull.id));
         let userCartSelected = await cartServices.getUserCart(parseInt(dataSucsessfull.id));
         let totalCart = await cartServices.getTotalItemInCart(parseInt(dataSucsessfull.id));
-        return res.render("pages/shopSearch", { userData: userData, userCart, userCartSelected, totalCart });
+        let catergoriesData = await catergories.getAllCatergories();
+        return res.render("pages/shopSearch", { userData: userData, userCart, userCartSelected, totalCart, catergoriesData });
     } else {
         let userData = null;
         let userCart = null;
-        return res.render("pages/shopSearch", { userData, userCart});
+        let catergoriesData = await catergories.getAllCatergories();
+        return res.render("pages/shopSearch", { userData, userCart, catergoriesData});
     }
 }
 let renderCheckoutPage = async (req, res) => {
@@ -46,9 +48,7 @@ let renderCheckoutPage = async (req, res) => {
         let totalCart = await cartServices.getTotalItemInCart(parseInt(dataSucsessfull.id));
         return res.render("pages/checkoutPage", { userData: userData, userCart, userCartSelected, totalCart });
     } else {
-        let userData = null;
-        let userCart = null;
-        return res.render("pages/checkoutPage", { userData, userCart});
+        return res.render("pages/alert/alert.ejs", {message: "Bạn cần phải đăng nhập"})
     }
 }
 let renderWishlistPage = async (req, res) => {
@@ -59,11 +59,10 @@ let renderWishlistPage = async (req, res) => {
         let userCart = await cartServices.getUserCart(parseInt(dataSucsessfull.id));
         let userCartSelected = await cartServices.getUserCart(parseInt(dataSucsessfull.id));
         let totalCart = await cartServices.getTotalItemInCart(parseInt(dataSucsessfull.id));
-        return res.render("pages/wishlistPage", { userData: userData, userCart, userCartSelected, totalCart });
+        let userOrders = await Orders.getUserOrder(parseInt(dataSucsessfull.id));
+        return res.render("pages/ordersListPage", { userData: userData, userCart, userCartSelected, totalCart, userOrders });
     } else {
-        let userData = null;
-        let userCart = null;
-        return res.render("pages/wishlistPage", { userData, userCart});
+        return res.render("../");
     }
 }
 
